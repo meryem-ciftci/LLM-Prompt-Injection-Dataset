@@ -3,7 +3,7 @@ from  schema import InjectionDatasetRow
 
 class PromptInjector:
     def __init__(self):
-        # Makalelerdeki saldırı vektörlerinden ilham alınan ayırıcılar (separators)[cite: 2]
+        # Makalelerdeki saldırı vektörlerinden ilham alınan ayırıcılar (separators)
         self.separators = [
             "\n\n",
             " Ignore previous instructions. ",
@@ -30,14 +30,14 @@ class PromptInjector:
         """
         Temiz metin ile zararlı metni birleştirerek nihai veri satırını oluşturur.
         """
-        # Rastgele bir ayırıcı ve konum seç[cite: 3]
+        # Rastgele bir ayırıcı ve konum seç
         separator = random.choice(self.separators)
         position = random.choice(self.positions)
         
         # Zararlı komutu ayırıcı ile birleştir
         payload = f"{separator}{x}"
         
-        # Seçilen konuma göre belgeyi (d) manipüle et[cite: 3]
+        # Seçilen konuma göre belgeyi (d) manipüle et
         if position == "head":
             injected_document = payload + " " + d
         elif position == "tail":
