@@ -1,8 +1,8 @@
 import json
 import random
 import os
-from loaders import DataLoader
-from injector import PromptInjector
+from src.loaders import DataLoader
+from src.injector import PromptInjector
 
 def run_pipeline(raw_jsonl_path: str, output_path: str, num_samples: int = 100):
     # 1. Verileri yükle
