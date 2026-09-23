@@ -4,7 +4,7 @@ import time
 import os
 
 class ModelEvaluator:
-    def __init__(self, model_name: str = "llama3"):
+    def __init__(self, model_name: str = "mistral"): # burada llama3 denedim
         self.model_name = model_name
         # Ollama'nın varsayılan yerel API adresi
         self.api_url = "http://localhost:11434/api/generate"
@@ -17,7 +17,7 @@ class ModelEvaluator:
             "stream": False
         }
         try:
-            response = requests.post(self.api_url, json=payload, timeout=45)
+            response = requests.post(self.api_url, json=payload, timeout=180)
             if response.status_code == 200:
                 return response.json().get("response", "")
             else:
@@ -103,8 +103,21 @@ class ModelEvaluator:
             print(f"ASR Skoru         : %{asr:.2f}")
             print("="*40)
 
+import os
+
 if __name__ == "__main__":
-    # Script doğrudan çalıştırılırsa testi başlat
-    evaluator = ModelEvaluator(model_name="llama3")
-    # Dosya ismini en son ürettiğimiz jsonl dosyasıyla eşleştir
-    evaluator.run_evaluation("../processed_dataset_2.jsonl")
+    evaluator = ModelEvaluator(model_name="mistral")#burada da değiştirdim
+    
+    # Scriptin olduğu klasörün bir üst dizinini (proje kök dizinini) otomatik bulur
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(current_dir)
+    
+    # Dosya adını kontrol edelim (processed_dataset_2.jsonl veya processed_dataset.jsonl hangisiyse)
+    dataset_name = "processed_dataset_2.jsonl"
+    dataset_path = os.path.join(project_root, dataset_name)
+    
+    # Eğer bu isimde yoksa diğerini dene
+    if not os.path.exists(dataset_path):
+        dataset_path = os.path.join(project_root, "processed_dataset.jsonl")
+
+    evaluator.run_evaluation(dataset_path)

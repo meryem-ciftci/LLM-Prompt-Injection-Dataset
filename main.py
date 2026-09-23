@@ -6,5 +6,5 @@ if __name__ == "__main__":
     run_pipeline(
         raw_jsonl_path="dataset.jsonl",
         output_path="processed_dataset.jsonl",
-        num_samples=15  # Şimdilik test amaçlı 15 örnek üretelim
+        num_samples=100  # Şimdilik test amaçlı 15 örnek üretelim,300 yaptım daha sonradan
     )
