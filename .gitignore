@@ -1,0 +1,19 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sanal Ortamlar
+venv/
+.venv/
+env/
+
+# Üretilen veri dosyaları (Github'a yüklenmemesi gereken çıktılar)
+processed_dataset.jsonl
+*.parquet
+
+# IDE ve Sistem Dosyaları
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

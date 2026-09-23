@@ -1,6 +1,6 @@
 import json
 from typing import List, Dict
-from schema import RawMaliciousPrompt
+from src.schema import RawMaliciousPrompt
 
 class DataLoader:
     @staticmethod
@@ -41,24 +41,41 @@ class DataLoader:
     @staticmethod
     def load_clean_squad_data(sample_size: int = 100) -> List[Dict]:
         """
-        SQuAD veri setinden temiz bağlam(d), soru(p) ve cevap(a) üçlülerini çeker.
-        Not: Bu metodun çalışması için terminalden 'pip install datasets' yapılmalıdır.
+        SQuAD veri setini HuggingFace datasets kullanmadan, doğrudan JSON olarak çeker.
+        Bu sayede Windows DLL engelleme (pyarrow) hatalarının önüne geçilir.
         """
-        try:
-            from datasets import load_dataset
-        except ImportError:
-            raise ImportError("HuggingFace datasets kütüphanesi bulunamadı. Lütfen 'pip install datasets' komutunu çalıştırın.")
+        import urllib.request
+        import json
 
-        print("SQuAD veri seti indiriliyor/yükleniyor...")
-        # Makaledeki yaklaşıma uygun olarak SQuAD validation setini kullanıyoruz
-        dataset = load_dataset("squad", split="validation")
+        print("SQuAD veri seti doğrudan indiriliyor...")
+        url = "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json"
         
+        try:
+            # Standart Python kütüphanesiyle web'den json dosyasını çekiyoruz
+            with urllib.request.urlopen(url) as response:
+                data = json.loads(response.read().decode())
+        except Exception as e:
+            print(f"Veri indirilirken hata oluştu: {e}")
+            return []
+
         clean_data = []
-        for item in dataset.select(range(sample_size)):
-            clean_data.append({
-                "p": item["question"],       # Orijinal soru
-                "d": item["context"],        # Temiz belge (bağlam)
-                "a": item["answers"]["text"][0] if item["answers"]["text"] else "" # Cevap
-            })
-            
+        
+        # SQuAD JSON yapısı içinde gezinip soru ve bağlamları çıkarma[cite: 3]
+        for article in data['data']:
+            for paragraph in article['paragraphs']:
+                context = paragraph['context']
+                for qa in paragraph['qas']:
+                    if not qa['is_impossible']: # Sadece geçerli cevabı olanları al
+                        question = qa['question']
+                        answer = qa['answers'][0]['text']
+                        
+                        clean_data.append({
+                            "p": question,
+                            "d": context,
+                            "a": answer
+                        })
+                        
+                        if len(clean_data) >= sample_size:
+                            return clean_data
+                            
         return clean_data
