@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset/schemas/generated-record-v2.schema.json",
+  "title": "Dataset Generator 2 Generated Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id", "schema_version", "generator_version", "generation_seed",
+    "family_id", "pair_id", "parent_id", "language", "scenario", "user_task",
+    "source", "carrier_text", "label", "injection_spans", "trust_boundary_decision",
+    "decision_rationale", "annotation_status", "transformation", "experimental_factors",
+    "split", "provenance", "safety", "content_sha256"
+  ],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^DG2-[A-F0-9]{16}$"},
+    "schema_version": {"const": "2.0.0"},
+    "generator_version": {"const": "2.1.0"},
+    "generation_seed": {"type": "integer"},
+    "family_id": {"type": "string", "pattern": "^FAM-[A-F0-9]{16}$"},
+    "pair_id": {"type": ["string", "null"], "pattern": "^PAIR-[A-F0-9]{16}$"},
+    "parent_id": {"type": "string", "minLength": 1},
+    "language": {"enum": ["tr", "en"]},
+    "scenario": {"type": "string", "minLength": 1},
+    "user_task": {"type": "string", "minLength": 1},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "role", "trust_level"],
+      "properties": {
+        "type": {"type": "string"}, "role": {"type": "string"},
+        "trust_level": {"enum": ["untrusted_content", "trusted_instruction", "mixed_or_unspecified"]}
+      }
+    },
+    "carrier_text": {"type": "string", "minLength": 1},
+    "label": {"enum": ["injection", "benign"]},
+    "injection_spans": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["start", "end", "span_type", "text"],
+        "properties": {
+          "start": {"type": "integer", "minimum": 0},
+          "end": {"type": "integer", "minimum": 1},
+          "span_type": {"const": "injected_instruction"},
+          "text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "trust_boundary_decision": {"type": "string"},
+    "decision_rationale": {"type": "string"},
+    "annotation_status": {"const": "generated_candidate"},
+    "transformation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "variant_index"],
+      "properties": {"type": {"type": "string"}, "variant_index": {"type": "integer", "minimum": 0}}
+    },
+    "experimental_factors": {
+      "type": "object", "additionalProperties": false,
+      "required": ["wrapper", "injection_position", "carrier_format", "context_length_bucket", "language", "scenario", "authority"],
+      "properties": {
+        "wrapper": {"type": "string"},
+        "injection_position": {"enum": ["only", "head", "middle", "tail"]},
+        "carrier_format": {"enum": ["plain", "document", "xml", "email", "json"]},
+        "context_length_bucket": {"enum": ["short", "medium", "long"]},
+        "language": {"enum": ["tr", "en"]}, "scenario": {"type": "string"},
+        "authority": {"enum": ["trusted", "untrusted", "trusted_instruction", "untrusted_content", "mixed_or_unspecified"]}
+      }
+    },
+    "split": {"enum": ["train", "validation", "test"]},
+    "provenance": {"type": "object"},
+    "safety": {"type": "object"},
+    "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  },
+  "allOf": [
+    {"if": {"properties": {"label": {"const": "injection"}}}, "then": {"properties": {"injection_spans": {"minItems": 1}}}},
+    {"if": {"properties": {"label": {"const": "benign"}}}, "then": {"properties": {"injection_spans": {"maxItems": 0}}}}
+  ]
+}

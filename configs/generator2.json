@@ -1,7 +1,7 @@
 {
   "seed": 20261113,
-  "pair_families": 40,
-  "hard_benign": 20,
+  "pair_families": 80,
+  "hard_benign": 40,
   "split_ratios": {
     "train": 0.7,
     "validation": 0.15,

@@ -1,0 +1,110 @@
+{
+  "dataset": "data\\generated\\dataset_v2.jsonl",
+  "dataset_sha256": "6d99b4f8cd82ba190d1cb1bd57b8aa75a65a17abd7511c0fd1f17a780a12478f",
+  "finished_utc": "2026-11-13T17:53:06.266950+00:00",
+  "models": [
+    {
+      "details": {
+        "context_length": 32768,
+        "embedding_length": 4096,
+        "families": [
+          "llama"
+        ],
+        "family": "llama",
+        "format": "gguf",
+        "parameter_size": "7.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M",
+        "runner": "ggml"
+      },
+      "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+      "name": "mistral:latest",
+      "size": 4372824384
+    },
+    {
+      "details": {
+        "context_length": 8192,
+        "embedding_length": 4096,
+        "families": [
+          "llama"
+        ],
+        "family": "llama",
+        "format": "gguf",
+        "parameter_size": "8.0B",
+        "parent_model": "",
+        "quantization_level": "Q4_0",
+        "runner": "ggml"
+      },
+      "digest": "365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1",
+      "name": "llama3:latest",
+      "size": 4661224676
+    },
+    {
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 4096,
+        "families": [
+          "llama"
+        ],
+        "family": "llama",
+        "format": "gguf",
+        "parameter_size": "8.0B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M",
+        "runner": "ggml"
+      },
+      "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+      "name": "llama3.1:8b",
+      "size": 4920753328
+    },
+    {
+      "details": {
+        "context_length": 40960,
+        "embedding_length": 4096,
+        "families": [
+          "qwen3"
+        ],
+        "family": "qwen3",
+        "format": "gguf",
+        "parameter_size": "8.2B",
+        "parent_model": "",
+        "quantization_level": "Q4_K_M",
+        "runner": "ggml"
+      },
+      "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+      "name": "qwen3:8b",
+      "size": 5225388164
+    },
+    {
+      "details": {
+        "context_length": 131072,
+        "embedding_length": 2560,
+        "families": [
+          "gemma3",
+          "clip"
+        ],
+        "family": "gemma3",
+        "format": "gguf",
+        "parameter_size": "3.9B",
+        "parent_model": "dhiltgen/gemma3:4b-it-q4_K_M-llamacpp",
+        "quantization_level": "Q4_K_M",
+        "runner": "llamacpp"
+      },
+      "digest": "68ceab7e468a31c988b44d5a4984a0e21f58c4f7158c6ce29c1804babac38df7",
+      "name": "gemma3:4b",
+      "size": 3350272403
+    }
+  ],
+  "ollama_host": "http://localhost:11434",
+  "ollama_version": "0.40.16",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.3",
+  "repeats": 1,
+  "result_file": "evaluation\\results\\ollama_full_200x5_v1.jsonl",
+  "run_id": "RUN-8C74C0450F9CE53F",
+  "seed": 42,
+  "selected_records": 200,
+  "started_utc": "2026-11-13T16:52:14.095639+00:00",
+  "system_prompt_sha256": "cf3f5c562f06a6cace847acd2f4224695884f1cdca2afe7e214d094a40b31d38",
+  "temperature": 0
+}

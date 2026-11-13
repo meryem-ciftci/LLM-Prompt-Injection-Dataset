@@ -2,20 +2,20 @@
   "canonical_file": "dataset_v2.jsonl",
   "generator_version": "2.0.0",
   "labels": {
-    "benign": 60,
-    "injection": 40
+    "benign": 120,
+    "injection": 80
   },
   "languages": {
-    "en": 50,
-    "tr": 50
+    "en": 100,
+    "tr": 100
   },
-  "record_count": 100,
+  "record_count": 200,
   "schema_version": "2.0.0",
   "seed": 20261113,
-  "sha256": "64a5bc542f1ab807234652f1bc56c46568c39d15dcf04496d942f7b937b599b8",
+  "sha256": "6d99b4f8cd82ba190d1cb1bd57b8aa75a65a17abd7511c0fd1f17a780a12478f",
   "splits": {
-    "test": 11,
-    "train": 72,
-    "validation": 17
+    "test": 26,
+    "train": 143,
+    "validation": 31
   }
 }

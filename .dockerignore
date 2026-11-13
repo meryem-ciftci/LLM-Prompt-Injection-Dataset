@@ -1,0 +1,6 @@
+.git
+__pycache__
+*.pyc
+evaluation/results/*.jsonl
+evaluation/results/*.json
+

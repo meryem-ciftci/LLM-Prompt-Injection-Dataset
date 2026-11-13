@@ -18,6 +18,8 @@ class Generator2Tests(unittest.TestCase):
         self.assertEqual(len(rows), 100)
         self.assertEqual(sum(r["label"] == "injection" for r in rows), 40)
         self.assertEqual(sum(r["label"] == "benign" for r in rows), 60)
+        self.assertEqual(sum(r["language"] == "tr" for r in rows), 50)
+        self.assertEqual(sum(r["language"] == "en" for r in rows), 50)
 
     def test_deterministic_generation(self):
         self.assertEqual(generate(CONFIG, CALIBRATION), generate(CONFIG, CALIBRATION))
@@ -58,6 +60,12 @@ class Generator2Tests(unittest.TestCase):
         attack = next(r for r in rows if r["label"] == "injection")
         attack["injection_spans"][0]["start"] += 1
         self.assertTrue(any("span round-trip" in e for e in validate(rows)))
+
+    def test_validation_rejects_broken_pair(self):
+        rows = generate(CONFIG, CALIBRATION)
+        paired = next(r for r in rows if r["pair_id"])
+        paired["carrier_text"] += " changed"
+        self.assertTrue(any("carrier_text differs" in e for e in validate(rows)))
 
     def test_stable_split_function(self):
         ratios = CONFIG["split_ratios"]
