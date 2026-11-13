@@ -1,0 +1,71 @@
+{
+  "canonical_file": "dataset_v2_2.jsonl",
+  "coverage": {
+    "authority": {
+      "trusted": 80,
+      "trusted_instruction": 11,
+      "untrusted": 80,
+      "untrusted_content": 29
+    },
+    "carrier_format": {
+      "document": 100,
+      "email": 20,
+      "json": 20,
+      "plain": 38,
+      "xml": 22
+    },
+    "context_length_bucket": {
+      "long": 40,
+      "medium": 62,
+      "short": 98
+    },
+    "injection_position": {
+      "head": 38,
+      "middle": 62,
+      "only": 38,
+      "tail": 62
+    },
+    "language_mode": {
+      "code_switch": 21,
+      "monolingual": 179
+    },
+    "obfuscation": {
+      "base64": 40,
+      "char_split": 40,
+      "leetspeak": 40,
+      "none": 80
+    },
+    "pair_type": {
+      "exact_controlled_boundary_pair": 160,
+      "unpaired": 40
+    },
+    "scenario": {
+      "calendar": 10,
+      "customer_support": 10,
+      "direct_instruction": 11,
+      "document_qa": 40,
+      "email": 32,
+      "rag": 29,
+      "repository": 43,
+      "tool_output": 25
+    }
+  },
+  "generator_version": "2.2.0",
+  "labels": {
+    "benign": 120,
+    "injection": 80
+  },
+  "languages": {
+    "en": 100,
+    "tr": 100
+  },
+  "record_count": 200,
+  "schema_version": "2.0.0",
+  "seed": 20261113,
+  "sha256": "9678d92db6c1d98daba610cb87f03ce78725ba5a01c3995c69f9c148bd8dbe26",
+  "splits": {
+    "test": 37,
+    "train": 125,
+    "validation": 38
+  }
+}

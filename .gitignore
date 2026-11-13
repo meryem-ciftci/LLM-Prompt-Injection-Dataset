@@ -12,6 +12,18 @@ env/
 processed_dataset.jsonl
 *.parquet
 
+# Legacy generated datasets remain recoverable from Git history, not the active tree
+data/generated/dataset_v2.jsonl
+data/generated/dataset_v2.manifest.json
+data/generated/dataset_v2_1.jsonl
+data/generated/dataset_v2_1.manifest.json
+
+# Experiment outputs are local/release artifacts; register experiments in README
+evaluation/results/*
+evaluation/reports/*
+!evaluation/results/.gitkeep
+!evaluation/reports/.gitkeep
+
 # IDE ve Sistem Dosyaları
 .vscode/
 .idea/

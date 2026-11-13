@@ -16,7 +16,7 @@ class AnnotationTests(unittest.TestCase):
     def test_blind_export_hides_gold(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "a.jsonl"
-            count = export_blind(ROOT / "data" / "generated" / "dataset_v2.jsonl", output, "annotator-a")
+            count = export_blind(ROOT / "data" / "generated" / "dataset_v2_2.jsonl", output, "annotator-a")
             self.assertGreater(count, 0)
             row = json.loads(output.read_text(encoding="utf-8").splitlines()[0])
             self.assertNotIn("label", {k: v for k, v in row.items() if k != "decision"})
