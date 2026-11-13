@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "python_image": "python:3.12.12-slim-bookworm",
+  "ollama_image": "ollama/ollama:0.40.16",
+  "ollama_version": "0.40.16",
+  "models": {
+    "gemma3:4b": "68ceab7e468a31c988b44d5a4984a0e21f58c4f7158c6ce29c1804babac38df7",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "llama3:latest": "365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1",
+    "mistral:latest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+    "qwen3:8b": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41"
+  }
+}
+
