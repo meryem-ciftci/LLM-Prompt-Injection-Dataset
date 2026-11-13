@@ -1,2 +1,1 @@
-pydantic
-datasets
+# Dataset Generator 2 has no third-party runtime dependencies.
