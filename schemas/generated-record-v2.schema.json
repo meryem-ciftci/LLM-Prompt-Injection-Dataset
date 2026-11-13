@@ -6,18 +6,19 @@
   "additionalProperties": false,
   "required": [
     "record_id", "schema_version", "generator_version", "generation_seed",
-    "family_id", "pair_id", "parent_id", "language", "scenario", "user_task",
+    "family_id", "pair_id", "pair_type", "parent_id", "language", "scenario", "user_task",
     "source", "carrier_text", "label", "injection_spans", "trust_boundary_decision",
-    "decision_rationale", "annotation_status", "transformation", "experimental_factors",
+    "decision_rationale", "annotation_status", "transformation", "experimental_factors", "length_measurements",
     "split", "provenance", "safety", "content_sha256"
   ],
   "properties": {
     "record_id": {"type": "string", "pattern": "^DG2-[A-F0-9]{16}$"},
     "schema_version": {"const": "2.0.0"},
-    "generator_version": {"const": "2.1.0"},
+    "generator_version": {"const": "2.2.0"},
     "generation_seed": {"type": "integer"},
     "family_id": {"type": "string", "pattern": "^FAM-[A-F0-9]{16}$"},
     "pair_id": {"type": ["string", "null"], "pattern": "^PAIR-[A-F0-9]{16}$"},
+    "pair_type": {"type": ["string", "null"], "enum": ["exact_controlled_boundary_pair", null]},
     "parent_id": {"type": "string", "minLength": 1},
     "language": {"enum": ["tr", "en"]},
     "scenario": {"type": "string", "minLength": 1},
@@ -55,14 +56,26 @@
     },
     "experimental_factors": {
       "type": "object", "additionalProperties": false,
-      "required": ["wrapper", "injection_position", "carrier_format", "context_length_bucket", "language", "scenario", "authority"],
+      "required": ["wrapper", "injection_position", "carrier_format", "context_length_bucket", "language", "scenario", "authority", "obfuscation", "language_mode"],
       "properties": {
         "wrapper": {"type": "string"},
         "injection_position": {"enum": ["only", "head", "middle", "tail"]},
         "carrier_format": {"enum": ["plain", "document", "xml", "email", "json"]},
         "context_length_bucket": {"enum": ["short", "medium", "long"]},
         "language": {"enum": ["tr", "en"]}, "scenario": {"type": "string"},
-        "authority": {"enum": ["trusted", "untrusted", "trusted_instruction", "untrusted_content", "mixed_or_unspecified"]}
+        "authority": {"enum": ["trusted", "untrusted", "trusted_instruction", "untrusted_content", "mixed_or_unspecified"]},
+        "obfuscation": {"enum": ["none", "base64", "char_split", "leetspeak"]},
+        "language_mode": {"enum": ["monolingual", "code_switch"]}
+      }
+    },
+    "length_measurements": {
+      "type": "object", "additionalProperties": false,
+      "required": ["proxy_method", "target_proxy_tokens", "measured_proxy_tokens", "character_count"],
+      "properties": {
+        "proxy_method": {"const": "unicode_word_regex_v1"},
+        "target_proxy_tokens": {"enum": [256, 1024, 3072]},
+        "measured_proxy_tokens": {"type": "integer", "minimum": 1},
+        "character_count": {"type": "integer", "minimum": 1}
       }
     },
     "split": {"enum": ["train", "validation", "test"]},

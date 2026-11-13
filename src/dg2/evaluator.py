@@ -58,13 +58,15 @@ class OllamaClient:
     def version(self) -> str:
         return self._request("GET", "/api/version").get("version", "unknown")
 
-    def classify(self, model: str, record: dict, *, temperature: float, seed: int,
-                 num_predict: int) -> tuple[dict, dict]:
-        user_content = canonical_json({
-            "user_task": record["user_task"], "source": record["source"],
-            "scenario": record["scenario"], "language": record["language"],
-            "carrier_text": record["carrier_text"],
-        })
+    def classify(self, model: str, record: dict, *, input_mode: str, temperature: float,
+                 seed: int, num_predict: int) -> tuple[dict, dict]:
+        view = {"user_task": record["user_task"], "carrier_text": record["carrier_text"]}
+        if input_mode == "context_aware":
+            view.update({"source": record["source"], "scenario": record["scenario"],
+                         "language": record["language"]})
+        elif input_mode != "text_only":
+            raise ValueError(f"Unknown input mode: {input_mode}")
+        user_content = canonical_json(view)
         body = {
             "model": model,
             "messages": [{"role": "system", "content": SYSTEM_PROMPT},
@@ -128,7 +130,11 @@ def select_records(rows: list[dict], limit: int | None, selection_seed: int) -> 
 
 def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str | None = None,
                    limit: int | None = None, repeats: int = 1, temperature: float = 0,
-                   seed: int = 42, num_predict: int = 120, retries: int = 2) -> dict:
+                   seed: int = 42, num_predict: int = 120, retries: int = 2,
+                   input_modes: list[str] | None = None) -> dict:
+    input_modes = input_modes or ["context_aware"]
+    if not input_modes or any(mode not in {"text_only", "context_aware"} for mode in input_modes):
+        raise ValueError("input_modes must contain text_only and/or context_aware")
     rows = select_records(read_jsonl(dataset), limit, seed)
     client = OllamaClient(host)
     installed = {m["name"]: m for m in client.tags()}
@@ -139,7 +145,7 @@ def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str 
     dataset_digest = file_sha256(dataset)
     model_digests = {m: installed[m]["digest"] for m in models}
     run_id = stable_run_id(dataset_digest, model_digests, limit, repeats, temperature, seed,
-                           num_predict, retries)
+                           num_predict, retries, input_modes)
     manifest_path = output.with_suffix(".run.json")
     if output.exists() and manifest_path.exists():
         previous = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -149,22 +155,24 @@ def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str 
     if output.exists():
         for old in read_jsonl(output):
             if old.get("status") == "ok":
-                completed.add((old["model"], old["record_id"], old["repeat"]))
+                completed.add((old["model"], old["record_id"], old["repeat"], old.get("input_mode", "context_aware")))
     started = datetime.now(timezone.utc).isoformat()
     with output.open("a", encoding="utf-8", newline="\n") as fh:
         for model in models:
             meta = installed[model]
-            for repeat in range(repeats):
+            for input_mode in input_modes:
+              for repeat in range(repeats):
                 for index, record in enumerate(rows, 1):
-                    key = (model, record["record_id"], repeat)
+                    key = (model, record["record_id"], repeat, input_mode)
                     if key in completed:
                         continue
                     error = None
                     for attempt in range(retries + 1):
                         tick = time.perf_counter()
                         try:
-                            parsed, raw = client.classify(model, record, temperature=temperature,
-                                                          seed=seed + repeat, num_predict=num_predict)
+                            parsed, raw = client.classify(model, record, input_mode=input_mode,
+                                                          temperature=temperature, seed=seed + repeat,
+                                                          num_predict=num_predict)
                             elapsed = round((time.perf_counter() - tick) * 1000)
                             result = {
                                 "run_id": run_id, "status": "ok", "record_id": record["record_id"],
@@ -172,6 +180,7 @@ def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str 
                                 "language": record["language"], "scenario": record["scenario"],
                                 "split": record["split"], "gold_label": record["label"],
                                 "model": model, "model_digest": meta["digest"], "repeat": repeat,
+                                "input_mode": input_mode,
                                 "predicted_label": parsed["predicted_label"],
                                 "confidence": float(parsed["confidence"]), "reason": parsed["reason"],
                                 "correct": parsed["predicted_label"] == record["label"],
@@ -180,7 +189,7 @@ def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str 
                                 "attempt": attempt, "timestamp_utc": datetime.now(timezone.utc).isoformat(),
                             }
                             fh.write(canonical_json(result) + "\n"); fh.flush()
-                            print(f'[{model} r{repeat+1} {index}/{len(rows)}] {record["record_id"]} '
+                            print(f'[{model} {input_mode} r{repeat+1} {index}/{len(rows)}] {record["record_id"]} '
                                   f'gold={record["label"]} pred={parsed["predicted_label"]} '
                                   f'{"OK" if result["correct"] else "WRONG"} {elapsed}ms', flush=True)
                             error = None
@@ -190,6 +199,7 @@ def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str 
                     if error is not None:
                         failure = {"run_id": run_id, "status": "error", "record_id": record["record_id"],
                                    "model": model, "model_digest": meta["digest"], "repeat": repeat,
+                                   "input_mode": input_mode,
                                    "error": error, "timestamp_utc": datetime.now(timezone.utc).isoformat()}
                         fh.write(canonical_json(failure) + "\n"); fh.flush()
                         print(f'[{model}] {record["record_id"]} ERROR {error}', flush=True)
@@ -201,7 +211,7 @@ def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str 
                     "details": installed[m].get("details")} for m in models],
         "ollama_version": client.version(), "ollama_host": client.host,
         "temperature": temperature, "seed": seed, "repeats": repeats,
-        "num_predict": num_predict, "retries": retries,
+        "num_predict": num_predict, "retries": retries, "input_modes": input_modes,
         "system_prompt_sha256": hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
         "python": platform.python_version(), "platform": platform.platform(), "result_file": str(output),
     }
@@ -210,9 +220,9 @@ def run_evaluation(dataset: Path, output: Path, models: list[str], *, host: str 
 
 
 def stable_run_id(dataset_digest: str, model_digests: dict, limit, repeats, temperature, seed,
-                  num_predict, retries) -> str:
+                  num_predict, retries, input_modes) -> str:
     value = json.dumps([EVALUATOR_VERSION, SELECTION_STRATEGY, dataset_digest, model_digests,
-                        limit, repeats, temperature, seed, num_predict, retries,
+                        limit, repeats, temperature, seed, num_predict, retries, input_modes,
                         hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest()], sort_keys=True)
     return "RUN-" + hashlib.sha256(value.encode()).hexdigest()[:16].upper()
 

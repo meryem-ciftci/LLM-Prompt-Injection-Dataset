@@ -67,6 +67,18 @@ class Generator2Tests(unittest.TestCase):
         paired["carrier_text"] += " changed"
         self.assertTrue(any("carrier_text differs" in e for e in validate(rows)))
 
+    def test_v22_default_factor_coverage_and_lengths(self):
+        config = {**CONFIG, "pair_families": 80, "hard_benign": 40}
+        rows = generate(config, CALIBRATION)
+        factors = [r["experimental_factors"] for r in rows]
+        self.assertEqual({f["obfuscation"] for f in factors}, {"none", "base64", "char_split", "leetspeak"})
+        self.assertEqual({f["context_length_bucket"] for f in factors}, {"short", "medium", "long"})
+        self.assertIn("code_switch", {f["language_mode"] for f in factors})
+        for row in rows:
+            length = row["length_measurements"]
+            self.assertGreaterEqual(length["measured_proxy_tokens"], length["target_proxy_tokens"] * 0.9)
+            self.assertLessEqual(length["measured_proxy_tokens"], length["target_proxy_tokens"] * 1.1)
+
     def test_stable_split_function(self):
         ratios = CONFIG["split_ratios"]
         self.assertEqual(split_for("FAM-X", 42, ratios), split_for("FAM-X", 42, ratios))

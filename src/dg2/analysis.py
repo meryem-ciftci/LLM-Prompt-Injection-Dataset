@@ -95,7 +95,8 @@ def deduplicated_successes(rows: list[dict]) -> list[dict]:
     latest = {}
     for row in rows:
         if row.get("status") == "ok":
-            latest[(row["model"], row["record_id"], int(row.get("repeat", 0)))] = row
+            latest[(row["model"], row.get("input_mode", "context_aware"),
+                    row["record_id"], int(row.get("repeat", 0)))] = row
     return list(latest.values())
 
 
@@ -104,7 +105,7 @@ def analyze(result_file: Path, dataset: Path | None = None, *, bootstrap_iterati
     rows = deduplicated_successes(read_jsonl(result_file))
     dataset_rows = read_jsonl(dataset) if dataset else []
     dataset_by_id = {r["record_id"]: r for r in dataset_rows}
-    models = sorted({r["model"] for r in rows})
+    tracks = sorted({(r["model"], r.get("input_mode", "context_aware")) for r in rows})
     report = {
         "analysis_version": ANALYSIS_VERSION,
         "result_file": str(result_file), "result_sha256": file_sha256(result_file),
@@ -113,8 +114,9 @@ def analyze(result_file: Path, dataset: Path | None = None, *, bootstrap_iterati
         "bootstrap_iterations": bootstrap_iterations, "seed": seed,
         "models": {}, "pairwise_mcnemar": [],
     }
-    for model in models:
-        selected = [r for r in rows if r["model"] == model]
+    for model, input_mode in tracks:
+        track_name = f"{model}|{input_mode}"
+        selected = [r for r in rows if r["model"] == model and r.get("input_mode", "context_aware") == input_mode]
         metrics = binary_metrics(selected)
         brier, ece = brier_and_ece(selected)
         latencies = [float(r.get("latency_ms", 0)) for r in selected]
@@ -146,16 +148,19 @@ def analyze(result_file: Path, dataset: Path | None = None, *, bootstrap_iterati
             if row.get("pair_id"):
                 pair_groups[(row["pair_id"], row.get("repeat", 0))].append(row)
         complete = [v for v in pair_groups.values() if len(v) == 2]
-        report["models"][model] = {
+        report["models"][track_name] = {
+            "model": model, "input_mode": input_mode,
             "metrics": metrics, "subgroups": subgroups,
             "pair_consistency": {"complete_pairs": len(complete),
                                  "both_correct": sum(all(x["correct"] for x in pair) for pair in complete),
                                  "both_correct_rate": (sum(all(x["correct"] for x in pair) for pair in complete) / len(complete) if complete else 0.0)},
         }
-    by_model = {model: {(r["record_id"], r.get("repeat", 0)): r for r in rows if r["model"] == model}
-                for model in models}
-    for i, left in enumerate(models):
-        for right in models[i + 1:]:
+    track_names = sorted(report["models"])
+    by_model = {track: {(r["record_id"], r.get("repeat", 0)): r for r in rows
+                        if f'{r["model"]}|{r.get("input_mode", "context_aware")}' == track}
+                for track in track_names}
+    for i, left in enumerate(track_names):
+        for right in track_names[i + 1:]:
             common = sorted(set(by_model[left]) & set(by_model[right]))
             b = sum(by_model[left][k]["correct"] and not by_model[right][k]["correct"] for k in common)
             c = sum(not by_model[left][k]["correct"] and by_model[right][k]["correct"] for k in common)

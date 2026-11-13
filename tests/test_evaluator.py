@@ -1,6 +1,6 @@
 import unittest
 
-from src.dg2.evaluator import binary_metrics, select_records
+from src.dg2.evaluator import binary_metrics, select_records, stable_run_id
 
 
 class EvaluatorTests(unittest.TestCase):
@@ -36,6 +36,12 @@ class EvaluatorTests(unittest.TestCase):
         counts = {(label, language): sum(r["label"] == label and r["language"] == language for r in selected)
                   for label in ("injection", "benign") for language in ("tr", "en")}
         self.assertEqual(set(counts.values()), {5})
+
+    def test_run_id_changes_with_input_mode(self):
+        common = ("abc", {"m": "digest"}, 20, 1, 0, 42, 120, 2)
+        text_only = stable_run_id(*common, ["text_only"])
+        context_aware = stable_run_id(*common, ["context_aware"])
+        self.assertNotEqual(text_only, context_aware)
 
 
 if __name__ == "__main__":

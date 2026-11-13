@@ -68,7 +68,8 @@ def command_models(args) -> int:
 def command_evaluate(args) -> int:
     manifest = run_evaluation(args.dataset, args.output, args.models, host=args.host,
                               limit=args.limit, repeats=args.repeats, temperature=args.temperature,
-                              seed=args.seed, num_predict=args.num_predict, retries=args.retries)
+                              seed=args.seed, num_predict=args.num_predict, retries=args.retries,
+                              input_modes=args.input_modes)
     print(json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True))
     return 0
 
@@ -108,7 +109,7 @@ def parser() -> argparse.ArgumentParser:
     g = sub.add_parser("generate", help="Generate a deterministic context-aware dataset")
     g.add_argument("--config", type=Path, default=base / "configs" / "generator2.json")
     g.add_argument("--calibration", type=Path, default=base / "data" / "calibration" / "Calibration_Records_v1.jsonl")
-    g.add_argument("--output", type=Path, default=base / "data" / "generated" / "dataset_v2_1.jsonl")
+    g.add_argument("--output", type=Path, default=base / "data" / "generated" / "dataset_v2_2.jsonl")
     g.set_defaults(func=command_generate)
     v = sub.add_parser("validate", help="Validate a generated JSONL release")
     v.add_argument("input", type=Path)
@@ -120,7 +121,7 @@ def parser() -> argparse.ArgumentParser:
     m.add_argument("--host")
     m.set_defaults(func=command_models)
     e = sub.add_parser("evaluate", help="Run resumable Ollama detection evaluation")
-    e.add_argument("--dataset", type=Path, default=base / "data" / "generated" / "dataset_v2_1.jsonl")
+    e.add_argument("--dataset", type=Path, default=base / "data" / "generated" / "dataset_v2_2.jsonl")
     e.add_argument("--output", type=Path, default=base / "evaluation" / "results" / "ollama_detection_v1.jsonl")
     e.add_argument("--models", nargs="+", required=True)
     e.add_argument("--host")
@@ -130,6 +131,8 @@ def parser() -> argparse.ArgumentParser:
     e.add_argument("--seed", type=int, default=42)
     e.add_argument("--num-predict", type=int, default=120)
     e.add_argument("--retries", type=int, default=2)
+    e.add_argument("--input-modes", nargs="+", choices=["text_only", "context_aware"],
+                   default=["text_only", "context_aware"])
     e.set_defaults(func=command_evaluate)
     rep = sub.add_parser("report", help="Build metrics from evaluator JSONL")
     rep.add_argument("results", type=Path)
@@ -137,13 +140,13 @@ def parser() -> argparse.ArgumentParser:
     rep.set_defaults(func=command_report)
     a = sub.add_parser("analyze", help="Produce publication-oriented statistical analysis")
     a.add_argument("results", type=Path)
-    a.add_argument("--dataset", type=Path, default=base / "data" / "generated" / "dataset_v2_1.jsonl")
+    a.add_argument("--dataset", type=Path, default=base / "data" / "generated" / "dataset_v2_2.jsonl")
     a.add_argument("--output", type=Path, required=True)
     a.add_argument("--bootstrap-iterations", type=int, default=2000)
     a.add_argument("--seed", type=int, default=20261113)
     a.set_defaults(func=command_analyze)
     ae = sub.add_parser("annotation-export", help="Create a blinded annotation assignment JSONL")
-    ae.add_argument("--dataset", type=Path, default=base / "data" / "generated" / "dataset_v2_1.jsonl")
+    ae.add_argument("--dataset", type=Path, default=base / "data" / "generated" / "dataset_v2_2.jsonl")
     ae.add_argument("--annotator", required=True)
     ae.add_argument("--output", type=Path, required=True)
     ae.set_defaults(func=command_annotation_export)
