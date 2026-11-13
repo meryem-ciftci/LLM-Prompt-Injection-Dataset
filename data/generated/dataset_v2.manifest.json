@@ -1,0 +1,21 @@
+{
+  "canonical_file": "dataset_v2.jsonl",
+  "generator_version": "2.0.0",
+  "labels": {
+    "benign": 60,
+    "injection": 40
+  },
+  "languages": {
+    "en": 50,
+    "tr": 50
+  },
+  "record_count": 100,
+  "schema_version": "2.0.0",
+  "seed": 20261113,
+  "sha256": "64a5bc542f1ab807234652f1bc56c46568c39d15dcf04496d942f7b937b599b8",
+  "splits": {
+    "test": 11,
+    "train": 72,
+    "validation": 17
+  }
+}
