@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "registry_id": "squad11_dev",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Rajpurkar et al. 2016, SQuAD v1.1 dev set (Wikipedia paragraphs)",
+      "origin_url": "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json",
+      "raw_sha256": "95aa6a52d5d6a735563366753ca50492a658031da74f301ac5238b03966972c9",
+      "carriers_path": "../data/raw/carriers/squad11_dev.jsonl",
+      "snapshot_sha256": "21955fed045946efba9d1e87bd994a7323b2d8e8062f65182de9e93c4dd92a44",
+      "manifest": "manifests/squad11_dev.manifest.json"
+    },
+    {
+      "registry_id": "trwiki",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Turkish Wikipedia contributors; revisions pinned in trwiki_revisions.json",
+      "origin_url": "https://tr.wikipedia.org/w/api.php",
+      "carriers_path": "../data/raw/carriers/trwiki.jsonl",
+      "snapshot_sha256": "430ed0cfb050238c4ef5ccb00c05f1e2c11de1b9e125fa404af9f56b8d62c73e",
+      "manifest": "manifests/trwiki.manifest.json"
+    }
+  ]
+}

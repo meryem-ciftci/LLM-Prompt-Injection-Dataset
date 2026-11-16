@@ -1,0 +1,1237 @@
+{
+ "carrier_count": 153,
+ "carriers": [
+  {
+   "carrier_id": "trwiki:34745793:001:medium",
+   "length_bucket": "medium",
+   "measured_words": 922,
+   "source_record_id": "oldid=34745793",
+   "split_group": "trwiki:Piyano",
+   "text_sha256": "09a4a288df06a809eed638f4fd27f32f94546a22412ae4caba79615e7e52ace0"
+  },
+  {
+   "carrier_id": "trwiki:34745793:001:short",
+   "length_bucket": "short",
+   "measured_words": 257,
+   "source_record_id": "oldid=34745793",
+   "split_group": "trwiki:Piyano",
+   "text_sha256": "c72cba731e13b3cee14ea3b5361d0a20d65b1c8804f87fb26b2b5ee6f2ee8042"
+  },
+  {
+   "carrier_id": "trwiki:34745793:008:medium",
+   "length_bucket": "medium",
+   "measured_words": 943,
+   "source_record_id": "oldid=34745793",
+   "split_group": "trwiki:Piyano",
+   "text_sha256": "2e63bf92451c33c306ccefa322f1cb8e1ec3aaad6172ea482eac526b95959d2c"
+  },
+  {
+   "carrier_id": "trwiki:34745793:008:short",
+   "length_bucket": "short",
+   "measured_words": 237,
+   "source_record_id": "oldid=34745793",
+   "split_group": "trwiki:Piyano",
+   "text_sha256": "f91ac02d4a1ea4aa4f4d3e2c94004921beea8146994b3c4a2bb1385f8f4d3502"
+  },
+  {
+   "carrier_id": "trwiki:34745793:014:medium",
+   "length_bucket": "medium",
+   "measured_words": 943,
+   "source_record_id": "oldid=34745793",
+   "split_group": "trwiki:Piyano",
+   "text_sha256": "2e63bf92451c33c306ccefa322f1cb8e1ec3aaad6172ea482eac526b95959d2c"
+  },
+  {
+   "carrier_id": "trwiki:34745793:014:short",
+   "length_bucket": "short",
+   "measured_words": 234,
+   "source_record_id": "oldid=34745793",
+   "split_group": "trwiki:Piyano",
+   "text_sha256": "5c3ae3508b258f69fd608c98687c818e40e14f31048f8df7ae3472205479eb75"
+  },
+  {
+   "carrier_id": "trwiki:35784240:018:medium",
+   "length_bucket": "medium",
+   "measured_words": 930,
+   "source_record_id": "oldid=35784240",
+   "split_group": "trwiki:Buzul",
+   "text_sha256": "0026f03a6f7f703186210f328003e5eaeb689b5f20f6bf34acf4bcf405163d93"
+  },
+  {
+   "carrier_id": "trwiki:35784240:018:short",
+   "length_bucket": "short",
+   "measured_words": 232,
+   "source_record_id": "oldid=35784240",
+   "split_group": "trwiki:Buzul",
+   "text_sha256": "7862b271c3007d0e560b42d05a63d107a544fa02c99053083bd9fd13c98d9a85"
+  },
+  {
+   "carrier_id": "trwiki:35784240:040:medium",
+   "length_bucket": "medium",
+   "measured_words": 937,
+   "source_record_id": "oldid=35784240",
+   "split_group": "trwiki:Buzul",
+   "text_sha256": "ed84f7f6de9bf06e9134f28d269ce30245f520848f8ba6b1c24ac36aa18f79fe"
+  },
+  {
+   "carrier_id": "trwiki:35784240:040:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=35784240",
+   "split_group": "trwiki:Buzul",
+   "text_sha256": "11d913e164ac28517e1bc9eb0e5b3a8b1c5e9f3e01ce0418332dacb52a756d59"
+  },
+  {
+   "carrier_id": "trwiki:35784240:045:medium",
+   "length_bucket": "medium",
+   "measured_words": 926,
+   "source_record_id": "oldid=35784240",
+   "split_group": "trwiki:Buzul",
+   "text_sha256": "3cf0a46d579d348670c2e0b57ee45f600d443422948d9400423e21705e0b5922"
+  },
+  {
+   "carrier_id": "trwiki:35784240:045:short",
+   "length_bucket": "short",
+   "measured_words": 234,
+   "source_record_id": "oldid=35784240",
+   "split_group": "trwiki:Buzul",
+   "text_sha256": "81614fda814a50ac3247c60d2211b0cb86273f93ae8eeffd96ba1b662c1440aa"
+  },
+  {
+   "carrier_id": "trwiki:37236242:001:short",
+   "length_bucket": "short",
+   "measured_words": 243,
+   "source_record_id": "oldid=37236242",
+   "split_group": "trwiki:Kâğıt",
+   "text_sha256": "311f54ecc1c050409c1a3f46faefd5ec619f1a78e987190303d06f949b9f1c4b"
+  },
+  {
+   "carrier_id": "trwiki:37236242:002:short",
+   "length_bucket": "short",
+   "measured_words": 243,
+   "source_record_id": "oldid=37236242",
+   "split_group": "trwiki:Kâğıt",
+   "text_sha256": "311f54ecc1c050409c1a3f46faefd5ec619f1a78e987190303d06f949b9f1c4b"
+  },
+  {
+   "carrier_id": "trwiki:37236242:004:short",
+   "length_bucket": "short",
+   "measured_words": 248,
+   "source_record_id": "oldid=37236242",
+   "split_group": "trwiki:Kâğıt",
+   "text_sha256": "bc8fd45f72399a65fb7dd13fed7e78e1942f9edd3b1bfd642925d58bbd3aa66f"
+  },
+  {
+   "carrier_id": "trwiki:37442107:000:medium",
+   "length_bucket": "medium",
+   "measured_words": 944,
+   "source_record_id": "oldid=37442107",
+   "split_group": "trwiki:Matbaacılık",
+   "text_sha256": "85854b24b5f6ea36046f522b0740975615b404119cda36ce17ac6ce577325732"
+  },
+  {
+   "carrier_id": "trwiki:37442107:000:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=37442107",
+   "split_group": "trwiki:Matbaacılık",
+   "text_sha256": "f3bc824f4d813b5214d7c1d8323eeb8007646e632b784c33ad3a2036e4996c9e"
+  },
+  {
+   "carrier_id": "trwiki:37442107:005:medium",
+   "length_bucket": "medium",
+   "measured_words": 934,
+   "source_record_id": "oldid=37442107",
+   "split_group": "trwiki:Matbaacılık",
+   "text_sha256": "c82cbd66a4d8eb6494a984e282d968c5b84d81afaa554f9dd6ae7ec727d35a17"
+  },
+  {
+   "carrier_id": "trwiki:37442107:005:short",
+   "length_bucket": "short",
+   "measured_words": 236,
+   "source_record_id": "oldid=37442107",
+   "split_group": "trwiki:Matbaacılık",
+   "text_sha256": "e9ca6f438e599747b2c126a01a81f96a4a1122d7dea1f9189115e8933dd8bcb2"
+  },
+  {
+   "carrier_id": "trwiki:37442107:007:medium",
+   "length_bucket": "medium",
+   "measured_words": 933,
+   "source_record_id": "oldid=37442107",
+   "split_group": "trwiki:Matbaacılık",
+   "text_sha256": "2bdcfac3b72efedeb5f0395e0ba5bcd632a24bbc5f536f243bdcd3956ad1141d"
+  },
+  {
+   "carrier_id": "trwiki:37442107:007:short",
+   "length_bucket": "short",
+   "measured_words": 235,
+   "source_record_id": "oldid=37442107",
+   "split_group": "trwiki:Matbaacılık",
+   "text_sha256": "3849b092e4dca0aef78e6acad6c0a30f536a679549d1d6fdf29f9f9a1a140bff"
+  },
+  {
+   "carrier_id": "trwiki:37517877:002:long",
+   "length_bucket": "long",
+   "measured_words": 2765,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "04deae9006e1767abeddaf921a279e5f0e3ae5536d77956fc9338878b57c9b7d"
+  },
+  {
+   "carrier_id": "trwiki:37517877:002:medium",
+   "length_bucket": "medium",
+   "measured_words": 940,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "c7c5cff459cf6ae3bdf97327a25ca783aae827447a45709e619485d1537525f7"
+  },
+  {
+   "carrier_id": "trwiki:37517877:002:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "79d8e33f47afb5c6a83d471f239d79638065baacddfa084ee220a788cdded5ba"
+  },
+  {
+   "carrier_id": "trwiki:37517877:014:long",
+   "length_bucket": "long",
+   "measured_words": 2765,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "19e9981eda84778cfe34ab77e77fee962236419cca5539508b18f31021bca3d6"
+  },
+  {
+   "carrier_id": "trwiki:37517877:014:medium",
+   "length_bucket": "medium",
+   "measured_words": 929,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "fbe9a2e53c64cd73cf39d5fc6b7f95247b91844c1497bae5b24c6c34ad619042"
+  },
+  {
+   "carrier_id": "trwiki:37517877:014:short",
+   "length_bucket": "short",
+   "measured_words": 241,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "b9a2acace3fd22b8972d1d8c4b88ce905bb9853c383c7bbb14274d3762a3a869"
+  },
+  {
+   "carrier_id": "trwiki:37517877:046:long",
+   "length_bucket": "long",
+   "measured_words": 2772,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "d10f4675fa33677bbb84d6de8c567f6538a964b9149afb1f2851f6a851ae879e"
+  },
+  {
+   "carrier_id": "trwiki:37517877:046:medium",
+   "length_bucket": "medium",
+   "measured_words": 930,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "515c88f4283163f586c751624623ddcbe0b4a2108752f617bb495e60b902b8e1"
+  },
+  {
+   "carrier_id": "trwiki:37517877:046:short",
+   "length_bucket": "short",
+   "measured_words": 235,
+   "source_record_id": "oldid=37517877",
+   "split_group": "trwiki:DNA",
+   "text_sha256": "f8ec4d825296c8b4d62f8b6889bf928a605f6c49f80e2393e09a9c4138919e71"
+  },
+  {
+   "carrier_id": "trwiki:37677468:006:medium",
+   "length_bucket": "medium",
+   "measured_words": 925,
+   "source_record_id": "oldid=37677468",
+   "split_group": "trwiki:Kapadokya",
+   "text_sha256": "6108a6b27fceaabfd7f44f8e56dfb74a157d6ce2b310ddf3e63f8dc4913d88d5"
+  },
+  {
+   "carrier_id": "trwiki:37677468:006:short",
+   "length_bucket": "short",
+   "measured_words": 244,
+   "source_record_id": "oldid=37677468",
+   "split_group": "trwiki:Kapadokya",
+   "text_sha256": "25148f3e63631108c7294b4eb2886b10c4f665ab9f088077b0d0665c1283adb6"
+  },
+  {
+   "carrier_id": "trwiki:37677468:008:medium",
+   "length_bucket": "medium",
+   "measured_words": 925,
+   "source_record_id": "oldid=37677468",
+   "split_group": "trwiki:Kapadokya",
+   "text_sha256": "6108a6b27fceaabfd7f44f8e56dfb74a157d6ce2b310ddf3e63f8dc4913d88d5"
+  },
+  {
+   "carrier_id": "trwiki:37677468:008:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=37677468",
+   "split_group": "trwiki:Kapadokya",
+   "text_sha256": "fa9c20f80d12a7bae4b07421d630cd20efed8e677abf7e5424ae21812db8a4c7"
+  },
+  {
+   "carrier_id": "trwiki:37677468:016:medium",
+   "length_bucket": "medium",
+   "measured_words": 930,
+   "source_record_id": "oldid=37677468",
+   "split_group": "trwiki:Kapadokya",
+   "text_sha256": "2e653837761b324d635126d85805b3617e1004442f08671ac7cd26ad6e59e589"
+  },
+  {
+   "carrier_id": "trwiki:37677468:016:short",
+   "length_bucket": "short",
+   "measured_words": 271,
+   "source_record_id": "oldid=37677468",
+   "split_group": "trwiki:Kapadokya",
+   "text_sha256": "e74f15e032efa4348ad91b42fe2e2cbf6cc0fb77b71064aa2bb9a0f3ff2be4b2"
+  },
+  {
+   "carrier_id": "trwiki:37702937:011:medium",
+   "length_bucket": "medium",
+   "measured_words": 953,
+   "source_record_id": "oldid=37702937",
+   "split_group": "trwiki:Kütüphane",
+   "text_sha256": "a086b70871a9b11ee6ff85738e9b21ac30edfe74abfb1f67d47de635189da6fa"
+  },
+  {
+   "carrier_id": "trwiki:37702937:011:short",
+   "length_bucket": "short",
+   "measured_words": 232,
+   "source_record_id": "oldid=37702937",
+   "split_group": "trwiki:Kütüphane",
+   "text_sha256": "cb964bb3d5c254dd21c4490ae546619822c815a925d2ada45b3c8f7d16dc0d88"
+  },
+  {
+   "carrier_id": "trwiki:37702937:013:medium",
+   "length_bucket": "medium",
+   "measured_words": 929,
+   "source_record_id": "oldid=37702937",
+   "split_group": "trwiki:Kütüphane",
+   "text_sha256": "5eb5f9a7522dda9f0be40280583b6dc7f69eca1e33520d82752b247aedd3f536"
+  },
+  {
+   "carrier_id": "trwiki:37702937:013:short",
+   "length_bucket": "short",
+   "measured_words": 242,
+   "source_record_id": "oldid=37702937",
+   "split_group": "trwiki:Kütüphane",
+   "text_sha256": "4af2174fa830aa86fddd8b48e5cfb0337120f2fb60b46b0647687ac020448c70"
+  },
+  {
+   "carrier_id": "trwiki:37702937:022:medium",
+   "length_bucket": "medium",
+   "measured_words": 941,
+   "source_record_id": "oldid=37702937",
+   "split_group": "trwiki:Kütüphane",
+   "text_sha256": "d3ca6100ab2690109afc816942d4effe8a7c86c76848a277e39923f843384dad"
+  },
+  {
+   "carrier_id": "trwiki:37702937:022:short",
+   "length_bucket": "short",
+   "measured_words": 257,
+   "source_record_id": "oldid=37702937",
+   "split_group": "trwiki:Kütüphane",
+   "text_sha256": "0819993a09b75ca9b982b8d33f6f31b611853dc4bad7cfcf71af1e6ec90811e5"
+  },
+  {
+   "carrier_id": "trwiki:37777885:002:medium",
+   "length_bucket": "medium",
+   "measured_words": 930,
+   "source_record_id": "oldid=37777885",
+   "split_group": "trwiki:Van Gölü",
+   "text_sha256": "3f69140e3f7d040b8f047bf1606d1c9973a09ea310397a8755934c2a30af9a32"
+  },
+  {
+   "carrier_id": "trwiki:37777885:002:short",
+   "length_bucket": "short",
+   "measured_words": 241,
+   "source_record_id": "oldid=37777885",
+   "split_group": "trwiki:Van Gölü",
+   "text_sha256": "a0559579006836dcb637f0245a0eb16b09e8d50d658759d841d3086b850c518b"
+  },
+  {
+   "carrier_id": "trwiki:37777885:006:medium",
+   "length_bucket": "medium",
+   "measured_words": 940,
+   "source_record_id": "oldid=37777885",
+   "split_group": "trwiki:Van Gölü",
+   "text_sha256": "d4f69f6544eeaf843b3346aacd92453f8e3918805941c16b77b86f596053a80d"
+  },
+  {
+   "carrier_id": "trwiki:37777885:006:short",
+   "length_bucket": "short",
+   "measured_words": 253,
+   "source_record_id": "oldid=37777885",
+   "split_group": "trwiki:Van Gölü",
+   "text_sha256": "3dec49fa4967c6b5a61fa9b8b78cec7f3717522d7130c3b152063d9e049024fd"
+  },
+  {
+   "carrier_id": "trwiki:37777885:012:medium",
+   "length_bucket": "medium",
+   "measured_words": 924,
+   "source_record_id": "oldid=37777885",
+   "split_group": "trwiki:Van Gölü",
+   "text_sha256": "12a90aec7032cf947d1b4e19d06cff5821e10394738b63a5b0f7ded7605f9620"
+  },
+  {
+   "carrier_id": "trwiki:37777885:012:short",
+   "length_bucket": "short",
+   "measured_words": 238,
+   "source_record_id": "oldid=37777885",
+   "split_group": "trwiki:Van Gölü",
+   "text_sha256": "5493e40780f1b2bc0686e59852e6e584c9a5b807a159a462bb4a4a41a74bd5ed"
+  },
+  {
+   "carrier_id": "trwiki:37803168:026:long",
+   "length_bucket": "long",
+   "measured_words": 2775,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "bbb13bc55387838606467301fba0cf8d06016ac187ccd00a6699336e3107359b"
+  },
+  {
+   "carrier_id": "trwiki:37803168:026:medium",
+   "length_bucket": "medium",
+   "measured_words": 952,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "1b0046618e3d2be9a8fdff474ac437192a9a60867b305308fc3721488a59ed0d"
+  },
+  {
+   "carrier_id": "trwiki:37803168:026:short",
+   "length_bucket": "short",
+   "measured_words": 231,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "93d785a044083a01e02ff3e07b668346d1527ad7e6ce06085750ce04f85a994a"
+  },
+  {
+   "carrier_id": "trwiki:37803168:028:long",
+   "length_bucket": "long",
+   "measured_words": 2772,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "4b471c2571e72554dbb6595d1179e21e501df29d48a3595f595fddcefa2c6636"
+  },
+  {
+   "carrier_id": "trwiki:37803168:028:medium",
+   "length_bucket": "medium",
+   "measured_words": 927,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "3502252a25e92e618773327c708184947a2ce2093d08aef570f9df010d7ec9cc"
+  },
+  {
+   "carrier_id": "trwiki:37803168:028:short",
+   "length_bucket": "short",
+   "measured_words": 259,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "0e3a53e7792784966d3bcecba876ba8f027eca7d70bb48588e4fe51c50e9db5d"
+  },
+  {
+   "carrier_id": "trwiki:37803168:038:long",
+   "length_bucket": "long",
+   "measured_words": 2775,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "46299d6c518114be5e05ef1a3faa8bb02a32f136993110e75462504d273cd1bc"
+  },
+  {
+   "carrier_id": "trwiki:37803168:038:medium",
+   "length_bucket": "medium",
+   "measured_words": 933,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "4706e41ce3d298541198bc4a4e713c43b773b5980829a87a6620f9a870929dc9"
+  },
+  {
+   "carrier_id": "trwiki:37803168:038:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=37803168",
+   "split_group": "trwiki:Elektrik",
+   "text_sha256": "0b699bfa1a62861ba75297e0436a44164deed6bf50be052d2e61093cc4ab7e7b"
+  },
+  {
+   "carrier_id": "trwiki:37812627:001:long",
+   "length_bucket": "long",
+   "measured_words": 2767,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "38f235f1a0bc67f5f55cc36414cff0d1f139d01d165c8ff63892d66244ce4c9b"
+  },
+  {
+   "carrier_id": "trwiki:37812627:001:medium",
+   "length_bucket": "medium",
+   "measured_words": 924,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "4c6486456f3cd76cd1044ca39dc0306e9d5a1ccdcc4045e1798dba396a5183bf"
+  },
+  {
+   "carrier_id": "trwiki:37812627:001:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "9c23a8d85920ec4c4ee1bba97c1146262e08bd63cc5fa0caf66abd4df7b7c35e"
+  },
+  {
+   "carrier_id": "trwiki:37812627:023:long",
+   "length_bucket": "long",
+   "measured_words": 2772,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "ee6c8d6a1f153d966bdc7433e97bd454e1d85b3a537402ec8606d1c74ae4fc45"
+  },
+  {
+   "carrier_id": "trwiki:37812627:023:medium",
+   "length_bucket": "medium",
+   "measured_words": 928,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "b5b92165165b9866b3c73c762e80185e2027f8d0221f55bd25d4803a742cd1fc"
+  },
+  {
+   "carrier_id": "trwiki:37812627:023:short",
+   "length_bucket": "short",
+   "measured_words": 242,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "9c95c9cc5d405f904aad308ad287053379624025a3f4acf18015583211e056e4"
+  },
+  {
+   "carrier_id": "trwiki:37812627:036:long",
+   "length_bucket": "long",
+   "measured_words": 2765,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "2a93122e10f89e557e1a426ab9032e1c2cec367531b2e7830d77157d955dacc2"
+  },
+  {
+   "carrier_id": "trwiki:37812627:036:medium",
+   "length_bucket": "medium",
+   "measured_words": 922,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "5366d407663cb671b410e6432bf8e574d49d44f9c1bdc3b7bfa8ae4c65e22daa"
+  },
+  {
+   "carrier_id": "trwiki:37812627:036:short",
+   "length_bucket": "short",
+   "measured_words": 278,
+   "source_record_id": "oldid=37812627",
+   "split_group": "trwiki:Göbeklitepe",
+   "text_sha256": "a8a5903839c98da0071e7eb6f9c6cfc85757dae00792a8c91bec0b78e96f5d72"
+  },
+  {
+   "carrier_id": "trwiki:37865166:003:medium",
+   "length_bucket": "medium",
+   "measured_words": 926,
+   "source_record_id": "oldid=37865166",
+   "split_group": "trwiki:Fotosentez",
+   "text_sha256": "9b338f6cc2b1818fb5d9e8f77c050bab0984eb03464c5f841d98d77306388b14"
+  },
+  {
+   "carrier_id": "trwiki:37865166:003:short",
+   "length_bucket": "short",
+   "measured_words": 234,
+   "source_record_id": "oldid=37865166",
+   "split_group": "trwiki:Fotosentez",
+   "text_sha256": "9f8d4c8b12c3b5c9dbf912bf5de86e0c67bec641933e14b18e3812b4f3426802"
+  },
+  {
+   "carrier_id": "trwiki:37865166:005:medium",
+   "length_bucket": "medium",
+   "measured_words": 926,
+   "source_record_id": "oldid=37865166",
+   "split_group": "trwiki:Fotosentez",
+   "text_sha256": "9b338f6cc2b1818fb5d9e8f77c050bab0984eb03464c5f841d98d77306388b14"
+  },
+  {
+   "carrier_id": "trwiki:37865166:005:short",
+   "length_bucket": "short",
+   "measured_words": 250,
+   "source_record_id": "oldid=37865166",
+   "split_group": "trwiki:Fotosentez",
+   "text_sha256": "cdbf3eb5dbd9c5755f8ab630476d0826d0d798bef3c165829fb1a01a20208f91"
+  },
+  {
+   "carrier_id": "trwiki:37865166:007:medium",
+   "length_bucket": "medium",
+   "measured_words": 926,
+   "source_record_id": "oldid=37865166",
+   "split_group": "trwiki:Fotosentez",
+   "text_sha256": "9b338f6cc2b1818fb5d9e8f77c050bab0984eb03464c5f841d98d77306388b14"
+  },
+  {
+   "carrier_id": "trwiki:37865166:007:short",
+   "length_bucket": "short",
+   "measured_words": 239,
+   "source_record_id": "oldid=37865166",
+   "split_group": "trwiki:Fotosentez",
+   "text_sha256": "b0da98ebb2e2c47807f09f9a9a42ac75f39f6a4709cebdfe0fd1f0184f5238e6"
+  },
+  {
+   "carrier_id": "trwiki:38031741:005:medium",
+   "length_bucket": "medium",
+   "measured_words": 931,
+   "source_record_id": "oldid=38031741",
+   "split_group": "trwiki:Satranç",
+   "text_sha256": "5b88250fd72ca3fe03e1f528124b0c2588f7267350b6eb91d31af56b1b9f8a72"
+  },
+  {
+   "carrier_id": "trwiki:38031741:005:short",
+   "length_bucket": "short",
+   "measured_words": 231,
+   "source_record_id": "oldid=38031741",
+   "split_group": "trwiki:Satranç",
+   "text_sha256": "95385d21f206945748156325fa748ff9926c078b138d0b88b0ef0584206cba99"
+  },
+  {
+   "carrier_id": "trwiki:38031741:014:medium",
+   "length_bucket": "medium",
+   "measured_words": 922,
+   "source_record_id": "oldid=38031741",
+   "split_group": "trwiki:Satranç",
+   "text_sha256": "4cb7d85bc52223b28efdbcfdc362a46a3f5eb19423ef27a817a26c7ee83a7dfe"
+  },
+  {
+   "carrier_id": "trwiki:38031741:014:short",
+   "length_bucket": "short",
+   "measured_words": 235,
+   "source_record_id": "oldid=38031741",
+   "split_group": "trwiki:Satranç",
+   "text_sha256": "47b296e9921cc35e6b9de825d7d83a5d789af2f3f29b83d55dca02f8524bf169"
+  },
+  {
+   "carrier_id": "trwiki:38031741:026:medium",
+   "length_bucket": "medium",
+   "measured_words": 925,
+   "source_record_id": "oldid=38031741",
+   "split_group": "trwiki:Satranç",
+   "text_sha256": "25ee782fa7f57cbcb14f4bf124b8e77690540b0bc26cb44ff241f756536f5712"
+  },
+  {
+   "carrier_id": "trwiki:38031741:026:short",
+   "length_bucket": "short",
+   "measured_words": 234,
+   "source_record_id": "oldid=38031741",
+   "split_group": "trwiki:Satranç",
+   "text_sha256": "79bdc22430bfc2097b97979f2d87d4882813122f3f2e7c246dfbaa689004c668"
+  },
+  {
+   "carrier_id": "trwiki:38059663:041:long",
+   "length_bucket": "long",
+   "measured_words": 2774,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "fb671b1ddf2f10139e38c940927c5e4ec0fb75b4fe51ccfee9294fa8b5e28460"
+  },
+  {
+   "carrier_id": "trwiki:38059663:041:medium",
+   "length_bucket": "medium",
+   "measured_words": 925,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "6ac2b23bd23428d53ac2341cf633ddd459337e98a6eeebd58439f269d2db86ff"
+  },
+  {
+   "carrier_id": "trwiki:38059663:041:short",
+   "length_bucket": "short",
+   "measured_words": 240,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "1cbd1f9dfac88611912654fc247a8d92aa92ae98e841ad3e65dcce2948d5a63a"
+  },
+  {
+   "carrier_id": "trwiki:38059663:048:long",
+   "length_bucket": "long",
+   "measured_words": 2777,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "3bdb039b2600ecaa0fab48ea26db1dd5b6731b313805e9471be44c4ddb6b6175"
+  },
+  {
+   "carrier_id": "trwiki:38059663:048:medium",
+   "length_bucket": "medium",
+   "measured_words": 934,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "63c0f24289a5700f8543a9a4536b84d9dae323458338f6d3d67a136bfb536d9f"
+  },
+  {
+   "carrier_id": "trwiki:38059663:048:short",
+   "length_bucket": "short",
+   "measured_words": 249,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "c356ea5a6cf177614289e8d5e20bd3377406308b6c3c3d50e7fd9dd14317fa80"
+  },
+  {
+   "carrier_id": "trwiki:38059663:060:long",
+   "length_bucket": "long",
+   "measured_words": 2785,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "187032470b43d72fa38796961cdcb8deaee0d3431d350a91d629d0cc8a44b2a2"
+  },
+  {
+   "carrier_id": "trwiki:38059663:060:medium",
+   "length_bucket": "medium",
+   "measured_words": 943,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "6bc24719493ef6f76c299035c21cef8f384aee0bd20d1e6d4855c5376e76e2e2"
+  },
+  {
+   "carrier_id": "trwiki:38059663:060:short",
+   "length_bucket": "short",
+   "measured_words": 242,
+   "source_record_id": "oldid=38059663",
+   "split_group": "trwiki:Mars",
+   "text_sha256": "f286b4e293cceb3bc2553e897761232ce8ea207eab3e5032c874d8926ecc71b7"
+  },
+  {
+   "carrier_id": "trwiki:38070068:001:short",
+   "length_bucket": "short",
+   "measured_words": 252,
+   "source_record_id": "oldid=38070068",
+   "split_group": "trwiki:Fındık",
+   "text_sha256": "7b5709cfea9ec3ccc953a84207b1c3cc5560209eb410ad8240092a396d698a07"
+  },
+  {
+   "carrier_id": "trwiki:38070068:008:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=38070068",
+   "split_group": "trwiki:Fındık",
+   "text_sha256": "658a075355dac5a0e65be419b92893bd4d9a65e148fd8325c8ea4d3b5aa1899c"
+  },
+  {
+   "carrier_id": "trwiki:38070068:009:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=38070068",
+   "split_group": "trwiki:Fındık",
+   "text_sha256": "658a075355dac5a0e65be419b92893bd4d9a65e148fd8325c8ea4d3b5aa1899c"
+  },
+  {
+   "carrier_id": "trwiki:38127169:003:short",
+   "length_bucket": "short",
+   "measured_words": 254,
+   "source_record_id": "oldid=38127169",
+   "split_group": "trwiki:Karadeniz",
+   "text_sha256": "4aad2e23428eb6d76344e42b98d18bf89a827e7e99b0efa4e9b0a7e3f5dd2417"
+  },
+  {
+   "carrier_id": "trwiki:38127169:005:short",
+   "length_bucket": "short",
+   "measured_words": 269,
+   "source_record_id": "oldid=38127169",
+   "split_group": "trwiki:Karadeniz",
+   "text_sha256": "f4645032dfdf3236f6880d9c2c0cec3e056daff31a20a17833531a13f950bdc0"
+  },
+  {
+   "carrier_id": "trwiki:38127169:007:short",
+   "length_bucket": "short",
+   "measured_words": 243,
+   "source_record_id": "oldid=38127169",
+   "split_group": "trwiki:Karadeniz",
+   "text_sha256": "6939b2b36509fc2689b70e99edfe5ae0cb1c42384c608a3aea848a3e2bd7f74d"
+  },
+  {
+   "carrier_id": "trwiki:38328473:000:medium",
+   "length_bucket": "medium",
+   "measured_words": 922,
+   "source_record_id": "oldid=38328473",
+   "split_group": "trwiki:Mimar Sinan",
+   "text_sha256": "67877ca8a42db7e9904921d1b902d2054921386bdbef5a185f5bd5752dbbb7ad"
+  },
+  {
+   "carrier_id": "trwiki:38328473:000:short",
+   "length_bucket": "short",
+   "measured_words": 242,
+   "source_record_id": "oldid=38328473",
+   "split_group": "trwiki:Mimar Sinan",
+   "text_sha256": "dae23c49d81e11bcfce67b7d587d262c000df039f205eb119ae910d93d76e4d1"
+  },
+  {
+   "carrier_id": "trwiki:38328473:003:medium",
+   "length_bucket": "medium",
+   "measured_words": 922,
+   "source_record_id": "oldid=38328473",
+   "split_group": "trwiki:Mimar Sinan",
+   "text_sha256": "67877ca8a42db7e9904921d1b902d2054921386bdbef5a185f5bd5752dbbb7ad"
+  },
+  {
+   "carrier_id": "trwiki:38328473:003:short",
+   "length_bucket": "short",
+   "measured_words": 240,
+   "source_record_id": "oldid=38328473",
+   "split_group": "trwiki:Mimar Sinan",
+   "text_sha256": "52cfaf14b67c47ada76e6a10204b00cae5a6272da5af5db113b2a52fd6c766e4"
+  },
+  {
+   "carrier_id": "trwiki:38328473:005:medium",
+   "length_bucket": "medium",
+   "measured_words": 937,
+   "source_record_id": "oldid=38328473",
+   "split_group": "trwiki:Mimar Sinan",
+   "text_sha256": "8147d3dcfca25328160e676a0b0cbfca507eaa480deb2bba1a756f2e4819b95c"
+  },
+  {
+   "carrier_id": "trwiki:38328473:005:short",
+   "length_bucket": "short",
+   "measured_words": 238,
+   "source_record_id": "oldid=38328473",
+   "split_group": "trwiki:Mimar Sinan",
+   "text_sha256": "efb397ddf84ab6acd465f2248743cea3ac83329a67f40cb07eda7cd56d9ab26d"
+  },
+  {
+   "carrier_id": "trwiki:38342133:014:long",
+   "length_bucket": "long",
+   "measured_words": 2807,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "1bd31a5ec84fbf9ed204e48151eb5367816bd0d71ec0306262a58c2f9639a813"
+  },
+  {
+   "carrier_id": "trwiki:38342133:014:medium",
+   "length_bucket": "medium",
+   "measured_words": 932,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "81a42bb1271253dbe52aac50515038ab3f665addacfd59d079c5c0aa337a04f1"
+  },
+  {
+   "carrier_id": "trwiki:38342133:014:short",
+   "length_bucket": "short",
+   "measured_words": 258,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "d4e698bd792ab2b7f72c47d15555ac33f438a78f3c2ac725acee33bb5f9ca0e6"
+  },
+  {
+   "carrier_id": "trwiki:38342133:028:long",
+   "length_bucket": "long",
+   "measured_words": 2774,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "a877f6405ef9ff16fb6b9bb480fedac0cf34e94f3ac108835164349ab6b71e12"
+  },
+  {
+   "carrier_id": "trwiki:38342133:028:medium",
+   "length_bucket": "medium",
+   "measured_words": 935,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "6ab7116c404a45c90b7ab4b8be1b54e2ead7e75da9ba168b8dd838ec79b31bf1"
+  },
+  {
+   "carrier_id": "trwiki:38342133:028:short",
+   "length_bucket": "short",
+   "measured_words": 262,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "3547bcf83ab2688d2c6d0fd89d21213d805b1100c90fd173bd4a0762d1943b44"
+  },
+  {
+   "carrier_id": "trwiki:38342133:032:long",
+   "length_bucket": "long",
+   "measured_words": 2774,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "a877f6405ef9ff16fb6b9bb480fedac0cf34e94f3ac108835164349ab6b71e12"
+  },
+  {
+   "carrier_id": "trwiki:38342133:032:medium",
+   "length_bucket": "medium",
+   "measured_words": 935,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "6ab7116c404a45c90b7ab4b8be1b54e2ead7e75da9ba168b8dd838ec79b31bf1"
+  },
+  {
+   "carrier_id": "trwiki:38342133:032:short",
+   "length_bucket": "short",
+   "measured_words": 236,
+   "source_record_id": "oldid=38342133",
+   "split_group": "trwiki:Yunus Emre",
+   "text_sha256": "41e014e380adc8782c0c2034c5ce432f674729a7d7b89901785d6f48dac5224e"
+  },
+  {
+   "carrier_id": "trwiki:38483511:006:long",
+   "length_bucket": "long",
+   "measured_words": 2775,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "b2a97636ba87595c17cd24da344d283d568dd1fb2bbc1fc8359b1e080f96b31c"
+  },
+  {
+   "carrier_id": "trwiki:38483511:006:medium",
+   "length_bucket": "medium",
+   "measured_words": 948,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "a9e0d97b029e9fc86239ec389ae452cc6745dfcf3417d94394a58ff2a492cf6a"
+  },
+  {
+   "carrier_id": "trwiki:38483511:006:short",
+   "length_bucket": "short",
+   "measured_words": 237,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "85da934513d4dd506146941c837db576c286fedcfe6d81a02fe3b93307b77da4"
+  },
+  {
+   "carrier_id": "trwiki:38483511:014:long",
+   "length_bucket": "long",
+   "measured_words": 2775,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "b2a97636ba87595c17cd24da344d283d568dd1fb2bbc1fc8359b1e080f96b31c"
+  },
+  {
+   "carrier_id": "trwiki:38483511:014:medium",
+   "length_bucket": "medium",
+   "measured_words": 923,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "61ecaa97755d8287f52b43c3b2c254bd0be4a7043bc4182e264129c2be670f9b"
+  },
+  {
+   "carrier_id": "trwiki:38483511:014:short",
+   "length_bucket": "short",
+   "measured_words": 241,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "21e973b8c5186932a11778bfc6fd873775e8798fc75b8eb5433d7a1c9c92b4fe"
+  },
+  {
+   "carrier_id": "trwiki:38483511:031:long",
+   "length_bucket": "long",
+   "measured_words": 2781,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "448eddd78d0833a0dd9d613bdfdbc7626d522e5507cc8e73fa1611ebcfc4e543"
+  },
+  {
+   "carrier_id": "trwiki:38483511:031:medium",
+   "length_bucket": "medium",
+   "measured_words": 938,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "f5cd8742840d4e21af61aaea924484df7c2c1a25dcae0136bb4bad30ae912fa4"
+  },
+  {
+   "carrier_id": "trwiki:38483511:031:short",
+   "length_bucket": "short",
+   "measured_words": 251,
+   "source_record_id": "oldid=38483511",
+   "split_group": "trwiki:Zeytin",
+   "text_sha256": "63bb7062c2f1792434e14cc0f6eae14569dcc1f2bc4d272e1fb3da641edc526a"
+  },
+  {
+   "carrier_id": "trwiki:38510904:028:long",
+   "length_bucket": "long",
+   "measured_words": 2775,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "2f734c68164e83d270f214809d443034c67d4cffe5b76e253715dae1500b0ad0"
+  },
+  {
+   "carrier_id": "trwiki:38510904:028:medium",
+   "length_bucket": "medium",
+   "measured_words": 933,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "d7132e29147f95e5c9f403425cfe426c405ad7cce3e521378c8212a3e289407d"
+  },
+  {
+   "carrier_id": "trwiki:38510904:028:short",
+   "length_bucket": "short",
+   "measured_words": 245,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "96565f9d708b5b6bc9545dac2c18b1464f1f9f904a7fa1ada54019c4ae148636"
+  },
+  {
+   "carrier_id": "trwiki:38510904:036:long",
+   "length_bucket": "long",
+   "measured_words": 2768,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "35ad3a0030e4b6d4882f8fe7caf5abd15ec737aaf91600a6c2c0d065b0b6834b"
+  },
+  {
+   "carrier_id": "trwiki:38510904:036:medium",
+   "length_bucket": "medium",
+   "measured_words": 932,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "94a716e47fe3837200248db17e514f19f652b5d5ad83a4b8d181a256c2409d05"
+  },
+  {
+   "carrier_id": "trwiki:38510904:036:short",
+   "length_bucket": "short",
+   "measured_words": 236,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "ae12294a043165a7a5ead8a13d55d690234e7d83d434335804ecd04c9285399b"
+  },
+  {
+   "carrier_id": "trwiki:38510904:102:long",
+   "length_bucket": "long",
+   "measured_words": 2777,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "5c42699899972d8c63ad3fa880619b698648abc5a162f9b516a043de749ce6d3"
+  },
+  {
+   "carrier_id": "trwiki:38510904:102:medium",
+   "length_bucket": "medium",
+   "measured_words": 932,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "2883d5eeeecba679025d0925c3e28a4a41d58e3b7d54285edca2177acc4fbcd6"
+  },
+  {
+   "carrier_id": "trwiki:38510904:102:short",
+   "length_bucket": "short",
+   "measured_words": 248,
+   "source_record_id": "oldid=38510904",
+   "split_group": "trwiki:İstanbul Boğazı",
+   "text_sha256": "182198865d3233733c934c11ee625f338edbd9764ca810df0a2e2982e91f927a"
+  },
+  {
+   "carrier_id": "trwiki:38552640:025:medium",
+   "length_bucket": "medium",
+   "measured_words": 925,
+   "source_record_id": "oldid=38552640",
+   "split_group": "trwiki:Deprem",
+   "text_sha256": "b7de4f4de9b4bb416d0300211e41b137efb6dc116de6637e79bcc9b8fe0b8cdc"
+  },
+  {
+   "carrier_id": "trwiki:38552640:025:short",
+   "length_bucket": "short",
+   "measured_words": 239,
+   "source_record_id": "oldid=38552640",
+   "split_group": "trwiki:Deprem",
+   "text_sha256": "8f4d30d0134858b5d8e8f18a2ad2232cb95ddf08c432bce06f0b152f1ca6007a"
+  },
+  {
+   "carrier_id": "trwiki:38552640:028:medium",
+   "length_bucket": "medium",
+   "measured_words": 924,
+   "source_record_id": "oldid=38552640",
+   "split_group": "trwiki:Deprem",
+   "text_sha256": "a705850356dcce8f1a00fd1c6b5be94ecb1ccb157750ae2855868c1523e07316"
+  },
+  {
+   "carrier_id": "trwiki:38552640:028:short",
+   "length_bucket": "short",
+   "measured_words": 232,
+   "source_record_id": "oldid=38552640",
+   "split_group": "trwiki:Deprem",
+   "text_sha256": "4e634cb48badd665fed7748bea81d7a0676d79f1afb59389e905bf62f60da425"
+  },
+  {
+   "carrier_id": "trwiki:38552640:040:medium",
+   "length_bucket": "medium",
+   "measured_words": 926,
+   "source_record_id": "oldid=38552640",
+   "split_group": "trwiki:Deprem",
+   "text_sha256": "cf48b2170e39981e847d2a1d753309760a1d79383950b4278665f87e55747750"
+  },
+  {
+   "carrier_id": "trwiki:38552640:040:short",
+   "length_bucket": "short",
+   "measured_words": 232,
+   "source_record_id": "oldid=38552640",
+   "split_group": "trwiki:Deprem",
+   "text_sha256": "e1a187e16b5e3f6d70d8cdd7eb6a8ae17a02a3e85f0f0ab08a0a121588f22886"
+  },
+  {
+   "carrier_id": "trwiki:38572001:000:medium",
+   "length_bucket": "medium",
+   "measured_words": 927,
+   "source_record_id": "oldid=38572001",
+   "split_group": "trwiki:Arı",
+   "text_sha256": "5d34e3c9d542a9c5d6c8b42bc5959260b6cf9899768e7d8eafd0645030b542cd"
+  },
+  {
+   "carrier_id": "trwiki:38572001:000:short",
+   "length_bucket": "short",
+   "measured_words": 233,
+   "source_record_id": "oldid=38572001",
+   "split_group": "trwiki:Arı",
+   "text_sha256": "a0484f90ed5d804745efcd9ad70c9c5579f34ff31e5763dead09c2f1ece97f5d"
+  },
+  {
+   "carrier_id": "trwiki:38572001:020:medium",
+   "length_bucket": "medium",
+   "measured_words": 924,
+   "source_record_id": "oldid=38572001",
+   "split_group": "trwiki:Arı",
+   "text_sha256": "4ce21c3785ada71f3c401517e42bd37df7eb6c4abcb366c0259da412eeb6464f"
+  },
+  {
+   "carrier_id": "trwiki:38572001:020:short",
+   "length_bucket": "short",
+   "measured_words": 244,
+   "source_record_id": "oldid=38572001",
+   "split_group": "trwiki:Arı",
+   "text_sha256": "e1460bed398679b37c1f6df4e9787ce7635332bbc753f5608667d9c3f1dbef25"
+  },
+  {
+   "carrier_id": "trwiki:38572001:025:medium",
+   "length_bucket": "medium",
+   "measured_words": 923,
+   "source_record_id": "oldid=38572001",
+   "split_group": "trwiki:Arı",
+   "text_sha256": "deadf37dc07ca9d4c00db3a68a7e06b6e4f6612a35f6d52ca44b745be610dd5a"
+  },
+  {
+   "carrier_id": "trwiki:38572001:025:short",
+   "length_bucket": "short",
+   "measured_words": 243,
+   "source_record_id": "oldid=38572001",
+   "split_group": "trwiki:Arı",
+   "text_sha256": "0e49b9625da2854d76c1543cf6830df68df0b52afc20a2b729a5db3fda5fad5e"
+  },
+  {
+   "carrier_id": "trwiki:38581727:032:long",
+   "length_bucket": "long",
+   "measured_words": 2766,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "211635e6757def4dfba0bfa3c0756baa389aaf8bfdb448e0ff73533d13b34770"
+  },
+  {
+   "carrier_id": "trwiki:38581727:032:medium",
+   "length_bucket": "medium",
+   "measured_words": 925,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "3eb5c26c984ddde2359546aac93f11e774c9f942ef201e4b2287ec8a57b0aeae"
+  },
+  {
+   "carrier_id": "trwiki:38581727:032:short",
+   "length_bucket": "short",
+   "measured_words": 236,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "ced1c19cb55adcb7dbde5468db5ba6a0308d4a23c280947580ea15ba0fa641cb"
+  },
+  {
+   "carrier_id": "trwiki:38581727:034:long",
+   "length_bucket": "long",
+   "measured_words": 2775,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "c59417deab6e9a7201fe7210dd8086b9e45f60f97c60d00b9410ec15632859cd"
+  },
+  {
+   "carrier_id": "trwiki:38581727:034:medium",
+   "length_bucket": "medium",
+   "measured_words": 933,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "8ff7aa6e90f448928f94925857ccb13e92d9fc111e41067c290edb8eeaad7989"
+  },
+  {
+   "carrier_id": "trwiki:38581727:034:short",
+   "length_bucket": "short",
+   "measured_words": 240,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "5ff6fd98af45b5fce9c2f9b5ef066d2f6ddf1e87af037cf1a4db73bd2d35aae2"
+  },
+  {
+   "carrier_id": "trwiki:38581727:069:long",
+   "length_bucket": "long",
+   "measured_words": 2770,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "924403c1fcd3e695b515a98e111ce1a5a2712532e18083110ad88a12d7ee51d4"
+  },
+  {
+   "carrier_id": "trwiki:38581727:069:medium",
+   "length_bucket": "medium",
+   "measured_words": 924,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "368f470b6afbe879f211b259b718e42bc98fe6d82813323e22ee6a3f5c7e5303"
+  },
+  {
+   "carrier_id": "trwiki:38581727:069:short",
+   "length_bucket": "short",
+   "measured_words": 243,
+   "source_record_id": "oldid=38581727",
+   "split_group": "trwiki:Ay",
+   "text_sha256": "077cb475f204ff7e911946c4205477ad3a13d8a68715f4a2d4cbc09c37d239cd"
+  },
+  {
+   "carrier_id": "trwiki:38587985:010:medium",
+   "length_bucket": "medium",
+   "measured_words": 927,
+   "source_record_id": "oldid=38587985",
+   "split_group": "trwiki:Yanardağ",
+   "text_sha256": "f23d35cc92fc5b9157877f0fd62c23117d2bc39d7199112e8d4238834391e1df"
+  },
+  {
+   "carrier_id": "trwiki:38587985:010:short",
+   "length_bucket": "short",
+   "measured_words": 235,
+   "source_record_id": "oldid=38587985",
+   "split_group": "trwiki:Yanardağ",
+   "text_sha256": "1f99a61b3edb1b5dedb7ca3b8038764510e8e4d2798604c4e47437716bed8a1b"
+  },
+  {
+   "carrier_id": "trwiki:38587985:015:medium",
+   "length_bucket": "medium",
+   "measured_words": 926,
+   "source_record_id": "oldid=38587985",
+   "split_group": "trwiki:Yanardağ",
+   "text_sha256": "ee513b6ed5bea8831f2e5af66e22a5db3436308c37385ae3e9b0bd87c27611c4"
+  },
+  {
+   "carrier_id": "trwiki:38587985:015:short",
+   "length_bucket": "short",
+   "measured_words": 238,
+   "source_record_id": "oldid=38587985",
+   "split_group": "trwiki:Yanardağ",
+   "text_sha256": "a7a1d9cd3bd1af4c0aafc31294c4bace528a8e5d4039d460f96c7281a174cc9b"
+  },
+  {
+   "carrier_id": "trwiki:38587985:017:medium",
+   "length_bucket": "medium",
+   "measured_words": 926,
+   "source_record_id": "oldid=38587985",
+   "split_group": "trwiki:Yanardağ",
+   "text_sha256": "ee513b6ed5bea8831f2e5af66e22a5db3436308c37385ae3e9b0bd87c27611c4"
+  },
+  {
+   "carrier_id": "trwiki:38587985:017:short",
+   "length_bucket": "short",
+   "measured_words": 235,
+   "source_record_id": "oldid=38587985",
+   "split_group": "trwiki:Yanardağ",
+   "text_sha256": "a0d4789b4d1af1cfe03739db0d9bad77a90ff7b21136611008f823e08f50eb78"
+  }
+ ],
+ "carriers_sha256": "430ed0cfb050238c4ef5ccb00c05f1e2c11de1b9e125fa404af9f56b8d62c73e",
+ "length_buckets": {
+  "long": 24,
+  "medium": 60,
+  "short": 69
+ },
+ "registry_id": "trwiki",
+ "split_groups": 23
+}
