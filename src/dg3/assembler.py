@@ -9,12 +9,12 @@ Family roles (taxonomy.FAMILY_ROLES):
 
 The injection (or trigger text) is inserted as its own paragraph at the head,
 middle or tail of the carrier. Obfuscation reuses G2's ``obfuscate_instruction``.
-Splits are assigned per *carrier*, so every family built on the same carrier
-lands in the same split (family-disjoint and carrier-disjoint).
+Splits are assigned per carrier ``split_group`` (the source article; falls back
+to carrier_id), so every family built on the same article lands in the same
+split (family-, carrier- and article-disjoint).
 
-Length buckets are intentionally not applied here: G3 fills length with real
-neighbouring paragraphs from the carrier corpus (plan step 3), never with
-synthetic filler.
+Length buckets come from the carrier itself (see ingest.py: real neighbouring
+paragraphs, never synthetic filler).
 """
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-from src.dg2.generator import canonical_json, obfuscate_instruction, split_for, stable_id
+from src.dg2.generator import canonical_json, obfuscate_instruction, split_for, stable_id, word_count
 
 from . import __version__
 from .attacks import assemblable
@@ -72,6 +72,10 @@ def insert_paragraph(carrier: str, insert: str, position: str) -> tuple[str, int
     return text, len(prefix)
 
 
+def split_group(carrier: dict) -> str:
+    return carrier.get("split_group") or carrier["carrier_id"]
+
+
 def _sha(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
@@ -81,7 +85,7 @@ def build_family(carrier: dict, component: dict, position: str, obfuscation: str
         raise ValueError(f"Unknown obfuscation {obfuscation}")
     seed = config["seed"]
     family_id = stable_id("FAM", carrier["carrier_id"], component["component_id"], position, obfuscation)
-    split = split_for(carrier["carrier_id"], seed, config["split_ratios"])
+    split = split_for(split_group(carrier), seed, config["split_ratios"])
     clean_id = stable_id("DG3", family_id, "clean")
 
     injected_text = obfuscate_instruction(component["instruction"], obfuscation)
@@ -142,11 +146,14 @@ def build_family(carrier: dict, component: dict, position: str, obfuscation: str
             "experimental_factors": {
                 "injection_position": position, "obfuscation": obfuscation,
                 "language": carrier["language"], "scenario": carrier["scenario"],
+                "context_length_bucket": carrier.get("length_bucket", "unbucketed"),
+                "measured_words": word_count(text),
                 "goal": component["goal"], "authority": "trusted" if role == "authorized_twin" else "untrusted",
                 "language_mode": "code_switch" if cross_language else "monolingual",
             },
             "split": split,
             "provenance": {"origin": "assembled_from_registry", "carrier_id": carrier["carrier_id"],
+                           "split_group": split_group(carrier),
                            "component_id": component["component_id"],
                            "component_status": component["annotation_status"]},
             "safety": {"fictional": bool(component["safety"].get("fictional", True)),
@@ -178,7 +185,8 @@ def generate(config: dict, carriers: list[dict], components: list[dict]) -> list
     buckets: dict[tuple, list] = {}
     for combo in combos:
         c, a, p, o = combo
-        buckets.setdefault((c["language"], c["scenario"], a["goal"], p, o), []).append(combo)
+        buckets.setdefault((c["language"], c["scenario"], c.get("length_bucket", ""), a["goal"], p, o),
+                           []).append(combo)
     for key in sorted(buckets):
         rng.shuffle(buckets[key])
     keys = sorted(buckets)
@@ -209,7 +217,7 @@ def validate(records: list[dict], schema: dict | None = None) -> list[str]:
             errors.extend(f"{rid}: {e}" for e in check(r, schema))
         try:
             families.setdefault(r["family_id"], []).append(r)
-            carrier_splits.setdefault(r["provenance"]["carrier_id"], set()).add(r["split"])
+            carrier_splits.setdefault(r["provenance"]["split_group"], set()).add(r["split"])
             if ROLE_LABELS.get(r["family_role"]) != r["label"]:
                 errors.append(f"{rid}: label {r['label']} inconsistent with role {r['family_role']}")
             if r["label"] == "injection" and not r["injection_spans"]:
@@ -241,7 +249,7 @@ def validate(records: list[dict], schema: dict | None = None) -> list[str]:
                 errors.append(f"{fid}: witness present in {role} record (oracle false positive)")
     for cid, splits in carrier_splits.items():
         if len(splits) != 1:
-            errors.append(f"{cid}: carrier split leakage {sorted(splits)}")
+            errors.append(f"{cid}: split_group leakage {sorted(splits)}")
     return errors
 
 
@@ -250,7 +258,7 @@ def write_release(records: list[dict], output: Path, config: dict, *, near_dup_t
     payload = "".join(canonical_json(r) + "\n" for r in records).encode("utf-8")
     output.write_bytes(payload)
     dups = near_duplicates(records, near_dup_threshold)
-    factors = ("injection_position", "obfuscation", "goal", "authority", "language_mode")
+    factors = ("injection_position", "obfuscation", "goal", "authority", "language_mode", "context_length_bucket")
     manifest = {
         "schema_version": SCHEMA_VERSION, "generator_version": __version__,
         "seed": config["seed"], "record_count": len(records),

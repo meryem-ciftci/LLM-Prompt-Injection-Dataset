@@ -26,7 +26,7 @@ import json
 import unicodedata
 from pathlib import Path
 
-from src.dg2.generator import read_jsonl
+from src.dg2.generator import CONTEXT_WORD_TARGETS, read_jsonl
 
 from .taxonomy import SCENARIOS
 
@@ -96,6 +96,8 @@ def _validate_carrier(row: dict, entry: dict) -> list[str]:
         errors.append(f'{cid}: unknown scenario {row["scenario"]}')
     if not isinstance(row["text"], str) or not row["text"].strip():
         errors.append(f"{cid}: empty text")
+    if row.get("length_bucket") is not None and row["length_bucket"] not in CONTEXT_WORD_TARGETS:
+        errors.append(f'{cid}: unknown length_bucket {row["length_bucket"]}')
     task = row["task"]
     if not isinstance(task, dict) or not task.get("instruction"):
         errors.append(f"{cid}: task.instruction missing")
@@ -115,6 +117,8 @@ def load_carriers(registry_path: Path) -> list[dict]:
     carriers, errors, seen = [], [], set()
     for entry in entries:
         path = (base / entry["carriers_path"]).resolve()
+        if not path.exists():
+            raise FileNotFoundError(f'{entry["registry_id"]}: {path} missing; run tools/ingest_carriers.py first')
         digest = file_sha256(path)
         pinned = entry.get("snapshot_sha256")
         if pinned is not None and pinned != digest:

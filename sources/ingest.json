@@ -1,0 +1,21 @@
+{
+  "seed": 20261116,
+  "length_buckets": ["short", "medium", "long"],
+  "squad11_dev": {
+    "url": "https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json",
+    "raw_path": "data/raw/squad/dev-v1.1.json",
+    "raw_sha256": "95aa6a52d5d6a735563366753ca50492a658031da74f301ac5238b03966972c9",
+    "anchors_per_article": 5
+  },
+  "trwiki": {
+    "api": "https://tr.wikipedia.org/w/api.php",
+    "pins_path": "sources/trwiki_revisions.json",
+    "anchors_per_article": 3,
+    "titles": [
+      "Fotosentez", "Ay", "Mars", "Van Gölü", "Kapadokya", "İstanbul Boğazı",
+      "Mimar Sinan", "Yunus Emre", "Çay", "Zeytin", "Fındık", "Elektrik",
+      "DNA", "Yanardağ", "Deprem", "Satranç", "Piyano", "Kütüphane",
+      "Karadeniz", "Göbeklitepe", "Arı", "Buzul", "Kâğıt", "Matbaa"
+    ]
+  }
+}

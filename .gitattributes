@@ -1,0 +1,6 @@
+# Data and config files are hashed (SHA-256 manifests, snapshot pins): keep
+# byte-identical line endings on every OS.
+*.jsonl text eol=lf
+*.json  text eol=lf
+*.csv   text eol=lf
+*.sha256 text eol=lf

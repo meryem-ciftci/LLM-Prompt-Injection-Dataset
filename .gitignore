@@ -29,3 +29,6 @@ evaluation/reports/*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Raw third-party corpora and derived carrier text (G3): only IDs and hashes are committed
+data/raw/

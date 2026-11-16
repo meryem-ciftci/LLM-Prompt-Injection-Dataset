@@ -1,0 +1,101 @@
+{
+  "api": "https://tr.wikipedia.org/w/api.php",
+  "revisions": [
+    {
+      "title": "Piyano",
+      "revid": 34745793
+    },
+    {
+      "title": "Buzul",
+      "revid": 35784240
+    },
+    {
+      "title": "Kâğıt",
+      "revid": 37236242
+    },
+    {
+      "title": "Matbaacılık",
+      "revid": 37442107
+    },
+    {
+      "title": "Çay",
+      "revid": 37460819
+    },
+    {
+      "title": "DNA",
+      "revid": 37517877
+    },
+    {
+      "title": "Kapadokya",
+      "revid": 37677468
+    },
+    {
+      "title": "Kütüphane",
+      "revid": 37702937
+    },
+    {
+      "title": "Van Gölü",
+      "revid": 37777885
+    },
+    {
+      "title": "Elektrik",
+      "revid": 37803168
+    },
+    {
+      "title": "Göbeklitepe",
+      "revid": 37812627
+    },
+    {
+      "title": "Fotosentez",
+      "revid": 37865166
+    },
+    {
+      "title": "Satranç",
+      "revid": 38031741
+    },
+    {
+      "title": "Mars",
+      "revid": 38059663
+    },
+    {
+      "title": "Fındık",
+      "revid": 38070068
+    },
+    {
+      "title": "Karadeniz",
+      "revid": 38127169
+    },
+    {
+      "title": "Mimar Sinan",
+      "revid": 38328473
+    },
+    {
+      "title": "Yunus Emre",
+      "revid": 38342133
+    },
+    {
+      "title": "Zeytin",
+      "revid": 38483511
+    },
+    {
+      "title": "İstanbul Boğazı",
+      "revid": 38510904
+    },
+    {
+      "title": "Deprem",
+      "revid": 38552640
+    },
+    {
+      "title": "Arı",
+      "revid": 38572001
+    },
+    {
+      "title": "Ay",
+      "revid": 38581727
+    },
+    {
+      "title": "Yanardağ",
+      "revid": 38587985
+    }
+  ]
+}
