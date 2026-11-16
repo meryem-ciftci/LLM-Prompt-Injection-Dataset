@@ -23,6 +23,7 @@ def open_model(model: str, *, tool: str, seed: int, temperature: float, system_p
     digest = pinned_digest(model, chat.digest(model))
     meta = run_meta(tool=tool, model=model, digest=digest, seed=seed, temperature=temperature,
                     system_prompt=system_prompt, ollama_version=chat.version())
+    meta["num_ctx"] = chat.num_ctx
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open("a", encoding="utf-8", newline="\n") as fh:
         fh.write(json.dumps(meta, ensure_ascii=False, sort_keys=True) + "\n")

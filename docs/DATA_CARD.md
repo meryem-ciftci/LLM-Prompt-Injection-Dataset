@@ -99,11 +99,24 @@ windows of the same article.
 
 - Text is NFC-normalised. Injection spans are character offsets and are round-trip validated
   (`carrier_text[start:end] == text`).
-- Labels follow the family role (construction labels). **Automatic label agreement:**
-  `tools/local/prelabel.py` (two different local models, blind) plus
-  `tools/local/label_agreement.py` report Cohen's κ between the models and against the
-  construction labels, and span IoU. *This report has not been run for v0.1.0.* No κ value is
-  claimed until it exists in `data/annotation/`.
+- Labels follow the family role (construction labels).
+- **Automatic label agreement** (not a human annotation study). Two local models labelled all
+  600 records blind with `tools/local/prelabel.py`: `qwen3:8b` and `mistral:latest`, temperature 0,
+  16k context. The report is `data/annotation/agreement_dg3_pilot_v0__qwen3_8b__mistral_latest.json`.
+
+  | | qwen3:8b | mistral:latest |
+  |---|---|---|
+  | κ vs construction labels | 0.58 | 0.18 |
+  | Agreement vs construction | 0.85 | 0.69 |
+  | `injected_untrusted` labelled injection | 90 / 150 | 29 / 150 |
+  | `authorized_twin` labelled benign | 122 / 150 | 142 / 150 |
+  | `clean` labelled benign | 150 / 150 | 122 / 150 |
+  | `trigger_benign` labelled benign | 150 / 150 | 123 / 150 |
+  | Mean injection-span char IoU | 0.39 | 0.05 |
+
+  Inter-model κ = 0.07 (raw agreement 0.69). The two models disagree mostly on injected records.
+  These numbers describe how well small local models recover the construction labels; they are
+  **not** a validation of the labels and not a detector benchmark.
 
 ## 5. Uses
 

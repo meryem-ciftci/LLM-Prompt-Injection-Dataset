@@ -3,8 +3,8 @@
     python tools/local/prelabel.py data/generated/dg3_pilot_v0.jsonl --model qwen3:8b
     python tools/local/prelabel.py data/generated/dg3_pilot_v0.jsonl --model mistral:latest
     python tools/local/label_agreement.py data/generated/dg3_pilot_v0.jsonl \
-        data/annotation/prelabels_dg3_pilot_v0_qwen3_8b.jsonl \
-        data/annotation/prelabels_dg3_pilot_v0_mistral_latest.jsonl
+        data/annotation/prelabels_dg3_pilot_v0_qwen3_8b_<tag>.jsonl \
+        data/annotation/prelabels_dg3_pilot_v0_mistral_latest_<tag>.jsonl
 
 Writes data/annotation/agreement_<dataset>__<a>__<b>.json. Not a human annotation study.
 """
