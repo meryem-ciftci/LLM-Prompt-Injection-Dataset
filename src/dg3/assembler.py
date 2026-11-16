@@ -170,33 +170,128 @@ def _compatible(carrier: dict, component: dict) -> bool:
     return "multilingual_switch" in component["techniques"]
 
 
+def _least_used(pool: list[dict], uses: Counter, key: str) -> dict:
+    """First item (in the pre-shuffled pool order) among those used the fewest times."""
+    low = min(uses[item[key]] for item in pool)
+    return next(item for item in pool if uses[item[key]] == low)
+
+
+SPLIT_TIE_ORDER = ("test", "validation", "train")  # small pools fill held-out splits first after train
+
+
+def component_splits(components: list[dict], ratios: dict[str, float], seed: int) -> dict[str, str]:
+    """Assign every attack component to one split, stratified per (language, goal) pool.
+
+    Within a pool (shuffled by seed) the first three components go to train, test and
+    validation, so every held-out split sees each (language, goal) cell whenever the pool
+    allows; later ones go to the split with the largest deficit ``ratio * (i + 1) - assigned``.
+    The same injection text therefore never appears in two splits.
+    """
+    rng = random.Random(f"{seed}:component_splits")
+    pools: dict[tuple, list[dict]] = {}
+    for a in sorted(components, key=lambda a: a["component_id"]):
+        pools.setdefault((a["language"], a["goal"]), []).append(a)
+    out = {}
+    for key in sorted(pools):
+        pool = pools[key]
+        rng.shuffle(pool)
+        assigned = Counter()
+        seeding = [s for s in ("train", "test", "validation") if ratios.get(s, 0) > 0]
+        for i, a in enumerate(pool):
+            if i < len(seeding):
+                split = seeding[i]
+            else:
+                split = max(SPLIT_TIE_ORDER, key=lambda s: (round(ratios[s] * (i + 1) - assigned[s], 9),
+                                                            -SPLIT_TIE_ORDER.index(s)))
+            assigned[split] += 1
+            out[a["component_id"]] = split
+    return out
+
+
 def generate(config: dict, carriers: list[dict], components: list[dict]) -> list[dict]:
-    """Deterministically assemble ``config['families']`` families (4 records each)."""
+    """Deterministically assemble ``config['families']`` families (4 records each).
+
+    Stratified selection: primary cells are (language, scenario, goal) and receive families in
+    round-robin, so cell sizes differ by at most one. Inside a cell the secondary factors
+    (length bucket x position x obfuscation) are cycled, and the least-used carrier and
+    attack component are chosen, which spreads reuse as evenly as the pools allow.
+
+    With ``config["component_disjoint"]`` (default true) each component is pinned to one split
+    (``component_splits``) and only paired with carriers of that split, so splits are disjoint
+    by family, source article *and* injection text.
+    """
     usable = assemblable(components)
     if not usable:
         raise ValueError("No assemblable attack components (run tools/local/auto_qc.py on model_proposed candidates)")
     positions = tuple(config.get("positions", POSITIONS))
     obfuscations = tuple(config.get("obfuscations", OBFUSCATIONS))
-    combos = [(c, a, p, o) for c in carriers for a in usable if _compatible(c, a)
-              for p in positions for o in obfuscations]
-    if config["families"] > len(combos):
-        raise ValueError(f'families exceeds unique capacity {len(combos)}')
     rng = random.Random(config["seed"])
-    buckets: dict[tuple, list] = {}
-    for combo in combos:
-        c, a, p, o = combo
-        buckets.setdefault((c["language"], c["scenario"], c.get("length_bucket", ""), a["goal"], p, o),
-                           []).append(combo)
-    for key in sorted(buckets):
-        rng.shuffle(buckets[key])
-    keys = sorted(buckets)
-    rng.shuffle(keys)
-    selected = []
+    carriers = sorted(carriers, key=lambda c: c["carrier_id"])
+    usable = sorted(usable, key=lambda a: a["component_id"])
+    rng.shuffle(carriers)
+    rng.shuffle(usable)
+
+    by_carrier: dict[tuple, list[dict]] = {}
+    for c in carriers:
+        by_carrier.setdefault((c["language"], c["scenario"], c.get("length_bucket", "")), []).append(c)
+    cells: dict[tuple, list[tuple]] = {}
+    pools: dict[tuple, list[dict]] = {}
+    for language, scenario, length in sorted(by_carrier):
+        for goal in sorted({a["goal"] for a in usable}):
+            comps = [a for a in usable if a["goal"] == goal and _compatible({"language": language}, a)]
+            if not comps:
+                continue
+            pools[(language, goal)] = comps
+            cells.setdefault((language, scenario, goal), []).extend(
+                (length, p, o) for p in positions for o in obfuscations)
+    if not cells:
+        raise ValueError("No compatible carrier/component cells")
+    cell_keys = sorted(cells)
+    rng.shuffle(cell_keys)
+    for key in cell_keys:
+        cells[key].sort()
+        rng.shuffle(cells[key])
+
+    comp_split = (component_splits(usable, config["split_ratios"], config["seed"])
+                  if config.get("component_disjoint", True) else None)
+    carrier_split = {c["carrier_id"]: split_for(split_group(c), config["seed"], config["split_ratios"])
+                     for c in carriers}
+    carrier_uses, component_uses = Counter(), Counter()
+    seen, selected, cursor = set(), [], Counter()
+    stalled = 0
     while len(selected) < config["families"]:
-        for key in keys:
-            if buckets[key] and len(selected) < config["families"]:
-                selected.append(buckets[key].pop())
-        keys = [k for k in keys if buckets[k]]
+        progressed = False
+        for key in cell_keys:
+            if len(selected) >= config["families"]:
+                break
+            language, scenario, goal = key
+            secondary = cells[key]
+            for _ in range(len(secondary)):  # try each secondary slot once per round
+                length, p, o = secondary[cursor[key] % len(secondary)]
+                cursor[key] += 1
+                picked = None
+                comps = sorted(pools[(language, goal)], key=lambda a: component_uses[a["component_id"]])
+                for a in comps:  # stable sort keeps the shuffled order among equally used components
+                    carrier_pool = [c for c in by_carrier[(language, scenario, length)]
+                                    if comp_split is None or carrier_split[c["carrier_id"]] == comp_split[a["component_id"]]]
+                    if carrier_pool:
+                        picked = (_least_used(carrier_pool, carrier_uses, "carrier_id"), a)
+                        break
+                if picked is None:
+                    continue
+                c, a = picked
+                ident = (c["carrier_id"], a["component_id"], p, o)
+                if ident in seen:
+                    continue
+                seen.add(ident)
+                carrier_uses[c["carrier_id"]] += 1
+                component_uses[a["component_id"]] += 1
+                selected.append((c, a, p, o))
+                progressed = True
+                break
+        stalled = 0 if progressed else stalled + 1
+        if stalled:
+            raise ValueError(f"families exceeds unique capacity ({len(selected)} reachable)")
     records = []
     for c, a, p, o in selected:
         records.extend(build_family(c, a, p, o, config))
@@ -204,13 +299,14 @@ def generate(config: dict, carriers: list[dict], components: list[dict]) -> list
     return records
 
 
-def validate(records: list[dict], schema: dict | None = None) -> list[str]:
+def validate(records: list[dict], schema: dict | None = None, *, check_components: bool = True) -> list[str]:
     errors = []
     ids = [r.get("record_id") for r in records]
     if len(ids) != len(set(ids)):
         errors.append("duplicate record_id")
     families: dict[str, list[dict]] = {}
     carrier_splits: dict[str, set[str]] = {}
+    component_splits_seen: dict[str, set[str]] = {}
     for r in records:
         rid = r.get("record_id", "<unknown>")
         if schema is not None:
@@ -218,6 +314,7 @@ def validate(records: list[dict], schema: dict | None = None) -> list[str]:
         try:
             families.setdefault(r["family_id"], []).append(r)
             carrier_splits.setdefault(r["provenance"]["split_group"], set()).add(r["split"])
+            component_splits_seen.setdefault(r["provenance"]["component_id"], set()).add(r["split"])
             if ROLE_LABELS.get(r["family_role"]) != r["label"]:
                 errors.append(f"{rid}: label {r['label']} inconsistent with role {r['family_role']}")
             if r["label"] == "injection" and not r["injection_spans"]:
@@ -250,6 +347,10 @@ def validate(records: list[dict], schema: dict | None = None) -> list[str]:
     for cid, splits in carrier_splits.items():
         if len(splits) != 1:
             errors.append(f"{cid}: split_group leakage {sorted(splits)}")
+    if check_components:
+        for cid, splits in component_splits_seen.items():
+            if len(splits) != 1:
+                errors.append(f"{cid}: attack component leakage across splits {sorted(splits)}")
     return errors
 
 
@@ -270,6 +371,8 @@ def write_release(records: list[dict], output: Path, config: dict, *, near_dup_t
         "splits": dict(sorted(Counter(r["split"] for r in records).items())),
         "coverage": {f: dict(sorted(Counter(r["experimental_factors"][f] for r in records).items())) for f in factors},
         "licenses": dict(sorted(Counter(r["carrier_source"]["license"] for r in records).items())),
+        "component_disjoint": config.get("component_disjoint", True),
+        "attack_components": len({r["provenance"]["component_id"] for r in records}),
         "near_duplicates": {"method": "word3_shingle_minhash64_lsh16_exact_jaccard",
                             "threshold": near_dup_threshold, "cross_family_pairs": len(dups),
                             "cross_split_pairs": sum(d["cross_split"] for d in dups)},

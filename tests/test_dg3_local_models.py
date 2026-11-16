@@ -176,7 +176,7 @@ class PrelabelTests(unittest.TestCase):
         row = prelabel_record(chat, "fake:1b", self.RECORD, seed=1, meta=META)
         span = row["suggested_span"]
         self.assertEqual(self.RECORD["carrier_text"][span["start"]:span["end"]], span["text"])
-        self.assertEqual(row["status"], "model_prelabel_not_gold")
+        self.assertEqual(row["status"], "automatic_model_label")
 
     def test_hallucinated_span_and_bad_label_are_nulled(self):
         chat = FakeChat(lambda u: {"label": "evil", "confidence": 0.5, "span_text": "not in text", "reason": ""})

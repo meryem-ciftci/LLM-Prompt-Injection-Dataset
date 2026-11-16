@@ -1,0 +1,1688 @@
+[
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-02A2E23449221016",
+    "record_b": "DG3-2E85947A77C86252"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9964,
+    "record_a": "DG3-02A2E23449221016",
+    "record_b": "DG3-340590F0AF7EDBD5"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9378,
+    "record_a": "DG3-02A2E23449221016",
+    "record_b": "DG3-4B6589E811B0FC06"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9378,
+    "record_a": "DG3-02A2E23449221016",
+    "record_b": "DG3-93C4DA79CD2D8221"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9091,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-487FE4F84E021738"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.91,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-58633C181CA4E24D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9091,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-59E3AD36E7486EC5"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.91,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-5EA00C10D7FEA641"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9103,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-95AA4EAD517AA0F6"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9139,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-9937A19D9C0064AE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.91,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-B385535544B8B1A2"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9139,
+    "record_a": "DG3-041494DF0DD7D9B2",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9892,
+    "record_a": "DG3-06484A6E5406AA99",
+    "record_b": "DG3-2E85947A77C86252"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9857,
+    "record_a": "DG3-06484A6E5406AA99",
+    "record_b": "DG3-340590F0AF7EDBD5"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9283,
+    "record_a": "DG3-06484A6E5406AA99",
+    "record_b": "DG3-4B6589E811B0FC06"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9283,
+    "record_a": "DG3-06484A6E5406AA99",
+    "record_b": "DG3-93C4DA79CD2D8221"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8783,
+    "record_a": "DG3-07E9E9D55B7EA5F4",
+    "record_b": "DG3-13D8CE7F51127A7B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.814,
+    "record_a": "DG3-07E9E9D55B7EA5F4",
+    "record_b": "DG3-8AC48C35D1874D00"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8658,
+    "record_a": "DG3-07E9E9D55B7EA5F4",
+    "record_b": "DG3-A8E2D1B40813C542"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.814,
+    "record_a": "DG3-07E9E9D55B7EA5F4",
+    "record_b": "DG3-CB52BCEB704DD964"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.949,
+    "record_a": "DG3-0CC2002BC42F3270",
+    "record_b": "DG3-14FCE617C22A97E8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.949,
+    "record_a": "DG3-0CC2002BC42F3270",
+    "record_b": "DG3-1FC693C5CAE4A0FF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9561,
+    "record_a": "DG3-0CC2002BC42F3270",
+    "record_b": "DG3-9659E08DCA5E2E8F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9534,
+    "record_a": "DG3-0CC2002BC42F3270",
+    "record_b": "DG3-B5CC62420EF3CD91"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9107,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-487FE4F84E021738"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9116,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-58633C181CA4E24D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9107,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-59E3AD36E7486EC5"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9116,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-5EA00C10D7FEA641"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9119,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-95AA4EAD517AA0F6"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9155,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-9937A19D9C0064AE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9116,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-B385535544B8B1A2"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9155,
+    "record_a": "DG3-0CF4A7751880580F",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.977,
+    "record_a": "DG3-0DEEE54DC8279FB6",
+    "record_b": "DG3-2B9AE35000267CE3"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-0DEEE54DC8279FB6",
+    "record_b": "DG3-49DA206CA1C03010"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9911,
+    "record_a": "DG3-0DEEE54DC8279FB6",
+    "record_b": "DG3-7325BE9EA6E14219"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.977,
+    "record_a": "DG3-0DEEE54DC8279FB6",
+    "record_b": "DG3-8728FFAF2F407D72"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9805,
+    "record_a": "DG3-13962A83B8AB7492",
+    "record_b": "DG3-657549E09DA425FE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.983,
+    "record_a": "DG3-13962A83B8AB7492",
+    "record_b": "DG3-A0C58D99BC8FB06F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9784,
+    "record_a": "DG3-13962A83B8AB7492",
+    "record_b": "DG3-E93433CB352D14DE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9805,
+    "record_a": "DG3-13962A83B8AB7492",
+    "record_b": "DG3-F0258D54FE8E7DC7"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9124,
+    "record_a": "DG3-13D8CE7F51127A7B",
+    "record_b": "DG3-58248F128A5F5C76"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9,
+    "record_a": "DG3-13D8CE7F51127A7B",
+    "record_b": "DG3-96AD1E229746F7C8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8783,
+    "record_a": "DG3-13D8CE7F51127A7B",
+    "record_b": "DG3-F29A5D0A7131CC4F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9527,
+    "record_a": "DG3-14FCE617C22A97E8",
+    "record_b": "DG3-32CC31745C7076B0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9571,
+    "record_a": "DG3-14FCE617C22A97E8",
+    "record_b": "DG3-4367FCB94CD4A02D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.949,
+    "record_a": "DG3-14FCE617C22A97E8",
+    "record_b": "DG3-E52597AF833C5565"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9768,
+    "record_a": "DG3-159053FA5066B193",
+    "record_b": "DG3-61DB7247F144EBB3"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9789,
+    "record_a": "DG3-159053FA5066B193",
+    "record_b": "DG3-841982C3B96BAC52"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9883,
+    "record_a": "DG3-159053FA5066B193",
+    "record_b": "DG3-897140C08FA1D5ED"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9768,
+    "record_a": "DG3-159053FA5066B193",
+    "record_b": "DG3-BF8BC0EB7FE7C0FE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9864,
+    "record_a": "DG3-1623939BB1480989",
+    "record_b": "DG3-2D4AEAFC45BDEB43"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9828,
+    "record_a": "DG3-1623939BB1480989",
+    "record_b": "DG3-3635E9A35AF769BD"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9828,
+    "record_a": "DG3-1623939BB1480989",
+    "record_b": "DG3-646F2245AB043F01"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9926,
+    "record_a": "DG3-1623939BB1480989",
+    "record_b": "DG3-654090C26A4F6B65"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9883,
+    "record_a": "DG3-1A84A70B201F974B",
+    "record_b": "DG3-61DB7247F144EBB3"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9904,
+    "record_a": "DG3-1A84A70B201F974B",
+    "record_b": "DG3-841982C3B96BAC52"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-1A84A70B201F974B",
+    "record_b": "DG3-897140C08FA1D5ED"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9883,
+    "record_a": "DG3-1A84A70B201F974B",
+    "record_b": "DG3-BF8BC0EB7FE7C0FE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9527,
+    "record_a": "DG3-1FC693C5CAE4A0FF",
+    "record_b": "DG3-32CC31745C7076B0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9571,
+    "record_a": "DG3-1FC693C5CAE4A0FF",
+    "record_b": "DG3-4367FCB94CD4A02D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.949,
+    "record_a": "DG3-1FC693C5CAE4A0FF",
+    "record_b": "DG3-E52597AF833C5565"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9798,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-327A3974C891A420"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9787,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-4DB82C7EDDAF1DB7"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9841,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-5BB89A4DCEA30853"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9841,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-61C21A2033193A88"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9816,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-662ECF3F2ECFAA72"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9798,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-A75C3A4BC060C504"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9787,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-AE3B0D443E57C27B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9816,
+    "record_a": "DG3-208CBF94182C66F4",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.955,
+    "record_a": "DG3-2445306FD753B9D5",
+    "record_b": "DG3-2B9AE35000267CE3"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.977,
+    "record_a": "DG3-2445306FD753B9D5",
+    "record_b": "DG3-49DA206CA1C03010"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9685,
+    "record_a": "DG3-2445306FD753B9D5",
+    "record_b": "DG3-7325BE9EA6E14219"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.955,
+    "record_a": "DG3-2445306FD753B9D5",
+    "record_b": "DG3-8728FFAF2F407D72"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8921,
+    "record_a": "DG3-25302456A4B90A89",
+    "record_b": "DG3-47C86D8A92D40406"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9073,
+    "record_a": "DG3-25302456A4B90A89",
+    "record_b": "DG3-5395B3D77DC85D47"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8913,
+    "record_a": "DG3-25302456A4B90A89",
+    "record_b": "DG3-6A585470BF393ED1"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8921,
+    "record_a": "DG3-25302456A4B90A89",
+    "record_b": "DG3-810019FD460AEF07"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9601,
+    "record_a": "DG3-2B9AE35000267CE3",
+    "record_b": "DG3-5C1B5311D47E5D86"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.955,
+    "record_a": "DG3-2B9AE35000267CE3",
+    "record_b": "DG3-91C2F738B08F1A90"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9523,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-31199330DA6A661E"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9523,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-5D3E5A45FB515F42"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9544,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-6C506CC5A758590D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9503,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-743D3660B46AF303"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9581,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-A2AB028D9146FE58"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9387,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-E504759C7B261C41"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9387,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-EA240E48B3A830EF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.956,
+    "record_a": "DG3-2CF712DCAF91B241",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9864,
+    "record_a": "DG3-2D4AEAFC45BDEB43",
+    "record_b": "DG3-4047C451AAFC646B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9937,
+    "record_a": "DG3-2D4AEAFC45BDEB43",
+    "record_b": "DG3-55343839D7D25327"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9904,
+    "record_a": "DG3-2D4AEAFC45BDEB43",
+    "record_b": "DG3-BC46963AF649B964"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9892,
+    "record_a": "DG3-2E85947A77C86252",
+    "record_b": "DG3-51D18B05AD11917D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9949,
+    "record_a": "DG3-2E85947A77C86252",
+    "record_b": "DG3-E315C07327C76BDB"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9938,
+    "record_a": "DG3-31199330DA6A661E",
+    "record_b": "DG3-32CAF7FF9205E410"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9894,
+    "record_a": "DG3-31199330DA6A661E",
+    "record_b": "DG3-5D17E96FAB42044F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9898,
+    "record_a": "DG3-31199330DA6A661E",
+    "record_b": "DG3-6C506CC5A758590D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9938,
+    "record_a": "DG3-31199330DA6A661E",
+    "record_b": "DG3-A2AB028D9146FE58"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9523,
+    "record_a": "DG3-31199330DA6A661E",
+    "record_b": "DG3-D70305677027C56D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.956,
+    "record_a": "DG3-31199330DA6A661E",
+    "record_b": "DG3-E504759C7B261C41"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.956,
+    "record_a": "DG3-31199330DA6A661E",
+    "record_b": "DG3-EA240E48B3A830EF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9887,
+    "record_a": "DG3-327A3974C891A420",
+    "record_b": "DG3-4DB82C7EDDAF1DB7"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9941,
+    "record_a": "DG3-327A3974C891A420",
+    "record_b": "DG3-5BB89A4DCEA30853"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9798,
+    "record_a": "DG3-327A3974C891A420",
+    "record_b": "DG3-75541C3277FA91B0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9941,
+    "record_a": "DG3-327A3974C891A420",
+    "record_b": "DG3-798AD999C0916518"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9902,
+    "record_a": "DG3-327A3974C891A420",
+    "record_b": "DG3-8C401A2185BFEC24"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9898,
+    "record_a": "DG3-327A3974C891A420",
+    "record_b": "DG3-A75C3A4BC060C504"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9887,
+    "record_a": "DG3-327A3974C891A420",
+    "record_b": "DG3-AE3B0D443E57C27B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9938,
+    "record_a": "DG3-32CAF7FF9205E410",
+    "record_b": "DG3-5D3E5A45FB515F42"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.996,
+    "record_a": "DG3-32CAF7FF9205E410",
+    "record_b": "DG3-6C506CC5A758590D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-32CAF7FF9205E410",
+    "record_b": "DG3-743D3660B46AF303"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-32CAF7FF9205E410",
+    "record_b": "DG3-A2AB028D9146FE58"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9618,
+    "record_a": "DG3-32CAF7FF9205E410",
+    "record_b": "DG3-E504759C7B261C41"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9618,
+    "record_a": "DG3-32CAF7FF9205E410",
+    "record_b": "DG3-EA240E48B3A830EF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9978,
+    "record_a": "DG3-32CAF7FF9205E410",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9598,
+    "record_a": "DG3-32CC31745C7076B0",
+    "record_b": "DG3-9659E08DCA5E2E8F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9571,
+    "record_a": "DG3-32CC31745C7076B0",
+    "record_b": "DG3-B5CC62420EF3CD91"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9857,
+    "record_a": "DG3-340590F0AF7EDBD5",
+    "record_b": "DG3-51D18B05AD11917D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9971,
+    "record_a": "DG3-340590F0AF7EDBD5",
+    "record_b": "DG3-E315C07327C76BDB"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9828,
+    "record_a": "DG3-3635E9A35AF769BD",
+    "record_b": "DG3-4047C451AAFC646B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.99,
+    "record_a": "DG3-3635E9A35AF769BD",
+    "record_b": "DG3-55343839D7D25327"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9868,
+    "record_a": "DG3-3635E9A35AF769BD",
+    "record_b": "DG3-BC46963AF649B964"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8001,
+    "record_a": "DG3-3F8729E249994345",
+    "record_b": "DG3-ACDA80E047D4549B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9828,
+    "record_a": "DG3-4047C451AAFC646B",
+    "record_b": "DG3-646F2245AB043F01"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9926,
+    "record_a": "DG3-4047C451AAFC646B",
+    "record_b": "DG3-654090C26A4F6B65"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9107,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-487FE4F84E021738"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9116,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-58633C181CA4E24D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9107,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-59E3AD36E7486EC5"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9116,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-5EA00C10D7FEA641"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9119,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-95AA4EAD517AA0F6"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9155,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-9937A19D9C0064AE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9116,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-B385535544B8B1A2"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9155,
+    "record_a": "DG3-418429D957330CAB",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.924,
+    "record_a": "DG3-4344DE0BB637D053",
+    "record_b": "DG3-4AEB810AA645C6A0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8741,
+    "record_a": "DG3-4344DE0BB637D053",
+    "record_b": "DG3-77BBF0E5C1914B56"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9643,
+    "record_a": "DG3-4367FCB94CD4A02D",
+    "record_b": "DG3-9659E08DCA5E2E8F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9615,
+    "record_a": "DG3-4367FCB94CD4A02D",
+    "record_b": "DG3-B5CC62420EF3CD91"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9818,
+    "record_a": "DG3-47C86D8A92D40406",
+    "record_b": "DG3-A3D4C6B99A998110"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8921,
+    "record_a": "DG3-47C86D8A92D40406",
+    "record_b": "DG3-B4DEDB4F929D7A4B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9714,
+    "record_a": "DG3-47C86D8A92D40406",
+    "record_b": "DG3-B6D176DFED806F7C"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9901,
+    "record_a": "DG3-487FE4F84E021738",
+    "record_b": "DG3-58633C181CA4E24D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9901,
+    "record_a": "DG3-487FE4F84E021738",
+    "record_b": "DG3-5EA00C10D7FEA641"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9901,
+    "record_a": "DG3-487FE4F84E021738",
+    "record_b": "DG3-B385535544B8B1A2"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9129,
+    "record_a": "DG3-487FE4F84E021738",
+    "record_b": "DG3-DA227D38D544B925"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9945,
+    "record_a": "DG3-487FE4F84E021738",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9824,
+    "record_a": "DG3-49DA206CA1C03010",
+    "record_b": "DG3-5C1B5311D47E5D86"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.977,
+    "record_a": "DG3-49DA206CA1C03010",
+    "record_b": "DG3-91C2F738B08F1A90"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9529,
+    "record_a": "DG3-4AEB810AA645C6A0",
+    "record_b": "DG3-80BC38AC79B2543B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.924,
+    "record_a": "DG3-4AEB810AA645C6A0",
+    "record_b": "DG3-96C7D57D944016F6"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-4AEB810AA645C6A0",
+    "record_b": "DG3-D6B2B9D78D2F1261"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9283,
+    "record_a": "DG3-4B6589E811B0FC06",
+    "record_b": "DG3-51D18B05AD11917D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9333,
+    "record_a": "DG3-4B6589E811B0FC06",
+    "record_b": "DG3-E315C07327C76BDB"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9931,
+    "record_a": "DG3-4DB82C7EDDAF1DB7",
+    "record_b": "DG3-61C21A2033193A88"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9905,
+    "record_a": "DG3-4DB82C7EDDAF1DB7",
+    "record_b": "DG3-662ECF3F2ECFAA72"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9787,
+    "record_a": "DG3-4DB82C7EDDAF1DB7",
+    "record_b": "DG3-75541C3277FA91B0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9931,
+    "record_a": "DG3-4DB82C7EDDAF1DB7",
+    "record_b": "DG3-798AD999C0916518"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9891,
+    "record_a": "DG3-4DB82C7EDDAF1DB7",
+    "record_b": "DG3-8C401A2185BFEC24"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9905,
+    "record_a": "DG3-4DB82C7EDDAF1DB7",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9283,
+    "record_a": "DG3-51D18B05AD11917D",
+    "record_b": "DG3-93C4DA79CD2D8221"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-5395B3D77DC85D47",
+    "record_b": "DG3-A3D4C6B99A998110"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9073,
+    "record_a": "DG3-5395B3D77DC85D47",
+    "record_b": "DG3-B4DEDB4F929D7A4B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9892,
+    "record_a": "DG3-5395B3D77DC85D47",
+    "record_b": "DG3-B6D176DFED806F7C"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9763,
+    "record_a": "DG3-53A469C16836233A",
+    "record_b": "DG3-657549E09DA425FE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9788,
+    "record_a": "DG3-53A469C16836233A",
+    "record_b": "DG3-A0C58D99BC8FB06F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9742,
+    "record_a": "DG3-53A469C16836233A",
+    "record_b": "DG3-E93433CB352D14DE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9763,
+    "record_a": "DG3-53A469C16836233A",
+    "record_b": "DG3-F0258D54FE8E7DC7"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.99,
+    "record_a": "DG3-55343839D7D25327",
+    "record_b": "DG3-646F2245AB043F01"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-55343839D7D25327",
+    "record_b": "DG3-654090C26A4F6B65"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8435,
+    "record_a": "DG3-58248F128A5F5C76",
+    "record_b": "DG3-8AC48C35D1874D00"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8991,
+    "record_a": "DG3-58248F128A5F5C76",
+    "record_b": "DG3-A8E2D1B40813C542"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8435,
+    "record_a": "DG3-58248F128A5F5C76",
+    "record_b": "DG3-CB52BCEB704DD964"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9901,
+    "record_a": "DG3-58633C181CA4E24D",
+    "record_b": "DG3-59E3AD36E7486EC5"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-58633C181CA4E24D",
+    "record_b": "DG3-95AA4EAD517AA0F6"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9956,
+    "record_a": "DG3-58633C181CA4E24D",
+    "record_b": "DG3-9937A19D9C0064AE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9139,
+    "record_a": "DG3-58633C181CA4E24D",
+    "record_b": "DG3-DA227D38D544B925"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9901,
+    "record_a": "DG3-59E3AD36E7486EC5",
+    "record_b": "DG3-5EA00C10D7FEA641"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9901,
+    "record_a": "DG3-59E3AD36E7486EC5",
+    "record_b": "DG3-B385535544B8B1A2"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9129,
+    "record_a": "DG3-59E3AD36E7486EC5",
+    "record_b": "DG3-DA227D38D544B925"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9945,
+    "record_a": "DG3-59E3AD36E7486EC5",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-5BB89A4DCEA30853",
+    "record_b": "DG3-61C21A2033193A88"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.996,
+    "record_a": "DG3-5BB89A4DCEA30853",
+    "record_b": "DG3-662ECF3F2ECFAA72"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9841,
+    "record_a": "DG3-5BB89A4DCEA30853",
+    "record_b": "DG3-75541C3277FA91B0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-5BB89A4DCEA30853",
+    "record_b": "DG3-798AD999C0916518"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9945,
+    "record_a": "DG3-5BB89A4DCEA30853",
+    "record_b": "DG3-8C401A2185BFEC24"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.996,
+    "record_a": "DG3-5BB89A4DCEA30853",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9738,
+    "record_a": "DG3-5C1B5311D47E5D86",
+    "record_b": "DG3-7325BE9EA6E14219"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9601,
+    "record_a": "DG3-5C1B5311D47E5D86",
+    "record_b": "DG3-8728FFAF2F407D72"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9894,
+    "record_a": "DG3-5D17E96FAB42044F",
+    "record_b": "DG3-5D3E5A45FB515F42"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-5D17E96FAB42044F",
+    "record_b": "DG3-6C506CC5A758590D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9873,
+    "record_a": "DG3-5D17E96FAB42044F",
+    "record_b": "DG3-743D3660B46AF303"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9956,
+    "record_a": "DG3-5D17E96FAB42044F",
+    "record_b": "DG3-A2AB028D9146FE58"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9577,
+    "record_a": "DG3-5D17E96FAB42044F",
+    "record_b": "DG3-E504759C7B261C41"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9577,
+    "record_a": "DG3-5D17E96FAB42044F",
+    "record_b": "DG3-EA240E48B3A830EF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9934,
+    "record_a": "DG3-5D17E96FAB42044F",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9898,
+    "record_a": "DG3-5D3E5A45FB515F42",
+    "record_b": "DG3-6C506CC5A758590D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9938,
+    "record_a": "DG3-5D3E5A45FB515F42",
+    "record_b": "DG3-A2AB028D9146FE58"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9523,
+    "record_a": "DG3-5D3E5A45FB515F42",
+    "record_b": "DG3-D70305677027C56D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.956,
+    "record_a": "DG3-5D3E5A45FB515F42",
+    "record_b": "DG3-E504759C7B261C41"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.956,
+    "record_a": "DG3-5D3E5A45FB515F42",
+    "record_b": "DG3-EA240E48B3A830EF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-5EA00C10D7FEA641",
+    "record_b": "DG3-95AA4EAD517AA0F6"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9956,
+    "record_a": "DG3-5EA00C10D7FEA641",
+    "record_b": "DG3-9937A19D9C0064AE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9139,
+    "record_a": "DG3-5EA00C10D7FEA641",
+    "record_b": "DG3-DA227D38D544B925"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9841,
+    "record_a": "DG3-61C21A2033193A88",
+    "record_b": "DG3-75541C3277FA91B0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-61C21A2033193A88",
+    "record_b": "DG3-798AD999C0916518"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9945,
+    "record_a": "DG3-61C21A2033193A88",
+    "record_b": "DG3-8C401A2185BFEC24"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9941,
+    "record_a": "DG3-61C21A2033193A88",
+    "record_b": "DG3-A75C3A4BC060C504"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9931,
+    "record_a": "DG3-61C21A2033193A88",
+    "record_b": "DG3-AE3B0D443E57C27B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9768,
+    "record_a": "DG3-61DB7247F144EBB3",
+    "record_b": "DG3-A0BBC2BEDF0FAD52"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9789,
+    "record_a": "DG3-61DB7247F144EBB3",
+    "record_b": "DG3-FCD36B4C4FAB6248"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9868,
+    "record_a": "DG3-646F2245AB043F01",
+    "record_b": "DG3-BC46963AF649B964"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9967,
+    "record_a": "DG3-654090C26A4F6B65",
+    "record_b": "DG3-BC46963AF649B964"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9195,
+    "record_a": "DG3-657549E09DA425FE",
+    "record_b": "DG3-B8E4802044495F92"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9195,
+    "record_a": "DG3-657549E09DA425FE",
+    "record_b": "DG3-CCDF824415D10311"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9816,
+    "record_a": "DG3-662ECF3F2ECFAA72",
+    "record_b": "DG3-75541C3277FA91B0"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.996,
+    "record_a": "DG3-662ECF3F2ECFAA72",
+    "record_b": "DG3-798AD999C0916518"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.992,
+    "record_a": "DG3-662ECF3F2ECFAA72",
+    "record_b": "DG3-8C401A2185BFEC24"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-662ECF3F2ECFAA72",
+    "record_b": "DG3-A75C3A4BC060C504"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9905,
+    "record_a": "DG3-662ECF3F2ECFAA72",
+    "record_b": "DG3-AE3B0D443E57C27B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9808,
+    "record_a": "DG3-6A585470BF393ED1",
+    "record_b": "DG3-A3D4C6B99A998110"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8913,
+    "record_a": "DG3-6A585470BF393ED1",
+    "record_b": "DG3-B4DEDB4F929D7A4B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9704,
+    "record_a": "DG3-6A585470BF393ED1",
+    "record_b": "DG3-B6D176DFED806F7C"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9876,
+    "record_a": "DG3-6C506CC5A758590D",
+    "record_b": "DG3-743D3660B46AF303"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9544,
+    "record_a": "DG3-6C506CC5A758590D",
+    "record_b": "DG3-D70305677027C56D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9938,
+    "record_a": "DG3-6C506CC5A758590D",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9685,
+    "record_a": "DG3-7325BE9EA6E14219",
+    "record_b": "DG3-91C2F738B08F1A90"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-743D3660B46AF303",
+    "record_b": "DG3-A2AB028D9146FE58"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9503,
+    "record_a": "DG3-743D3660B46AF303",
+    "record_b": "DG3-D70305677027C56D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.954,
+    "record_a": "DG3-743D3660B46AF303",
+    "record_b": "DG3-E504759C7B261C41"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.954,
+    "record_a": "DG3-743D3660B46AF303",
+    "record_b": "DG3-EA240E48B3A830EF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9798,
+    "record_a": "DG3-75541C3277FA91B0",
+    "record_b": "DG3-A75C3A4BC060C504"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9787,
+    "record_a": "DG3-75541C3277FA91B0",
+    "record_b": "DG3-AE3B0D443E57C27B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9816,
+    "record_a": "DG3-75541C3277FA91B0",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9,
+    "record_a": "DG3-77BBF0E5C1914B56",
+    "record_b": "DG3-80BC38AC79B2543B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8741,
+    "record_a": "DG3-77BBF0E5C1914B56",
+    "record_b": "DG3-96C7D57D944016F6"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9419,
+    "record_a": "DG3-77BBF0E5C1914B56",
+    "record_b": "DG3-D6B2B9D78D2F1261"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9941,
+    "record_a": "DG3-798AD999C0916518",
+    "record_b": "DG3-A75C3A4BC060C504"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9931,
+    "record_a": "DG3-798AD999C0916518",
+    "record_b": "DG3-AE3B0D443E57C27B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.996,
+    "record_a": "DG3-798AD999C0916518",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9818,
+    "record_a": "DG3-810019FD460AEF07",
+    "record_b": "DG3-A3D4C6B99A998110"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8921,
+    "record_a": "DG3-810019FD460AEF07",
+    "record_b": "DG3-B4DEDB4F929D7A4B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9714,
+    "record_a": "DG3-810019FD460AEF07",
+    "record_b": "DG3-B6D176DFED806F7C"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9789,
+    "record_a": "DG3-841982C3B96BAC52",
+    "record_b": "DG3-A0BBC2BEDF0FAD52"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9957,
+    "record_a": "DG3-841982C3B96BAC52",
+    "record_b": "DG3-FCD36B4C4FAB6248"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.955,
+    "record_a": "DG3-8728FFAF2F407D72",
+    "record_b": "DG3-91C2F738B08F1A90"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9883,
+    "record_a": "DG3-897140C08FA1D5ED",
+    "record_b": "DG3-A0BBC2BEDF0FAD52"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9904,
+    "record_a": "DG3-897140C08FA1D5ED",
+    "record_b": "DG3-FCD36B4C4FAB6248"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8327,
+    "record_a": "DG3-8AC48C35D1874D00",
+    "record_b": "DG3-96AD1E229746F7C8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.814,
+    "record_a": "DG3-8AC48C35D1874D00",
+    "record_b": "DG3-F29A5D0A7131CC4F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9902,
+    "record_a": "DG3-8C401A2185BFEC24",
+    "record_b": "DG3-A75C3A4BC060C504"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9891,
+    "record_a": "DG3-8C401A2185BFEC24",
+    "record_b": "DG3-AE3B0D443E57C27B"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.992,
+    "record_a": "DG3-8C401A2185BFEC24",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9333,
+    "record_a": "DG3-93C4DA79CD2D8221",
+    "record_b": "DG3-E315C07327C76BDB"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-95AA4EAD517AA0F6",
+    "record_b": "DG3-B385535544B8B1A2"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9142,
+    "record_a": "DG3-95AA4EAD517AA0F6",
+    "record_b": "DG3-DA227D38D544B925"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.996,
+    "record_a": "DG3-95AA4EAD517AA0F6",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9561,
+    "record_a": "DG3-9659E08DCA5E2E8F",
+    "record_b": "DG3-E52597AF833C5565"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.887,
+    "record_a": "DG3-96AD1E229746F7C8",
+    "record_b": "DG3-A8E2D1B40813C542"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8327,
+    "record_a": "DG3-96AD1E229746F7C8",
+    "record_b": "DG3-CB52BCEB704DD964"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9956,
+    "record_a": "DG3-9937A19D9C0064AE",
+    "record_b": "DG3-B385535544B8B1A2"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9178,
+    "record_a": "DG3-9937A19D9C0064AE",
+    "record_b": "DG3-DA227D38D544B925"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 1.0,
+    "record_a": "DG3-9937A19D9C0064AE",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9768,
+    "record_a": "DG3-A0BBC2BEDF0FAD52",
+    "record_b": "DG3-BF8BC0EB7FE7C0FE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9217,
+    "record_a": "DG3-A0C58D99BC8FB06F",
+    "record_b": "DG3-B8E4802044495F92"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9217,
+    "record_a": "DG3-A0C58D99BC8FB06F",
+    "record_b": "DG3-CCDF824415D10311"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9581,
+    "record_a": "DG3-A2AB028D9146FE58",
+    "record_b": "DG3-D70305677027C56D"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9978,
+    "record_a": "DG3-A2AB028D9146FE58",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9916,
+    "record_a": "DG3-A75C3A4BC060C504",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.8658,
+    "record_a": "DG3-A8E2D1B40813C542",
+    "record_b": "DG3-F29A5D0A7131CC4F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9905,
+    "record_a": "DG3-AE3B0D443E57C27B",
+    "record_b": "DG3-E57954346270ACB9"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9139,
+    "record_a": "DG3-B385535544B8B1A2",
+    "record_b": "DG3-DA227D38D544B925"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9534,
+    "record_a": "DG3-B5CC62420EF3CD91",
+    "record_b": "DG3-E52597AF833C5565"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9176,
+    "record_a": "DG3-B8E4802044495F92",
+    "record_b": "DG3-E93433CB352D14DE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9195,
+    "record_a": "DG3-B8E4802044495F92",
+    "record_b": "DG3-F0258D54FE8E7DC7"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9789,
+    "record_a": "DG3-BF8BC0EB7FE7C0FE",
+    "record_b": "DG3-FCD36B4C4FAB6248"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.814,
+    "record_a": "DG3-CB52BCEB704DD964",
+    "record_b": "DG3-F29A5D0A7131CC4F"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9176,
+    "record_a": "DG3-CCDF824415D10311",
+    "record_b": "DG3-E93433CB352D14DE"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9195,
+    "record_a": "DG3-CCDF824415D10311",
+    "record_b": "DG3-F0258D54FE8E7DC7"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9387,
+    "record_a": "DG3-D70305677027C56D",
+    "record_b": "DG3-E504759C7B261C41"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9387,
+    "record_a": "DG3-D70305677027C56D",
+    "record_b": "DG3-EA240E48B3A830EF"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.956,
+    "record_a": "DG3-D70305677027C56D",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9178,
+    "record_a": "DG3-DA227D38D544B925",
+    "record_b": "DG3-E0663AD1B54C69F8"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9597,
+    "record_a": "DG3-E504759C7B261C41",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  },
+  {
+    "cross_split": false,
+    "jaccard": 0.9597,
+    "record_a": "DG3-EA240E48B3A830EF",
+    "record_b": "DG3-EFFBB1B96DB3AE39"
+  }
+]

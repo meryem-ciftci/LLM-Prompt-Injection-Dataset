@@ -1,0 +1,267 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileObject": "cr:fileObject",
+    "fileProperty": "cr:fileProperty",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "cr:dataStatistics": {
+    "family_count": 150,
+    "family_roles": {
+      "authorized_twin": 150,
+      "clean": 150,
+      "injected_untrusted": 150,
+      "trigger_benign": 150
+    },
+    "labels": {
+      "benign": 450,
+      "injection": 150
+    },
+    "languages": {
+      "en": 292,
+      "tr": 308
+    },
+    "record_count": 600,
+    "scenarios": {
+      "document_qa": 300,
+      "rag": 300
+    },
+    "splits": {
+      "test": 136,
+      "train": 336,
+      "validation": 128
+    }
+  },
+  "description": "Pilot of 600 Turkish and English indirect prompt-injection records in four-member families (clean, injected, authorized twin, trigger-benign) with character spans, witness oracles and full provenance.",
+  "distribution": [
+    {
+      "@id": "jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset/raw/main/data/generated/dg3_pilot_v0.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "name": "dg3_pilot_v0.jsonl",
+      "sha256": "5ddad77fed5cd6de968541586b9e9d7b3a355ab55d78c6cca8570136801ad033"
+    }
+  ],
+  "inLanguage": [
+    "en",
+    "tr"
+  ],
+  "isLiveDataset": false,
+  "keywords": [
+    "prompt injection",
+    "indirect prompt injection",
+    "LLM security",
+    "Turkish",
+    "English"
+  ],
+  "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "name": "TR-EN Indirect Prompt Injection Pilot (G3)",
+  "rai:dataAnnotationProtocol": "Labels are construction labels implied by the family role; no human annotation or human verification was performed. Automatic agreement between independent local models is reported separately when it has been run.",
+  "rai:dataCollection": "Carriers are paragraphs from SQuAD v1.1 dev (English Wikipedia) and pinned Turkish Wikipedia revisions, windowed to length buckets with real neighbouring text. Attack components were proposed by a local model and admitted only through automatic, independent quality control (rule checks plus a different local judge model). Records are assembled deterministically.",
+  "rai:dataLimitations": "Small pilot; attack components are model-generated and reused across families within a split; Turkish carriers have no reference answers (utility not measurable for tr); attack success rates are not part of this release.",
+  "rai:dataUseCases": "Evaluating prompt-injection detectors and measuring attack success on target models.",
+  "rai:personalSensitiveInformation": "None intended: all canaries, URLs and tool names are fictional.",
+  "recordSet": [
+    {
+      "@id": "records",
+      "@type": "cr:RecordSet",
+      "description": "600 records in 150 families.",
+      "field": [
+        {
+          "@id": "records/record_id",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Stable record identifier.",
+          "name": "record_id",
+          "source": {
+            "extract": {
+              "column": "record_id"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/family_id",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Family of four records built from one carrier and one attack component.",
+          "name": "family_id",
+          "source": {
+            "extract": {
+              "column": "family_id"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/family_role",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "clean | injected_untrusted | authorized_twin | trigger_benign.",
+          "name": "family_role",
+          "source": {
+            "extract": {
+              "column": "family_role"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/label",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Construction label: injection for injected_untrusted, otherwise benign.",
+          "name": "label",
+          "source": {
+            "extract": {
+              "column": "label"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/language",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Carrier language (en | tr).",
+          "name": "language",
+          "source": {
+            "extract": {
+              "column": "language"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/scenario",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "rag | document_qa.",
+          "name": "scenario",
+          "source": {
+            "extract": {
+              "column": "scenario"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/split",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "train | validation | test (disjoint by article, family and attack component).",
+          "name": "split",
+          "source": {
+            "extract": {
+              "column": "split"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/carrier_text",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Text shown to the model as untrusted or trusted content.",
+          "name": "carrier_text",
+          "source": {
+            "extract": {
+              "column": "carrier_text"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/annotation_status",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "generated_candidate: deterministic assembly; no human review.",
+          "name": "annotation_status",
+          "source": {
+            "extract": {
+              "column": "annotation_status"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        },
+        {
+          "@id": "records/content_sha256",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "SHA-256 of carrier_text.",
+          "name": "content_sha256",
+          "source": {
+            "extract": {
+              "column": "content_sha256"
+            },
+            "fileObject": {
+              "@id": "jsonl"
+            }
+          }
+        }
+      ],
+      "name": "records"
+    }
+  ],
+  "url": "https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset",
+  "version": "0.1.0"
+}

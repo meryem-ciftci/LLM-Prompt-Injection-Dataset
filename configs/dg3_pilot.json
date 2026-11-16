@@ -1,0 +1,5 @@
+{
+  "seed": 20261116,
+  "families": 150,
+  "split_ratios": {"train": 0.6, "validation": 0.2, "test": 0.2}
+}
