@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset/schemas/generated-record-v3.schema.json",
+  "title": "Dataset Generator 3 Record (DRAFT)",
+  "description": "Draft. Extends v2 with attack taxonomy, witness oracle, utility task and carrier provenance. Model outcomes (ASR, utility) are NOT stored here; they live in a separate evaluation artifact keyed by record_id and model digest.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id", "schema_version", "generator_version", "generation_seed",
+    "family_id", "family_role", "parent_id", "language", "scenario",
+    "task", "source", "carrier_text", "carrier_source", "label",
+    "attack", "injection_spans", "trust_boundary_decision", "decision_rationale",
+    "annotation_status", "transformation", "experimental_factors",
+    "split", "provenance", "safety", "content_sha256"
+  ],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^DG3-[A-F0-9]{16}$"},
+    "schema_version": {"const": "3.0.0-draft"},
+    "generator_version": {"type": "string"},
+    "generation_seed": {"type": "integer"},
+    "family_id": {"type": "string", "pattern": "^FAM-[A-F0-9]{16}$"},
+    "family_role": {"enum": ["clean", "injected_untrusted", "authorized_twin", "trigger_benign"]},
+    "parent_id": {"type": ["string", "null"]},
+    "language": {"enum": ["tr", "en"]},
+    "scenario": {"enum": ["document_qa", "rag", "email", "repository", "tool_output"]},
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["instruction", "reference_answer", "utility_check"],
+      "properties": {
+        "instruction": {"type": "string", "minLength": 1},
+        "reference_answer": {"type": ["string", "null"]},
+        "utility_check": {"enum": ["exact_or_contains", "squad_f1", "none"]}
+      }
+    },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "role", "trust_level"],
+      "properties": {
+        "type": {"type": "string"},
+        "role": {"type": "string"},
+        "trust_level": {"enum": ["untrusted_content", "trusted_instruction", "mixed_or_unspecified"]}
+      }
+    },
+    "carrier_text": {"type": "string", "minLength": 1},
+    "carrier_source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["registry_id", "license", "source_record_id", "snapshot_sha256"],
+      "properties": {
+        "registry_id": {"type": "string"},
+        "license": {"type": "string"},
+        "source_record_id": {"type": ["string", "null"]},
+        "snapshot_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "label": {"enum": ["injection", "benign", "borderline"]},
+    "attack": {
+      "description": "Null for clean records; present (component metadata) for injected and authorized-twin records.",
+      "type": ["object", "null"], "additionalProperties": false,
+      "required": ["component_id", "goal", "techniques", "obfuscation", "witness"],
+      "properties": {
+        "component_id": {"type": "string"},
+        "goal": {"enum": ["task_hijack", "content_manipulation", "data_exfiltration", "unauthorized_tool_action", "phishing_link", "refusal_dos", "prompt_leak"]},
+        "techniques": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": ["naive", "escape_separator", "context_ignoring", "fake_completion", "combined", "authority_claim", "role_play", "social_engineering", "obfuscation", "multilingual_switch"]}
+        },
+        "obfuscation": {"enum": ["none", "base64", "char_split", "leetspeak"]},
+        "witness": {
+          "type": "object", "additionalProperties": false,
+          "required": ["type", "value"],
+          "properties": {
+            "type": {"enum": ["canary_token", "url", "tool_call", "phrase"]},
+            "value": {"type": "string", "minLength": 4}
+          }
+        }
+      }
+    },
+    "injection_spans": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["start", "end", "span_type", "text"],
+        "properties": {
+          "start": {"type": "integer", "minimum": 0},
+          "end": {"type": "integer", "minimum": 1},
+          "span_type": {"enum": ["injected_instruction", "separator", "fake_completion", "payload"]},
+          "text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "trust_boundary_decision": {"type": "string"},
+    "decision_rationale": {"type": "string"},
+    "annotation_status": {"enum": ["model_proposed", "generated_candidate", "single_annotated", "adjudicated", "gold_calibration"]},
+    "transformation": {"type": "array", "items": {"type": "object"}},
+    "experimental_factors": {"type": "object"},
+    "split": {"enum": ["train", "validation", "test"]},
+    "provenance": {"type": "object"},
+    "safety": {
+      "type": "object", "additionalProperties": false,
+      "required": ["fictional", "live_secret", "executable_payload"],
+      "properties": {
+        "fictional": {"type": "boolean"},
+        "live_secret": {"const": false},
+        "executable_payload": {"const": false}
+      }
+    },
+    "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
