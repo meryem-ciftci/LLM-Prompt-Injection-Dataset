@@ -58,6 +58,18 @@ class OllamaChat:
             raise ValueError(f"prompt ({raw['prompt_eval_count']} tokens) filled the {self.num_ctx}-token window")
         return json.loads(raw["message"]["content"])
 
+    def chat_text(self, model, system, user, *, seed, temperature, num_predict) -> dict:
+        """Free-text reply plus token counts (for target-model evaluation)."""
+        body = {"model": model, "stream": False, "think": False,
+                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+                "options": {"temperature": temperature, "seed": seed, "num_predict": num_predict,
+                            "num_ctx": self.num_ctx}}
+        raw = self.client._request("POST", "/api/chat", body)
+        if raw.get("prompt_eval_count", 0) >= self.num_ctx:
+            raise ValueError(f"prompt ({raw['prompt_eval_count']} tokens) filled the {self.num_ctx}-token window")
+        return {"response": raw["message"]["content"], "done_reason": raw.get("done_reason"),
+                "prompt_tokens": raw.get("prompt_eval_count"), "output_tokens": raw.get("eval_count")}
+
     def digest(self, model: str) -> str | None:
         return {m["name"]: m["digest"] for m in self.client.tags()}.get(model)
 
