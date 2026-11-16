@@ -173,6 +173,7 @@ Every experiment must be registered here before its result is interpreted. Resul
 |---|---|---|---|---|---|---|---:|---|
 | EXP-001 | Completed · exploratory | Initial context-aware detector comparison | 2.0 | `6d99b4f8cd82ba190d1cb1bd57b8aa75a65a17abd7511c0fd1f17a780a12478f` | Mistral 7B, Llama 3 8B, Llama 3.1 8B, Qwen 3 8B, Gemma 3 4B | context-aware | 1,000 | Git history; removed from active tree |
 | EXP-002 | Planned · confirmatory candidate | Text-only vs context-aware paired evaluation | 2.2 | `9678d92db6c1d98daba610cb87f03ce78725ba5a01c3995c69f9c148bd8dbe26` | Same pinned five-model panel | text-only + context-aware | 2,000 | Not run |
+| EXP-003 | Planned · exploratory (pilot) | Target-model attack success (witness oracle: ASR_targeted, ASR_strict, MR), utility_clean vs utility_under_attack (en only), oracle false-positive check on clean/trigger_benign; `tools/local/target_eval.py`, eval 1.0.0, temperature 0, seed 20261116, 1 repeat | 3.0.0.dev0 | `5ddad77fed5cd6de968541586b9e9d7b3a355ab55d78c6cca8570136801ad033` | Pinned five-model panel (digests in `configs/versions.lock.json`) | 4 family roles + injected_alone | 750 per model (3,750) | Not run |
 
 For every future row record: experiment ID, hypothesis, generator/schema version, dataset hash, Git commit or tag, model digests, Ollama version, input view, seed, temperature, repeats, planned sample count, run manifest, result hash, and analysis status.
 
