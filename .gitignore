@@ -32,3 +32,8 @@ Thumbs.db
 
 # Raw third-party corpora and derived carrier text (G3): only IDs and hashes are committed
 data/raw/
+
+# local model working files (QC summary of accepted components is kept in data/attack_components)
+data/proposals/
+data/attack_components/_superseded/
+review.csv

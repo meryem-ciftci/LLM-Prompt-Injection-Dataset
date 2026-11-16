@@ -1,4 +1,8 @@
-"""Human review of model-proposed attack components (CSV round trip).
+"""OPTIONAL manual spot-check of attack components (CSV round trip).
+
+Not part of the pipeline: tools/local/auto_qc.py is the gate that makes
+candidates assemblable. Use this only for an extra, voluntary look; the
+dataset documentation must not describe its output as human-verified data.
 
     python tools/local/review_attacks.py export data/proposals/attacks_qwen3_8b.jsonl review.csv
     # Fill 'decision' with accept / reject and your initials in 'reviewer'.
