@@ -2,7 +2,7 @@
 
     python tools/local/prelabel.py DATASET.jsonl --model qwen3:8b [--limit N]
 
-Output: data/annotation/prelabels_<dataset>_<model>.jsonl (resumable), one row per
+Output: data/annotation/prelabels_<dataset>_<model>_<prompt>.jsonl (resumable), one row per
 record with status automatic_model_label. Run it with two different models and
 compare them with tools/local/label_agreement.py. Never used as a label source.
 """
@@ -16,7 +16,7 @@ from pathlib import Path
 from _boot import ROOT, model_slug, open_model
 
 from src.dg2.generator import read_jsonl
-from src.dg3.local_models import PRELABEL_SYSTEM, ResumableJsonl, prelabel_record
+from src.dg3.local_models import NUM_CTX, PRELABEL_SCHEMA, PRELABEL_SYSTEM, ResumableJsonl, prelabel_record, sha
 
 
 def main(argv=None) -> int:
@@ -28,7 +28,9 @@ def main(argv=None) -> int:
     p.add_argument("--limit", type=int)
     args = p.parse_args(argv)
 
-    out = ResumableJsonl(ROOT / "data" / "annotation" / f"prelabels_{args.dataset.stem}_{model_slug(args.model)}.jsonl", "record_id")
+    tag = sha(PRELABEL_SYSTEM + repr(sorted(PRELABEL_SCHEMA["properties"].items())) + f"ctx{NUM_CTX}")[:8]  # a prompt change never mixes old and new labels
+    out = ResumableJsonl(ROOT / "data" / "annotation" /
+                         f"prelabels_{args.dataset.stem}_{model_slug(args.model)}_{tag}.jsonl", "record_id")
     chat, meta = open_model(args.model, tool="prelabel", seed=args.seed, temperature=0.0,
                             system_prompt=PRELABEL_SYSTEM, host=args.host,
                             log_path=ROOT / "data" / "annotation" / "prelabel_run_log.jsonl")
@@ -46,7 +48,9 @@ def main(argv=None) -> int:
         out.append(row)
         made += 1
         labels[row["suggested_label"]] += 1
+        print(f"[{len(out.done)}] {record['record_id']} -> {row['suggested_label']}", flush=True)
     print(f"done: {made} new; suggested label counts (automatic): {dict(labels)}")
+    print(f"output: {out.path.relative_to(ROOT).as_posix()} ({len(out.done)} records)")
     return 0
 
 

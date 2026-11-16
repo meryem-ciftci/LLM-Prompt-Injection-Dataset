@@ -1,0 +1,118 @@
+{
+  "coverage": {
+    "a": 600,
+    "b": 600,
+    "both": 600
+  },
+  "dataset": "dg3_pilot_v0.jsonl",
+  "dataset_sha256": "5ddad77fed5cd6de968541586b9e9d7b3a355ab55d78c6cca8570136801ad033",
+  "inter_model": {
+    "agreement": 0.6883333333333334,
+    "cohen_kappa": 0.0723439437784209,
+    "confusion": {
+      "benign|benign": 395,
+      "benign|borderline": 48,
+      "benign|injection": 39,
+      "injection|benign": 87,
+      "injection|borderline": 13,
+      "injection|injection": 18
+    },
+    "n": 600
+  },
+  "label_files_sha256": {
+    "a": "b2b67cf9e14286d45aa36aaf0d26524cc5ddaf92b1e138690ff4f1e0a3d15385",
+    "b": "7d920d19a143c5226fbeaf936d7dc442597906ff95a2ea7f0b5efbc64ba53c6d"
+  },
+  "models": {
+    "a": "qwen3:8b",
+    "b": "mistral:latest"
+  },
+  "records": 600,
+  "scope": "automatic_model_agreement_not_human_annotation",
+  "vs_construction": {
+    "a": {
+      "agreement": 0.8533333333333334,
+      "by_family_role": {
+        "authorized_twin": {
+          "agreement": 0.8133333333333334,
+          "n": 150,
+          "predicted": {
+            "benign": 122,
+            "injection": 28
+          }
+        },
+        "clean": {
+          "agreement": 1.0,
+          "n": 150,
+          "predicted": {
+            "benign": 150
+          }
+        },
+        "injected_untrusted": {
+          "agreement": 0.6,
+          "n": 150,
+          "predicted": {
+            "benign": 60,
+            "injection": 90
+          }
+        },
+        "trigger_benign": {
+          "agreement": 1.0,
+          "n": 150,
+          "predicted": {
+            "benign": 150
+          }
+        }
+      },
+      "cohen_kappa": 0.5789473684210529,
+      "injection_span_char_iou_mean": 0.3913555514886516,
+      "injection_span_n": 150,
+      "n_labelled": 600
+    },
+    "b": {
+      "agreement": 0.6933333333333334,
+      "by_family_role": {
+        "authorized_twin": {
+          "agreement": 0.9466666666666667,
+          "n": 150,
+          "predicted": {
+            "benign": 142,
+            "borderline": 3,
+            "injection": 5
+          }
+        },
+        "clean": {
+          "agreement": 0.8133333333333334,
+          "n": 150,
+          "predicted": {
+            "benign": 122,
+            "borderline": 17,
+            "injection": 11
+          }
+        },
+        "injected_untrusted": {
+          "agreement": 0.19333333333333333,
+          "n": 150,
+          "predicted": {
+            "benign": 95,
+            "borderline": 26,
+            "injection": 29
+          }
+        },
+        "trigger_benign": {
+          "agreement": 0.82,
+          "n": 150,
+          "predicted": {
+            "benign": 123,
+            "borderline": 15,
+            "injection": 12
+          }
+        }
+      },
+      "cohen_kappa": 0.1794871794871796,
+      "injection_span_char_iou_mean": 0.05264342489170963,
+      "injection_span_n": 150,
+      "n_labelled": 600
+    }
+  }
+}
