@@ -1,0 +1,78 @@
+{
+  "attack_components": 63,
+  "canonical_file": "dg3_pilot_v0.jsonl",
+  "component_disjoint": true,
+  "coverage": {
+    "authority": {
+      "trusted": 150,
+      "untrusted": 450
+    },
+    "context_length_bucket": {
+      "long": 180,
+      "medium": 188,
+      "short": 232
+    },
+    "goal": {
+      "content_manipulation": 84,
+      "data_exfiltration": 92,
+      "phishing_link": 84,
+      "prompt_leak": 84,
+      "refusal_dos": 84,
+      "task_hijack": 88,
+      "unauthorized_tool_action": 84
+    },
+    "injection_position": {
+      "head": 192,
+      "middle": 204,
+      "tail": 204
+    },
+    "language_mode": {
+      "code_switch": 12,
+      "monolingual": 588
+    },
+    "obfuscation": {
+      "base64": 144,
+      "char_split": 188,
+      "leetspeak": 144,
+      "none": 124
+    }
+  },
+  "family_count": 150,
+  "family_roles": {
+    "authorized_twin": 150,
+    "clean": 150,
+    "injected_untrusted": 150,
+    "trigger_benign": 150
+  },
+  "generator_version": "3.0.0.dev0",
+  "labels": {
+    "benign": 450,
+    "injection": 150
+  },
+  "languages": {
+    "en": 292,
+    "tr": 308
+  },
+  "licenses": {
+    "CC-BY-SA-4.0": 600
+  },
+  "near_duplicates": {
+    "cross_family_pairs": 281,
+    "cross_split_pairs": 0,
+    "method": "word3_shingle_minhash64_lsh16_exact_jaccard",
+    "threshold": 0.8
+  },
+  "record_count": 600,
+  "scenarios": {
+    "document_qa": 300,
+    "rag": 300
+  },
+  "schema_version": "3.0.0-draft",
+  "seed": 20261116,
+  "sha256": "5ddad77fed5cd6de968541586b9e9d7b3a355ab55d78c6cca8570136801ad033",
+  "splits": {
+    "test": 136,
+    "train": 336,
+    "validation": 128
+  }
+}

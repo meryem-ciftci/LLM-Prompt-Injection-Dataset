@@ -1,10 +1,10 @@
-"""Suggest labels and spans for annotators with a local model. NEVER gold.
+"""Blind automatic labels and spans from one local model (input to label_agreement.py).
 
     python tools/local/prelabel.py DATASET.jsonl --model qwen3:8b [--limit N]
 
-Output: data/annotation/prelabels_<model>.jsonl (resumable), one row per record
-with status model_prelabel_not_gold. Show these to annotators only after their
-blind first pass, otherwise the kappa report is contaminated.
+Output: data/annotation/prelabels_<dataset>_<model>.jsonl (resumable), one row per
+record with status automatic_model_label. Run it with two different models and
+compare them with tools/local/label_agreement.py. Never used as a label source.
 """
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ def main(argv=None) -> int:
     p.add_argument("--limit", type=int)
     args = p.parse_args(argv)
 
-    out = ResumableJsonl(ROOT / "data" / "annotation" / f"prelabels_{model_slug(args.model)}.jsonl", "record_id")
+    out = ResumableJsonl(ROOT / "data" / "annotation" / f"prelabels_{args.dataset.stem}_{model_slug(args.model)}.jsonl", "record_id")
     chat, meta = open_model(args.model, tool="prelabel", seed=args.seed, temperature=0.0,
                             system_prompt=PRELABEL_SYSTEM, host=args.host,
                             log_path=ROOT / "data" / "annotation" / "prelabel_run_log.jsonl")
@@ -46,7 +46,7 @@ def main(argv=None) -> int:
         out.append(row)
         made += 1
         labels[row["suggested_label"]] += 1
-    print(f"done: {made} new; suggested label counts (not gold): {dict(labels)}")
+    print(f"done: {made} new; suggested label counts (automatic): {dict(labels)}")
     return 0
 
 

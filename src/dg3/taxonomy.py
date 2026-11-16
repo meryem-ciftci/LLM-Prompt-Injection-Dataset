@@ -60,7 +60,7 @@ WITNESS_TYPES = ("canary_token", "url", "tool_call", "phrase")
 ANNOTATION_STATUSES = (
     "model_proposed",       # produced by a local model; not assemblable
     "auto_qc_passed",       # passed automatic deterministic + independent-model QC (qc.py); not human-verified
-    "generated_candidate",  # deterministic assembly, not yet reviewed
+    "generated_candidate",  # deterministic assembly; labels are construction labels
     "single_annotated",
     "adjudicated",
     "gold_calibration",
