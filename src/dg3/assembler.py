@@ -174,7 +174,7 @@ def generate(config: dict, carriers: list[dict], components: list[dict]) -> list
     """Deterministically assemble ``config['families']`` families (4 records each)."""
     usable = assemblable(components)
     if not usable:
-        raise ValueError("No assemblable attack components (model_proposed needs human review)")
+        raise ValueError("No assemblable attack components (run tools/local/auto_qc.py on model_proposed candidates)")
     positions = tuple(config.get("positions", POSITIONS))
     obfuscations = tuple(config.get("obfuscations", OBFUSCATIONS))
     combos = [(c, a, p, o) for c in carriers for a in usable if _compatible(c, a)

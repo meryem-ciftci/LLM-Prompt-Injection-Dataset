@@ -90,7 +90,7 @@
     },
     "trust_boundary_decision": {"type": "string"},
     "decision_rationale": {"type": "string"},
-    "annotation_status": {"enum": ["model_proposed", "generated_candidate", "single_annotated", "adjudicated", "gold_calibration"]},
+    "annotation_status": {"enum": ["model_proposed", "auto_qc_passed", "generated_candidate", "single_annotated", "adjudicated", "gold_calibration"]},
     "transformation": {"type": "array", "items": {"type": "object"}},
     "experimental_factors": {"type": "object"},
     "split": {"enum": ["train", "validation", "test"]},

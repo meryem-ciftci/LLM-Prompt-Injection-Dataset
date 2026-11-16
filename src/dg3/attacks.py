@@ -10,8 +10,11 @@ Components live in ``data/attack_components/*.jsonl``. One row::
      "annotation_status": "<ANNOTATION_STATUSES>",
      "safety": {"fictional": true, "live_secret": false, "executable_payload": false}}
 
-Components with status ``model_proposed`` load but are never assembled:
-they need human review first (see ``ASSEMBLABLE_STATUSES``).
+Components with status ``model_proposed`` load but are never assembled; the
+automatic QC in ``qc.py`` promotes valid candidates to ``auto_qc_passed``
+(see ``ASSEMBLABLE_STATUSES``). No human review is required. The remaining
+human statuses stay accepted only for externally supplied, already-reviewed
+components; the generator itself never claims them.
 """
 from __future__ import annotations
 
@@ -22,7 +25,7 @@ from src.dg2.generator import read_jsonl
 
 from .taxonomy import ANNOTATION_STATUSES, ATTACK_GOALS, ATTACK_TECHNIQUES, WITNESS_TYPES
 
-ASSEMBLABLE_STATUSES = frozenset({"single_annotated", "adjudicated", "gold_calibration"})
+ASSEMBLABLE_STATUSES = frozenset({"auto_qc_passed", "single_annotated", "adjudicated", "gold_calibration"})
 REQUIRED = ("component_id", "language", "goal", "techniques", "instruction", "witness",
             "trigger_benign_text", "annotation_status", "safety")
 

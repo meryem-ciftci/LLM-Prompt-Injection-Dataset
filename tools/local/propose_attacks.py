@@ -2,21 +2,25 @@
 
     python tools/local/propose_attacks.py --model qwen3:8b [--per-cell 1] [--limit N]
 
-Output: data/proposals/attacks_<model>.jsonl (resumable; status model_proposed).
-Candidates that fail the automatic taxonomy/safety checks are kept with
-auto_check.passed = false so the failure rate can be reported. Nothing here is
-assembled until a human reviews it (tools/local/review_attacks.py).
+Output: data/proposals/attacks_<model>_<prompt>.jsonl (resumable; status
+model_proposed). <prompt> is a hash of the proposal prompts, so a prompt change
+never mixes old and new candidates. Candidates that fail the quick checks are
+kept with auto_check.passed = false so the failure rate can be reported.
+Nothing here is assembled until tools/local/auto_qc.py promotes it.
 """
 from __future__ import annotations
 
 import argparse
+import inspect
 import sys
 from collections import Counter
 
 from _boot import ROOT, model_slug, open_model
 
 from src.dg2.generator import stable_id
-from src.dg3.local_models import PROPOSE_SYSTEM, ResumableJsonl, cell_key, proposal_grid, propose_one
+from src.dg3.local_models import (GOAL_HINTS, PROPOSE_SYSTEM, TECHNIQUE_HINTS, TRIGGER_TOPICS, ResumableJsonl,
+                                  cell_key,
+                                  proposal_grid, propose_one, propose_user_prompt, sha)
 
 
 def main(argv=None) -> int:
@@ -30,7 +34,10 @@ def main(argv=None) -> int:
     p.add_argument("--limit", type=int, help="stop after N new candidates (smoke runs)")
     args = p.parse_args(argv)
 
-    out = ResumableJsonl(ROOT / "data" / "proposals" / f"attacks_{model_slug(args.model)}.jsonl", "component_id")
+    prompt_tag = sha(PROPOSE_SYSTEM + repr(sorted(GOAL_HINTS.items())) + repr(sorted(TECHNIQUE_HINTS.items()))
+                     + inspect.getsource(propose_user_prompt) + repr(TRIGGER_TOPICS))[:8]
+    out = ResumableJsonl(ROOT / "data" / "proposals" / f"attacks_{model_slug(args.model)}_{prompt_tag}.jsonl",
+                         "component_id")
     chat, meta = open_model(args.model, tool="propose_attacks", seed=args.seed, temperature=args.temperature,
                             system_prompt=PROPOSE_SYSTEM, host=args.host,
                             log_path=ROOT / "data" / "proposals" / "run_log.jsonl")
