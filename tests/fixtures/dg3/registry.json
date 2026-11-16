@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "registry_id": "fixture_original_v1",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "description": "Project-authored fictional carriers used only by unit tests.",
+      "carriers_path": "carriers.jsonl",
+      "snapshot_sha256": null
+    }
+  ]
+}
