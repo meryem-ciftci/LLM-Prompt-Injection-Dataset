@@ -1,5 +1,7 @@
 """Run target models on a G3 release and report ASR / utility / MR (src/dg3/target_eval.py).
 
+    # 0) quick stratified check first (1 family per language x scenario x goal cell)
+    python tools/local/target_eval.py run data/generated/dg3_pilot_v1.jsonl --model llama3.1:8b --exp EXP-004a --per-cell 1
     # 1) collect responses (resumable; one file per model)
     python tools/local/target_eval.py run data/generated/dg3_pilot_v0.jsonl --model llama3.1:8b --exp EXP-003
     # 2) score and aggregate every model of the experiment (+ optional detector label files)
@@ -27,15 +29,28 @@ from src.dg3.target_eval import (EVAL_VERSION, TARGET_SYSTEM, family_attacks, in
 
 RESULTS = ROOT / "evaluation" / "results"
 REPORTS = ROOT / "evaluation" / "reports"
-NUM_PREDICT = 400
+NUM_PREDICT = 1024  # EXP-003 used 400; mistral was truncated in 275/750 responses
 
 
-def jobs(records: list[dict], limit_families: int | None) -> list[tuple[str, dict, str]]:
-    """(condition, record, user_prompt) for every record plus one injected_alone per family."""
+def select_families(records: list[dict], limit_families: int | None = None,
+                    per_cell: int | None = None) -> set[str]:
+    """Families to run. ``per_cell`` takes the first N family ids of every language x scenario x goal
+    cell (a deterministic, stratified subset for quick checks); ``limit_families`` the first N overall."""
+    if per_cell is not None:
+        cells: dict[tuple, list[str]] = {}
+        for r in records:
+            if r["family_role"] == "injected_untrusted":
+                key = (r["language"], r["scenario"], r["experimental_factors"]["goal"])
+                cells.setdefault(key, []).append(r["family_id"])
+        return {f for fams in cells.values() for f in sorted(fams)[:per_cell]}
     families = sorted({r["family_id"] for r in records})
-    if limit_families is not None:
-        families = families[:limit_families]
-    keep = set(families)
+    return set(families[:limit_families] if limit_families is not None else families)
+
+
+def jobs(records: list[dict], limit_families: int | None = None,
+         per_cell: int | None = None) -> list[tuple[str, dict, str]]:
+    """(condition, record, user_prompt) for every record plus one injected_alone per family."""
+    keep = select_families(records, limit_families, per_cell)
     out = []
     for r in sorted(records, key=lambda r: (r["family_id"], r["family_role"])):
         if r["family_id"] not in keep:
@@ -52,14 +67,14 @@ def cmd_run(args) -> int:
     chat, meta = open_model(args.model, tool="target_eval", seed=args.seed, temperature=0.0,
                             system_prompt=TARGET_SYSTEM, host=args.host, log_path=RESULTS / "run_log.jsonl")
     dataset_sha = hashlib.sha256(args.dataset.read_bytes()).hexdigest()
-    todo = jobs(records, args.limit_families)
+    todo = jobs(records, args.limit_families, args.per_cell)
     for i, (condition, record, prompt) in enumerate(todo, 1):
         key = f"{record['record_id']}|{condition}"
         if key in out.done:
             continue
         try:
             reply = chat.chat_text(args.model, TARGET_SYSTEM, prompt, seed=args.seed, temperature=0.0,
-                                   num_predict=NUM_PREDICT)
+                                   num_predict=args.num_predict)
         except Exception as exc:
             print(f"error {key}: {exc}", file=sys.stderr)
             continue
@@ -67,7 +82,7 @@ def cmd_run(args) -> int:
                     "condition": condition, **reply, "model": args.model, "model_digest": meta["model_digest"],
                     "system_prompt_sha256": sha(TARGET_SYSTEM), "user_prompt_sha256": sha(prompt),
                     "dataset_sha256": dataset_sha, "seed": args.seed, "num_ctx": NUM_CTX,
-                    "num_predict": NUM_PREDICT})
+                    "num_predict": args.num_predict})
         print(f"[{len(out.done)}/{len(todo)}] {key}", flush=True)
     print(f"done: {len(out.done)}/{len(todo)} responses in {out.path.relative_to(ROOT).as_posix()}")
     return 0
@@ -125,6 +140,8 @@ def main(argv=None) -> int:
     r.add_argument("--host")
     r.add_argument("--seed", type=int, default=20261116)
     r.add_argument("--limit-families", type=int)
+    r.add_argument("--per-cell", type=int, help="N families per language x scenario x goal cell (quick stratified check)")
+    r.add_argument("--num-predict", type=int, default=NUM_PREDICT)
     r.set_defaults(func=cmd_run)
     g = sub.add_parser("report")
     g.add_argument("dataset", type=Path)

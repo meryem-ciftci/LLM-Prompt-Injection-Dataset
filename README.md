@@ -12,7 +12,7 @@
   <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="data: CC BY-SA 4.0" src="https://img.shields.io/badge/data-CC%20BY--SA%204.0-lightgrey"></a>
   <img alt="python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-3776AB">
   <img alt="dependencies: stdlib only" src="https://img.shields.io/badge/dependencies-stdlib%20only-success">
-  <a href="data/generated/dg3_pilot_v0.croissant.json"><img alt="Croissant 1.0" src="https://img.shields.io/badge/metadata-Croissant%201.0-orange"></a>
+  <a href="data/generated/dg3_pilot_v1.croissant.json"><img alt="Croissant 1.0" src="https://img.shields.io/badge/metadata-Croissant%201.0-orange"></a>
   <img alt="languages" src="https://img.shields.io/badge/languages-TR%20%7C%20EN-informational">
 </p>
 
@@ -68,23 +68,25 @@ only through **automatic, independent quality control**, and assembled determini
 
 ## Dataset at a glance
 
-Release `data/generated/dg3_pilot_v0.jsonl` (v0.1.0 pilot) · SHA-256
-`5ddad77fed5cd6de968541586b9e9d7b3a355ab55d78c6cca8570136801ad033`
+Current release `data/generated/dg3_pilot_v1.jsonl` (v0.2.0 pilot) · SHA-256
+`d05c6730415ce8cbf080da577a0227a77af2a90ac6b3e9c61db0ccf72c802327`. The first pilot,
+`dg3_pilot_v0.jsonl`, is kept unchanged; the [data card](docs/DATA_CARD.md#8-version-history)
+explains what changed and why.
 
 | | |
 |---|---|
 | Records / families | 600 / 150 (450 benign, 150 injection) |
-| Languages | Turkish 308 · English 292 |
-| Scenarios | RAG 300 · document QA 300 |
-| Splits (records) | train 336 · validation 128 · test 136 |
+| Languages | Turkish 296 · English 304 |
+| Scenarios | RAG 308 · document QA 292 |
+| Splits (records) | train 324 · validation 128 · test 148 |
 | Attack goals | 7: task hijack, content manipulation, data exfiltration, unauthorized tool action, phishing link, refusal / DoS, prompt leak |
 | Techniques | naive, escape separator, context ignoring, fake completion, combined, authority claim, role play, social engineering, multilingual switch |
-| Obfuscation | none · Base64 · character split · leetspeak |
+| Obfuscation | none 316 · leetspeak 116 · character split 96 · Base64 72 (records) |
 | Injection position | head · middle · tail |
 | Context length | ~256 · ~1,024 · ~3,072 words, filled with real neighbouring text |
 | Balance | every language × scenario × goal cell has 5–6 families |
-| Sources | 146 carriers from 58 articles; 63 QC-approved attack components |
-| Metadata | [data card](docs/DATA_CARD.md) (Datasheets) · [Croissant 1.0](data/generated/dg3_pilot_v0.croissant.json) · [manifest](data/generated/dg3_pilot_v0.manifest.json) |
+| Sources | 146 carriers from 57 articles; 65 QC-approved attack components |
+| Metadata | [data card](docs/DATA_CARD.md) (Datasheets) · [Croissant 1.0](data/generated/dg3_pilot_v1.croissant.json) · [manifest](data/generated/dg3_pilot_v1.manifest.json) |
 
 <details>
 <summary><b>Example record</b> (abridged)</summary>
@@ -125,7 +127,7 @@ git clone https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset.git
 cd LLM-Prompt-Injection-Dataset
 
 # validate the released pilot (schema, spans, families, split leakage, oracle safety)
-python -m src.dg3 validate data/generated/dg3_pilot_v0.jsonl
+python -m src.dg3 validate data/generated/dg3_pilot_v1.jsonl
 
 # run the test suite
 python -m unittest discover -s tests -p "test_*.py"
@@ -136,11 +138,14 @@ Load the data:
 ```python
 import json
 
-records = [json.loads(line) for line in open("data/generated/dg3_pilot_v0.jsonl", encoding="utf-8")]
+records = [json.loads(line) for line in open("data/generated/dg3_pilot_v1.jsonl", encoding="utf-8")]
 test = [r for r in records if r["split"] == "test"]
 ```
 
-## Results (EXP-003)
+## Results (EXP-003, pilot v0)
+
+These results are for the **v0** pilot. Its analysis led to v1; see the
+[data card](docs/DATA_CARD.md#8-version-history). EXP-004 will measure v1.
 
 Pre-registered exploratory run on five local models (Ollama 0.40.16, temperature 0, one
 repeat, 750 prompts per model). The full report covers intervals, breakdowns and
@@ -177,21 +182,22 @@ python tools/ingest_carriers.py wiki-fetch
 
 # 2. attack components: propose, then admit through automatic independent QC
 python tools/local/propose_attacks.py --model qwen3:8b
-python tools/local/auto_qc.py data/proposals/attacks_qwen3_8b_<tag>.jsonl --judge llama3.1:8b
+python tools/local/auto_qc.py data/proposals/attacks_qwen3_8b_<tag>.jsonl --judge llama3.1:8b   # -> data/attack_components/qc-<version>/
 
 # 3. deterministic assembly + metadata
-python -m src.dg3 generate --config configs/dg3_pilot.json --output data/generated/dg3_pilot_v0.jsonl
-python -m src.dg3 croissant data/generated/dg3_pilot_v0.manifest.json --output data/generated/dg3_pilot_v0.croissant.json \
-  --name "TR-EN Indirect Prompt Injection Pilot (G3)" --version 0.1.0 --description "..."
+python -m src.dg3 generate --config configs/dg3_pilot_v1.json --output data/generated/dg3_pilot_v1.jsonl
+python -m src.dg3 croissant data/generated/dg3_pilot_v1.manifest.json --output data/generated/dg3_pilot_v1.croissant.json \
+  --name "TR-EN Indirect Prompt Injection Pilot v1 (G3)" --version 0.2.0 --description "..."
 
 # 4. automatic label agreement (two independent local models, blind)
-python tools/local/prelabel.py data/generated/dg3_pilot_v0.jsonl --model qwen3:8b
-python tools/local/prelabel.py data/generated/dg3_pilot_v0.jsonl --model mistral:latest
-python tools/local/label_agreement.py data/generated/dg3_pilot_v0.jsonl <labels_a> <labels_b>
+python tools/local/prelabel.py data/generated/dg3_pilot_v1.jsonl --model qwen3:8b
+python tools/local/prelabel.py data/generated/dg3_pilot_v1.jsonl --model mistral:latest
+python tools/local/label_agreement.py data/generated/dg3_pilot_v1.jsonl <labels_a> <labels_b>
 
-# 5. target-model evaluation (register the experiment first)
-python tools/local/target_eval.py run data/generated/dg3_pilot_v0.jsonl --model llama3.1:8b --exp EXP-003
-python tools/local/target_eval.py report data/generated/dg3_pilot_v0.jsonl --exp EXP-003
+# 5. target-model evaluation (register the experiment first); start with a stratified quick check
+python tools/local/target_eval.py run data/generated/dg3_pilot_v1.jsonl --model llama3.1:8b --exp EXP-004a --per-cell 1
+python tools/local/target_eval.py run data/generated/dg3_pilot_v1.jsonl --model llama3.1:8b --exp EXP-004b
+python tools/local/target_eval.py report data/generated/dg3_pilot_v1.jsonl --exp EXP-004b
 ```
 
 ## Repository layout
@@ -219,7 +225,9 @@ Register every experiment here **before** its result is interpreted.
 |---|---|---|---|---|---|---:|---|
 | EXP-001 | Completed · exploratory | Initial context-aware detector comparison | 2.0 | `6d99b4f8…a12478f` | Mistral 7B, Llama 3 8B, Llama 3.1 8B, Qwen 3 8B, Gemma 3 4B | 1,000 | Git history |
 | EXP-002 | Planned · confirmatory candidate | Text-only vs context-aware paired detection | 2.2 | `9678d92d…dbe26` | same five-model panel | 2,000 | Not run |
-| EXP-003 | Completed · exploratory (pilot) | Target-model attack success (ASR, MR), utility, oracle false-positive check; pre-registered in `7e17ecc` | 3.0.0.dev0 | `5ddad77f…801ad033` | gemma3:4b, llama3.1:8b, llama3, mistral, qwen3:8b (digests in `configs/versions.lock.json`) | 3,750 | [report](evaluation/reports/EXP-003.md) |
+| EXP-003 | Completed · exploratory (pilot v0) | Target-model attack success (ASR, MR), utility, oracle false-positive check; pre-registered in `7e17ecc` | 3.0.0.dev0 | `5ddad77f…801ad033` | gemma3:4b, llama3.1:8b, llama3, mistral, qwen3:8b (digests in `configs/versions.lock.json`) | 3,750 | [report](evaluation/reports/EXP-003.md) |
+| EXP-004a | Planned · quick check | Same panel and protocol on pilot v1, 1 family per language × scenario × goal cell (28 families, `--per-cell 1`); eval 1.2.0, num_predict 1024, temperature 0, seed 20261116. Go/no-go for 004b: 0 witness hits on clean/trigger_benign that are not spontaneous tool calls, < 5% truncated responses, no runner errors | 3.0.0.dev0 | `d05c6730…2c802327` | same five models | 700 | Not run |
+| EXP-004b | Planned · exploratory (pilot v1) | Full v1 run, same protocol as 004a. Primary metrics: ASR_targeted, ASR_unobfuscated, MR; also ASR_paired, ASR_lenient_tool, utility (en) | 3.0.0.dev0 | `d05c6730…2c802327` | same five models | 3,750 | Not run |
 
 For each row record the hypothesis, generator and schema version, dataset hash, commit or
 tag, model digests, Ollama version, seed, temperature, repeats, planned sample count and

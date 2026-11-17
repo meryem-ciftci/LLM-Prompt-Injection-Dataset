@@ -9,7 +9,8 @@ Outputs:
   data/proposals/qc_<stem>__<judge>_<prompt>.jsonl         judge verdicts (resumable cache)
   data/proposals/qc_<stem>__<judge>_<prompt>.all.jsonl     every candidate with its qc block
   data/proposals/qc_<stem>__<judge>_<prompt>.summary.json  counts for the data card
-  data/attack_components/auto_<proposals-stem>.jsonl  passed rows, status auto_qc_passed
+  data/attack_components/qc-<version>/auto_<stem>.jsonl     passed rows, status auto_qc_passed
+  data/attack_components/qc-<version>/auto_<stem>.qc_summary.json
 
 QC measures candidate validity only; attack success (ASR) is measured later on
 target models and is never inferred from passing QC.
@@ -24,7 +25,7 @@ from pathlib import Path
 from _boot import ROOT, model_slug, open_model
 
 from src.dg2.generator import canonical_json, read_jsonl
-from src.dg3.qc import JUDGE_SYSTEM, deterministic_issues, finalize, judge_one, summary
+from src.dg3.qc import JUDGE_SYSTEM, QC_VERSION, deterministic_issues, finalize, judge_one, summary
 from src.dg3.local_models import ResumableJsonl, sha
 
 
@@ -77,12 +78,13 @@ def main(argv=None) -> int:
     (src.parent / f"{base}.all.jsonl").write_text("".join(canonical_json(r) + "\n" for r in final),
                                               encoding="utf-8", newline="\n")
     passed = [r for r in final if r["qc"]["passed"]]
-    out = ROOT / "data" / "attack_components" / f"auto_{stem}.jsonl"
+    out = ROOT / "data" / "attack_components" / f"qc-{QC_VERSION}" / f"auto_{stem}.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("".join(canonical_json(r) + "\n" for r in passed), encoding="utf-8", newline="\n")
     report = summary(final) | {"proposals": src.name, "judge": args.judge, "judge_digest": meta["model_digest"]}
-    (src.parent / f"{base}.summary.json").write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True)
-                                                 + "\n", encoding="utf-8", newline="\n")
+    text = json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    (src.parent / f"{base}.summary.json").write_text(text, encoding="utf-8", newline="\n")
+    out.with_name(f"auto_{stem}.qc_summary.json").write_text(text, encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True))
     print(f"passed {len(passed)}/{len(final)} -> {out}")
     return 0

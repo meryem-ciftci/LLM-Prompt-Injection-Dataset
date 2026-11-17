@@ -27,7 +27,9 @@ def load_config(path: Path) -> dict:
 
 def command_generate(args) -> int:
     config = load_config(args.config)
-    records = generate(config, load_carriers(args.registry), load_components(args.components))
+    components = args.components or (root() / config["components"] if "components" in config
+                                     else root() / "data" / "attack_components")
+    records = generate(config, load_carriers(args.registry), load_components(components))
     errors = validate(records, load_default_schema(), check_components=config.get("component_disjoint", True))
     if errors:
         raise ValueError("Generated data failed validation:\n" + "\n".join(errors))
@@ -67,7 +69,8 @@ def build_parser() -> argparse.ArgumentParser:
     g = sub.add_parser("generate", help="Assemble a deterministic four-member-family dataset")
     g.add_argument("--config", type=Path, required=True)
     g.add_argument("--registry", type=Path, default=base / "sources" / "registry.json")
-    g.add_argument("--components", type=Path, default=base / "data" / "attack_components")
+    g.add_argument("--components", type=Path,
+                   help='attack component directory (default: config "components", else data/attack_components)')
     g.add_argument("--output", type=Path, required=True)
     g.set_defaults(func=command_generate)
     v = sub.add_parser("validate", help="Validate a G3 JSONL release against schema and family rules")
