@@ -11,13 +11,13 @@ Format: *Datasheets for Datasets* (Gebru et al., 2021). Machine-readable metadat
 | Config | `configs/dg3_pilot.json` (seed 20261116, 150 families) |
 | Schema | `schemas/generated-record-v3.schema.json` (3.0.0-draft) |
 | Generator | `src/dg3` 3.0.0.dev0 |
-| License | CC BY-SA 4.0 (inherited from the Wikipedia-derived carriers) |
+| License | Data CC BY-SA 4.0 (inherited from the Wikipedia-derived carriers); code MIT |
 
 All numbers below are copied from the manifest or computed from the released file.
 **No human annotation or human verification was performed.** Labels are construction
 labels, and attack components passed an automatic, independent quality control.
 **No attack-success or detector numbers are part of this release**; they are measured
-separately (Generator 3 step 6) and reported as their own artifacts.
+separately and reported as their own artifacts (first run: [EXP-003](../evaluation/reports/EXP-003.md)).
 
 ## 1. Motivation
 

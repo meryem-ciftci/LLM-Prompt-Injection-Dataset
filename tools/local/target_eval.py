@@ -98,6 +98,8 @@ def cmd_report(args) -> int:
                                     "results_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
                                     "model_digest": rows[0]["model_digest"],
                                     "truncated_responses": sum(r.get("done_reason") == "length" for r in rows),
+                                    "aborted_responses": sum(r.get("done_reason") == "aborted_repeat_limit"
+                                                             for r in rows),
                                     **summarize(records, scored)}
     for labels_path in args.labels or []:
         labels = {r["record_id"]: r for r in read_jsonl(labels_path)}

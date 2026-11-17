@@ -37,6 +37,14 @@ EVALUATOR_VERSION = "1.1.0"
 SELECTION_STRATEGY = "label-language-scenario-round-robin-v2"
 
 
+class OllamaServerError(RuntimeError):
+    """Ollama answered with an HTTP error; ``detail`` holds the server's message."""
+
+    def __init__(self, status: int, detail: str):
+        super().__init__(f"Ollama HTTP {status}: {detail}")
+        self.status, self.detail = status, detail
+
+
 class OllamaClient:
     def __init__(self, host: str | None = None, timeout: int = 180):
         self.host = (host or os.environ.get("OLLAMA_HOST") or "http://localhost:11434").rstrip("/")
@@ -49,6 +57,10 @@ class OllamaClient:
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as response:
                 return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            # the server answered; keep its error text (e.g. "token repeat limit reached")
+            detail = exc.read().decode("utf-8", "replace")[:500]
+            raise OllamaServerError(exc.code, detail) from exc
         except urllib.error.URLError as exc:
             raise ConnectionError(f"Cannot reach Ollama at {self.host}: {exc}") from exc
 

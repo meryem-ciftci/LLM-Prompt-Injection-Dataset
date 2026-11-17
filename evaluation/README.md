@@ -1,13 +1,24 @@
-# Evaluation workspace
+# Evaluation
 
-This directory is intentionally empty in the active source tree except for documentation and placeholder files. Evaluator JSONL, run manifests, and statistical reports are generated artifacts and are ignored by Git.
+| Path | Contents |
+|---|---|
+| `results/EXP-xxx__<model>.jsonl` | Raw, unscored model responses with model digest, prompt hashes, seed and dataset SHA-256 |
+| `results/run_log.jsonl` | One line per run start (model, digest, Ollama version, settings) |
+| `reports/EXP-xxx.json` | Scored, aggregated report (machine-readable) |
+| `reports/EXP-xxx.md` | Human-readable summary with limitations |
+
+Responses are stored unscored. Re-applying the oracle (`target_eval.py report`) never
+requires re-running a model, and reports skip responses whose dataset hash differs from the
+dataset given.
 
 Before running an experiment:
 
-1. Add or update its row in the root README experiment registry.
-2. Freeze the generator/schema/config commit and dataset SHA-256.
-3. Verify Ollama and model digests with `python tools/verify_environment.py`.
-4. Use a unique experiment ID in result paths, for example `evaluation/results/EXP-002.jsonl`.
-5. Preserve final result/run/analysis artifacts in a tagged GitHub Release or other immutable research archive; record their hashes in the experiment registry.
+1. Register it in the README experiment registry and commit the registration.
+2. Freeze the dataset (SHA-256 in its manifest) and check model digests against
+   `configs/versions.lock.json`.
+3. Use a unique experiment ID, for example `--exp EXP-004`.
+4. Commit the results and report of completed, registered experiments. Results of
+   unregistered or abandoned runs stay out of git (see `.gitignore`).
 
-Historical Generator 2.0/2.1 files remain available through Git history. They are not active benchmark inputs.
+Generator 2 detector evaluation (`python main.py evaluate / report / analyze`) writes to the
+same folders.
