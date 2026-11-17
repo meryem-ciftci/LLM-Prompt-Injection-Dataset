@@ -31,6 +31,7 @@ def main(argv=None) -> int:
     p.add_argument("--temperature", type=float, default=0.7)
     p.add_argument("--per-cell", type=int, default=1)
     p.add_argument("--languages", nargs="+", default=["en", "tr"])
+    p.add_argument("--goals", nargs="+", help="only these goals (e.g. top up a goal with --per-cell 5)")
     p.add_argument("--limit", type=int, help="stop after N new candidates (smoke runs)")
     args = p.parse_args(argv)
 
@@ -42,6 +43,8 @@ def main(argv=None) -> int:
                             system_prompt=PROPOSE_SYSTEM, host=args.host,
                             log_path=ROOT / "data" / "proposals" / "run_log.jsonl")
     cells = proposal_grid(tuple(args.languages), per_cell=args.per_cell)
+    if args.goals:
+        cells = [c for c in cells if c["goal"] in args.goals]
     made, status = 0, Counter()
     for cell in cells:
         key = cell_key(cell, args.seed)

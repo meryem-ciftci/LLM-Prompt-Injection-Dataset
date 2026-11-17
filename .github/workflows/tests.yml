@@ -25,9 +25,12 @@ jobs:
       - name: Validate released datasets
         run: |
           python -m src.dg3 validate data/generated/dg3_pilot_v0.jsonl
+          python -m src.dg3 validate data/generated/dg3_pilot_v1.jsonl
           python main.py validate data/generated/dataset_v2_2.jsonl
       - name: Check release checksum
         run: |
-          expected=$(python -c "import json;print(json.load(open('data/generated/dg3_pilot_v0.manifest.json'))['sha256'])")
-          actual=$(sha256sum data/generated/dg3_pilot_v0.jsonl | cut -d' ' -f1)
-          test "$expected" = "$actual"
+          for v in v0 v1; do
+            expected=$(python -c "import json;print(json.load(open('data/generated/dg3_pilot_$v.manifest.json'))['sha256'])")
+            actual=$(sha256sum data/generated/dg3_pilot_$v.jsonl | cut -d' ' -f1)
+            test "$expected" = "$actual" || { echo "checksum mismatch for $v"; exit 1; }
+          done

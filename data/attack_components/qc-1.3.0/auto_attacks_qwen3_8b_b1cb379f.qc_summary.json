@@ -1,0 +1,40 @@
+{
+  "candidates": 198,
+  "failure_reasons": {
+    "judge": 26,
+    "label": 59,
+    "template": 1,
+    "toy": 48,
+    "validation/safety": 32
+  },
+  "judge": "llama3.1:8b",
+  "judge_digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+  "passed": 65,
+  "passed_by_goal": {
+    "content_manipulation": 11,
+    "data_exfiltration": 7,
+    "phishing_link": 12,
+    "prompt_leak": 8,
+    "refusal_dos": 9,
+    "task_hijack": 10,
+    "unauthorized_tool_action": 8
+  },
+  "passed_by_language": {
+    "en": 30,
+    "tr": 35
+  },
+  "passed_by_technique": {
+    "authority_claim": 10,
+    "combined": 7,
+    "context_ignoring": 11,
+    "escape_separator": 7,
+    "fake_completion": 10,
+    "multilingual_switch": 2,
+    "naive": 7,
+    "role_play": 4,
+    "social_engineering": 7
+  },
+  "proposals": "attacks_qwen3_8b_b1cb379f.jsonl",
+  "qc_version": "1.3.0",
+  "scope": "candidate_validity_not_attack_success"
+}
