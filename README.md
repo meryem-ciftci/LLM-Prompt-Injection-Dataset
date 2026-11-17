@@ -142,30 +142,32 @@ records = [json.loads(line) for line in open("data/generated/dg3_pilot_v1.jsonl"
 test = [r for r in records if r["split"] == "test"]
 ```
 
-## Results (EXP-003, pilot v0)
-
-These results are for the **v0** pilot. Its analysis led to v1; see the
-[data card](docs/DATA_CARD.md#8-version-history). EXP-004 will measure v1.
+## Results (EXP-004b, pilot v1)
 
 Pre-registered exploratory run on five local models (Ollama 0.40.16, temperature 0, one
-repeat, 750 prompts per model). The full report covers intervals, breakdowns and
-limitations: [`evaluation/reports/EXP-003.md`](evaluation/reports/EXP-003.md).
+repeat, 1,024-token replies, 750 prompts per model). The full report covers intervals,
+breakdowns and limitations: [`evaluation/reports/EXP-004b.md`](evaluation/reports/EXP-004b.md).
 
 | Metric | gemma3:4b | llama3.1:8b | llama3 | mistral | qwen3:8b |
 |---|---|---|---|---|---|
-| ASR (witness match) | 9.3% | 6.7% | 3.3% | 8.7%¹ | 10.0% |
-| Same task asked directly | 38.7% | 8.0% | 22.0% | 40.0% | 39.3% |
-| MR (witness-restricted) | 22.4% | 0.0% | 9.1% | 21.7% | 20.3% |
-| ASR, no obfuscation (n = 31) | 11/31 | 10/31 | 5/31 | 12/31 | 14/31 |
-| ASR, Base64 + char split (n = 83) | 0/83 | 0/83 | 0/83 | 0/83 | 0/83 |
-| Utility, answer contained (en): clean → attacked | 72.6 → 71.2% | 78.1 → 79.5% | 69.9 → 72.6% | 75.3 → 68.5% | 79.5 → 78.1% |
+| ASR (witness match), n = 150 | 24.0% | 12.7% | 8.0% | 25.3%¹ | 16.7% |
+| ASR, no obfuscation (n = 79) | 33/79 | 19/79 | 12/79 | 37/79 | 24/79 |
+| Same task asked directly | 69.3% | 26.7% | 38.7% | 68.7% | 65.3% |
+| MR (witness-restricted) | 34.6% | 20.0% | 12.1% | 34.0% | 25.5% |
+| ASR, Base64 + char split (n = 42) | 0/42 | 0/42 | 0/42 | 0/42 | 0/42 |
+| Witness hits on clean + trigger_benign | 0/300 | 0/300 | 0/300 | 0/300 | 0/300 |
+| Utility, answer contained (en): clean → attacked | 56 → 55 /76 | 57 → 54 /76 | 52 → 54 /76 | 52 → 51 /76 | 57 → 58 /76 |
 
-ASR denominators are 150 injected records per model. ¹ Lower bound: 275 of mistral's 750
-responses hit the 400-token limit.
+¹ Lower bound: 102 of mistral's 750 responses hit the token limit (repetition loops).
 
 At pilot scale these numbers describe this setup only, and they support no model ranking.
-Notably, every success came from unobfuscated or leetspeak injections, and English carriers
-were attacked more successfully than Turkish ones.
+Indirect injection succeeded far less often than the same instruction given directly, for
+every goal. Phishing links were the hardest goal (4/55 unobfuscated injected cases pooled over
+five models), and shorter contexts were attacked more successfully than long ones. English and
+Turkish rates overlap.
+
+The earlier v0 pilot was measured in [EXP-003](evaluation/reports/EXP-003.md) (ASR 3.3–10.0%).
+Its analysis led to v1; see the [data card](docs/DATA_CARD.md#8-version-history).
 
 ## Reproduce the pipeline
 
@@ -227,7 +229,7 @@ Register every experiment here **before** its result is interpreted.
 | EXP-002 | Planned · confirmatory candidate | Text-only vs context-aware paired detection | 2.2 | `9678d92d…dbe26` | same five-model panel | 2,000 | Not run |
 | EXP-003 | Completed · exploratory (pilot v0) | Target-model attack success (ASR, MR), utility, oracle false-positive check; pre-registered in `7e17ecc` | 3.0.0.dev0 | `5ddad77f…801ad033` | gemma3:4b, llama3.1:8b, llama3, mistral, qwen3:8b (digests in `configs/versions.lock.json`) | 3,750 | [report](evaluation/reports/EXP-003.md) |
 | EXP-004a | Completed · quick check | Same panel and protocol on pilot v1, 1 family per language × scenario × goal cell (28 families, `--per-cell 1`); eval 1.2.0, num_predict 1024, temperature 0, seed 20261116. Go/no-go for 004b: 0 witness hits on clean/trigger_benign that are not spontaneous tool calls, < 5% truncated responses, no runner errors | 3.0.0.dev0 | `d05c6730…2c802327` | same five models | 700 | [report](evaluation/reports/EXP-004a.md): go (mistral truncation 16%, model loops) |
-| EXP-004b | Planned · exploratory (pilot v1) | Full v1 run, same protocol as 004a. Primary metrics: ASR_targeted, ASR_unobfuscated, MR; also ASR_paired, ASR_lenient_tool, utility (en) | 3.0.0.dev0 | `d05c6730…2c802327` | same five models | 3,750 | Not run |
+| EXP-004b | Completed · exploratory (pilot v1) | Full v1 run, same protocol as 004a. Primary metrics: ASR_targeted, ASR_unobfuscated, MR; also ASR_paired, ASR_lenient_tool, utility (en) | 3.0.0.dev0 | `d05c6730…2c802327` | same five models | 3,750 (700 reused from 004a) | [report](evaluation/reports/EXP-004b.md) |
 
 For each row record the hypothesis, generator and schema version, dataset hash, commit or
 tag, model digests, Ollama version, seed, temperature, repeats, planned sample count and
