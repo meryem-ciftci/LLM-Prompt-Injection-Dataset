@@ -10,7 +10,7 @@ type: dataset
 authors:
   - alias: geckonaril
   - alias: meryem-ciftci
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-11-17
 license: CC-BY-SA-4.0
 repository-code: "https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset"

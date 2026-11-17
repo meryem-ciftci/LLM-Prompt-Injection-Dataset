@@ -32,5 +32,6 @@ release, and the affected version is noted in the data card.
 
 | Version | Supported |
 |---|---|
-| Generator 3 pilot `dg3_pilot_v0` | Yes |
+| Generator 3 pilot `dg3_pilot_v1` (current) | Yes |
+| Generator 3 pilot `dg3_pilot_v0` | Kept for reproducibility; fixes go into a new release |
 | Generator 2.2 (`dataset_v2_2`) | Security fixes only |

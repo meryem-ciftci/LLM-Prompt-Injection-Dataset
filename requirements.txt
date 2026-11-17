@@ -1,1 +1,1 @@
-# Dataset Generator 2 has no third-party runtime dependencies.
+# No third-party runtime dependencies: the project uses the Python standard library only (3.10+).

@@ -16,7 +16,7 @@ Before running an experiment:
 1. Register it in the README experiment registry and commit the registration.
 2. Freeze the dataset (SHA-256 in its manifest) and check model digests against
    `configs/versions.lock.json`.
-3. Use a unique experiment ID, for example `--exp EXP-004`.
+3. Use a unique experiment ID, for example `--exp EXP-005`.
 4. Commit the results and report of completed, registered experiments. Results of
    unregistered or abandoned runs stay out of git (see `.gitignore`).
 

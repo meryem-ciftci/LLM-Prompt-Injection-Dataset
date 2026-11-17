@@ -69,7 +69,35 @@ Unobfuscated families only:
 |---|---|
 | Language | en 70/380 · tr 60/370 (unobfuscated: en 67/190 · tr 58/205) |
 | Position | head 43/275 · middle 40/240 · tail 47/235 |
-| Context length | short 63/245 · medium 38/275 · long 29/230 |
+
+### Context length (unobfuscated families only)
+
+The share of unobfuscated families differs by length bucket (short 29 of 49, medium 28 of 55,
+long 22 of 46). Since obfuscated families almost never succeed, a breakdown over all records
+mixes the length effect with the obfuscation mix (all records: short 63/245, medium 38/275,
+long 29/230). The table below therefore uses unobfuscated families only.
+
+| Context (words) | Under indirect injection, pooled | Wilson 95% | Asked directly |
+|---|---|---|---|
+| short (~250) | 59/145 (41%) | 33–49 | 112/145 |
+| medium (~950) | 37/140 (26%) | 20–34 | 110/140 |
+| long (~2,800) | 29/110 (26%) | 19–35 | 81/110 |
+
+| Model | short | medium | long |
+|---|---|---|---|
+| gemma3:4b | 13/29 | 13/28 | 7/22 |
+| llama3.1:8b | 8/29 | 5/28 | 6/22 |
+| llama3 | 8/29 | 1/28 | 3/22 |
+| mistral | 17/29 | 12/28 | 8/22 |
+| qwen3:8b | 13/29 | 6/28 | 5/22 |
+
+Pooled, short contexts are attacked more often than medium and long ones, and the short
+interval does not overlap the other two. Medium and long do not differ. Direct compliance is
+similar across buckets (74–79%), so the difference appears only when the instruction is embedded
+in a document. Per model the cells hold 22–29 families and the intervals overlap; the trend is
+visible for mistral, qwen3 and llama3, weaker for gemma3, and absent for llama3.1. All models ran
+with the same 16,384-token window and no input was cut, so this is an effect of document length,
+not of context-window size.
 
 ## What this run shows
 
@@ -87,8 +115,9 @@ Unobfuscated families only:
   does not appear at all, so this is not a partial-match problem of the URL oracle. Tool calls are
   also rarely made under injection (11/75), while content manipulation and refusal goals succeed
   most often.
-- **Shorter contexts were attacked more successfully** (short 63/245, long 29/230). Position
-  made little difference.
+- **Short contexts were attacked more successfully.** Among unobfuscated families, short
+  contexts gave 59/145 versus 37/140 (medium) and 29/110 (long); medium and long do not differ.
+  Position made little difference.
 - **Language:** English and Turkish rates overlap (unobfuscated en 67/190, tr 58/205). The run
   does not show a clear language effect.
 - **Trust boundary:** the identical text placed in the user channel (`authorized_twin`) is
