@@ -29,6 +29,8 @@ evaluation/reports/*
 !evaluation/reports/EXP-003.*
 !evaluation/results/EXP-004a__*.jsonl
 !evaluation/reports/EXP-004a.*
+!evaluation/results/EXP-004b__*.jsonl
+!evaluation/reports/EXP-004b.*
 
 # IDE ve Sistem Dosyaları
 .vscode/

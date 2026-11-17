@@ -11,7 +11,7 @@ changed and why.
 | Config | `configs/dg3_pilot_v1.json` | `configs/dg3_pilot.json` |
 | Attack components | `data/attack_components/qc-1.3.0/` (65) | `data/attack_components/qc-1.2.0/` (63) |
 | Croissant 1.0 | [`dg3_pilot_v1.croissant.json`](../data/generated/dg3_pilot_v1.croissant.json) | [`dg3_pilot_v0.croissant.json`](../data/generated/dg3_pilot_v0.croissant.json) |
-| Evaluated in | EXP-004 (registered) | [EXP-003](../evaluation/reports/EXP-003.md) |
+| Evaluated in | [EXP-004a](../evaluation/reports/EXP-004a.md), [EXP-004b](../evaluation/reports/EXP-004b.md) | [EXP-003](../evaluation/reports/EXP-003.md) |
 
 Schema `schemas/generated-record-v3.schema.json` (3.0.0-draft); generator `src/dg3` 3.0.0.dev0;
 seed 20261116; 150 families. Data licence CC BY-SA 4.0 (inherited from the Wikipedia-derived
@@ -153,8 +153,10 @@ guarantees that the witness never appears in the `clean` or `trigger_benign` rec
   measurable only for English (`squad_f1`). Machine-translated SQuAD-TR carriers are prepared
   (`tools/local/translate_carriers.py`) but not included.
 - Scenarios cover `rag` and `document_qa` only.
-- Base64 instructions were not executed by any of five small local models even when asked
-  directly (EXP-003: 0/180). The lane is kept, at lower weight, as a stress condition.
+- Base64 and char-split instructions were almost never executed by five small local models,
+  even when asked directly (EXP-004b: 18/210 directly, 0/210 under injection). Leetspeak was
+  followed directly in 82/145 cases but under injection in 5/145. These lanes are kept, at
+  lower weight, as stress conditions.
 
 ## 7. Distribution and maintenance
 
