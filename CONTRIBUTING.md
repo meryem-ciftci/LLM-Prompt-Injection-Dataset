@@ -29,7 +29,7 @@ The core is pure Python (3.10+) with no third-party runtime dependencies.
 
 ```bash
 python -m unittest discover -s tests -p "test_*.py"
-python -m src.dg3 validate data/generated/dg3_pilot_v0.jsonl
+python -m src.dg3 validate data/generated/dg3_pilot_v1.jsonl
 ```
 
 Scripts that call local models live in `tools/local/` and need [Ollama](https://ollama.com).

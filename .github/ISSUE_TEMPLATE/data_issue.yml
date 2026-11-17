@@ -6,7 +6,7 @@ body:
     id: dataset
     attributes:
       label: Dataset file and SHA-256
-      placeholder: data/generated/dg3_pilot_v0.jsonl · 5ddad77f…
+      placeholder: data/generated/dg3_pilot_v1.jsonl · d05c6730…
     validations:
       required: true
   - type: input
