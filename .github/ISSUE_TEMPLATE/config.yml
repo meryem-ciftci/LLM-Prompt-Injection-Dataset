@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report harmful content or a vulnerability privately
+    url: https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset/security/advisories/new
+    about: Real URLs, secrets, personal data or executable payloads in the data. Please do not open a public issue.

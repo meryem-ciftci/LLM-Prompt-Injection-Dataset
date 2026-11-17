@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this dataset or generator, please cite it as below."
+title: "TR-EN Indirect Prompt Injection Dataset (Generator 3)"
+abstract: >-
+  A reproducible Turkish and English indirect prompt-injection dataset built from
+  licensed real carriers. Records come in four-member families (clean, injected,
+  authorized twin, trigger-benign) with character-level injection spans,
+  deterministic witness oracles for attack success, and full provenance.
+type: dataset
+authors:
+  - given-names: Serhat
+    family-names: Burak
+  - alias: meryem-ciftci
+version: 0.1.0
+date-released: 2026-11-17
+license: CC-BY-SA-4.0
+repository-code: "https://github.com/meryem-ciftci/LLM-Prompt-Injection-Dataset"
+keywords:
+  - prompt injection
+  - indirect prompt injection
+  - LLM security
+  - dataset
+  - Turkish
+  - English

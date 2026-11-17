@@ -1,0 +1,33 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Validate released datasets
+        run: |
+          python -m src.dg3 validate data/generated/dg3_pilot_v0.jsonl
+          python main.py validate data/generated/dataset_v2_2.jsonl
+      - name: Check release checksum
+        run: |
+          expected=$(python -c "import json;print(json.load(open('data/generated/dg3_pilot_v0.manifest.json'))['sha256'])")
+          actual=$(sha256sum data/generated/dg3_pilot_v0.jsonl | cut -d' ' -f1)
+          test "$expected" = "$actual"

@@ -64,7 +64,15 @@ class OllamaChat:
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
                 "options": {"temperature": temperature, "seed": seed, "num_predict": num_predict,
                             "num_ctx": self.num_ctx}}
-        raw = self.client._request("POST", "/api/chat", body)
+        from src.dg2.evaluator import OllamaServerError
+        try:
+            raw = self.client._request("POST", "/api/chat", body)
+        except OllamaServerError as exc:
+            if "repeat limit" not in exc.detail:
+                raise
+            # the model degenerated into a token loop and Ollama aborted it: a real (failed) output
+            return {"response": "", "done_reason": "aborted_repeat_limit", "prompt_tokens": None,
+                    "output_tokens": None}
         if raw.get("prompt_eval_count", 0) >= self.num_ctx:
             raise ValueError(f"prompt ({raw['prompt_eval_count']} tokens) filled the {self.num_ctx}-token window")
         return {"response": raw["message"]["content"], "done_reason": raw.get("done_reason"),

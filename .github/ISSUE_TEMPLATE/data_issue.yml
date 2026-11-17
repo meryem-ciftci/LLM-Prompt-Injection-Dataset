@@ -1,0 +1,38 @@
+name: Data issue
+description: Wrong span or label, split leakage, licence or provenance question
+labels: ["data"]
+body:
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset file and SHA-256
+      placeholder: data/generated/dg3_pilot_v0.jsonl · 5ddad77f…
+    validations:
+      required: true
+  - type: input
+    id: records
+    attributes:
+      label: record_id / component_id
+      placeholder: DG3-0123456789ABCDEF
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Span does not cover the injection
+        - Label inconsistent with family role
+        - Leakage between splits / near-duplicate
+        - Witness appears where it should not
+        - Licence or attribution
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What is wrong?
+      description: Quote the relevant text. For harmful content (real URLs, secrets, personal data) use a private security report instead, see SECURITY.md.
+    validations:
+      required: true

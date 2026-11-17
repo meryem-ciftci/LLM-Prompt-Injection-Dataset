@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Four-member record family</title>
+  <desc id="d">One licensed carrier passage and one attack component produce four records: clean, injected_untrusted, authorized_twin and trigger_benign.</desc>
+  <style>
+    .bg{fill:none}
+    .box{fill:#f6f8fa;stroke:#d0d7de;stroke-width:1.2}
+    .src{fill:#ddf4ff;stroke:#54aeff}
+    .inj{fill:#ffebe9;stroke:#ff8182}
+    .ok{fill:#dafbe1;stroke:#4ac26b}
+    .t{font:600 14px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#1f2328}
+    .s{font:12px -apple-system,Segoe UI,Helvetica,Arial,sans-serif;fill:#59636e}
+    .m{font:12px ui-monospace,SFMono-Regular,Consolas,monospace;fill:#59636e}
+    .ln{stroke:#8c959f;stroke-width:1.4;fill:none}
+    @media (prefers-color-scheme: dark){
+      .box{fill:#161b22;stroke:#30363d}
+      .src{fill:#0c2d6b;stroke:#1f6feb}
+      .inj{fill:#4c1d1d;stroke:#da3633}
+      .ok{fill:#0f3d1f;stroke:#2ea043}
+      .t{fill:#e6edf3}.s,.m{fill:#9198a1}.ln{stroke:#6e7681}
+    }
+  </style>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker></defs>
+
+  <rect class="box src" x="20" y="40" width="200" height="86" rx="8"/>
+  <text class="t" x="36" y="68">Carrier passage</text>
+  <text class="s" x="36" y="90">SQuAD v1.1 / Turkish Wikipedia</text>
+  <text class="s" x="36" y="108">256 · 1,024 · 3,072 words</text>
+
+  <rect class="box src" x="20" y="164" width="200" height="86" rx="8"/>
+  <text class="t" x="36" y="192">Attack component</text>
+  <text class="s" x="36" y="214">goal · technique · witness</text>
+  <text class="s" x="36" y="232">passed automatic QC</text>
+
+  <path class="ln" d="M220 83 C 270 83 270 150 300 150" marker-end="url(#a)"/>
+  <path class="ln" d="M220 207 C 270 207 270 150 300 150" marker-end="url(#a)"/>
+  <rect class="box" x="302" y="122" width="110" height="56" rx="8"/>
+  <text class="t" x="322" y="148">Assembler</text>
+  <text class="s" x="316" y="166">position · obfusc.</text>
+
+  <path class="ln" d="M412 150 C 450 150 450 46 486 46" marker-end="url(#a)"/>
+  <path class="ln" d="M412 150 C 450 150 450 114 486 114" marker-end="url(#a)"/>
+  <path class="ln" d="M412 150 C 450 150 450 184 486 184" marker-end="url(#a)"/>
+  <path class="ln" d="M412 150 C 450 150 450 252 486 252" marker-end="url(#a)"/>
+
+  <rect class="box ok" x="488" y="22" width="372" height="48" rx="8"/>
+  <text class="t" x="504" y="44">clean</text><text class="m" x="700" y="44">label: benign</text>
+  <text class="s" x="504" y="61">carrier only · utility reference</text>
+
+  <rect class="box inj" x="488" y="90" width="372" height="48" rx="8"/>
+  <text class="t" x="504" y="112">injected_untrusted</text><text class="m" x="700" y="112">label: injection</text>
+  <text class="s" x="504" y="129">injection inside untrusted content · char span · witness</text>
+
+  <rect class="box ok" x="488" y="160" width="372" height="48" rx="8"/>
+  <text class="t" x="504" y="182">authorized_twin</text><text class="m" x="700" y="182">label: benign</text>
+  <text class="s" x="504" y="199">identical text via the trusted user channel</text>
+
+  <rect class="box ok" x="488" y="228" width="372" height="48" rx="8"/>
+  <text class="t" x="504" y="250">trigger_benign</text><text class="m" x="700" y="250">label: benign</text>
+  <text class="s" x="504" y="267">everyday sentence instead of the injection</text>
+</svg>

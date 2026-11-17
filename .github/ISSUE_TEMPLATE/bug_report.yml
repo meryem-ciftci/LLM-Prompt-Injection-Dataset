@@ -1,0 +1,27 @@
+name: Bug report
+description: A generator, QC, evaluation or validation script misbehaves
+labels: ["bug"]
+body:
+  - type: input
+    id: command
+    attributes:
+      label: Command
+      placeholder: python -m src.dg3 generate --config configs/dg3_pilot.json --output ...
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output / traceback
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: Python 3.12, Ollama 0.40.16, Windows 11

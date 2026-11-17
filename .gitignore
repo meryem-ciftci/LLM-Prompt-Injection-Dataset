@@ -23,6 +23,10 @@ evaluation/results/*
 evaluation/reports/*
 !evaluation/results/.gitkeep
 !evaluation/reports/.gitkeep
+# Registered, completed experiments are kept for reproducibility
+!evaluation/results/EXP-003__*.jsonl
+!evaluation/results/run_log.jsonl
+!evaluation/reports/EXP-003.*
 
 # IDE ve Sistem Dosyaları
 .vscode/
